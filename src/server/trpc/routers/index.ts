@@ -8,7 +8,7 @@ export const appRouter = router({
     }))
     .query(({ input }) => {
       return {
-        greeting: `Hello ${input.name ?? 'world'}!`,
+        greeting: `Hello ${input.name ?? 'World'}!`,
       }
     }),
 })

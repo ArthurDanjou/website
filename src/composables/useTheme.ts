@@ -48,9 +48,9 @@ export const useTheme = () => {
       case ColorsTheme.YELLOW:
         return 'bg-yellow-500'
       case ColorsTheme.BLACK:
-        return 'bg-black dark:(bg-white text-black) text-white'
+        return 'bg-black dark:bg-white dark:text-black text-white'
       case ColorsTheme.WHITE:
-        return 'bg-black dark:(bg-white text-black) text-white'
+        return 'bg-black dark:bg-white dark:text-black text-white'
     }
   })
 

@@ -1745,7 +1745,7 @@
   dependencies:
     "@unocss/core" "0.51.8"
 
-"@unocss/transformer-directives@0.51.8":
+"@unocss/transformer-directives@0.51.8", "@unocss/transformer-directives@^0.51.8":
   version "0.51.8"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-directives/-/transformer-directives-0.51.8.tgz#4fee9fa3fb97dbacc744a21f88b45eff5e835698"
   integrity sha512-Q1vG0dZYaxbdz0pVnvpuFreGoSqmrk7TgKUHNuJP/XzTi04sriQoDSpC2QMIAuOyU7FyGpSjUORiaBm0/VNURw==
@@ -1753,7 +1753,7 @@
     "@unocss/core" "0.51.8"
     css-tree "^2.3.1"
 
-"@unocss/transformer-variant-group@0.51.8":
+"@unocss/transformer-variant-group@0.51.8", "@unocss/transformer-variant-group@^0.51.8":
   version "0.51.8"
   resolved "https://registry.yarnpkg.com/@unocss/transformer-variant-group/-/transformer-variant-group-0.51.8.tgz#342fdade1ece77a0874fd6ff9903c111de1bdfe0"
   integrity sha512-blFQtAntyijFOm+BiiQhroaPwFNX6zYi19wUjY6NdvMAl/g4JzOFTzo+KehQf+lCI3Dvhr8Z2dGtDcnwfqUcDg==

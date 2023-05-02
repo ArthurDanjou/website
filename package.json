@@ -36,6 +36,8 @@
     "@types/node": "^18",
     "@unocss/eslint-config": "^0.51.8",
     "@unocss/nuxt": "^0.51.8",
+    "@unocss/transformer-directives": "^0.51.8",
+    "@unocss/transformer-variant-group": "^0.51.8",
     "@vueuse/core": "^10.1.0",
     "@vueuse/nuxt": "^10.1.0",
     "eslint": "^8.39.0",

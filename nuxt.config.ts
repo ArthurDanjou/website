@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     transpile: ['trpc-nuxt'],
   },
 
+  css: [
+    '@/assets/css/main.scss',
+  ],
+
   modules: [
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
@@ -16,6 +20,13 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-icon',
   ],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'light',
+    classPrefix: '',
+    classSuffix: '',
+  },
 
   devtools: {
     enabled: true,
