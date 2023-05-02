@@ -1,0 +1,46 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "prisma generate || true && nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.6.0",
+    "@nuxt/image": "^0.7.1",
+    "@nuxtjs/color-mode": "^3.2.0",
+    "@pinia/nuxt": "^0.4.9",
+    "@prisma/client": "^4.13.0",
+    "@trpc/client": "^10.21.2",
+    "@trpc/server": "^10.21.2",
+    "@vueuse/motion": "^2.0.0-beta.12",
+    "nuxt-icon": "^0.4.0",
+    "pinia": "^2.0.35",
+    "sass": "^1.62.1",
+    "superjson": "^1.12.3",
+    "trpc-nuxt": "^0.9.0",
+    "unocss": "^0.51.8",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "0.26.3",
+    "@nuxt/devtools": "^0.4.2",
+    "@nuxtjs/fontaine": "^0.2.5",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
+    "@types/node": "^18",
+    "@unocss/eslint-config": "^0.51.8",
+    "@unocss/nuxt": "^0.51.8",
+    "@vueuse/core": "^10.1.0",
+    "@vueuse/nuxt": "^10.1.0",
+    "eslint": "^8.39.0",
+    "nuxt": "^3.4.2",
+    "prisma": "^4.13.0",
+    "typescript": "^5.0.4",
+    "unocss-preset-scrollbar": "^0.2.1"
+  }
+}

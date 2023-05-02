@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Maintenance {
+  id        Int      @id @default(autoincrement())
+  reason    String
+  beginAt   DateTime @default(now())
+  endAt     DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Announcement {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  content   String
+}
+
+model Category {
+  id        Int                   @id @default(autoincrement())
+  createdAt DateTime              @default(now())
+  slug      String
+  name      String
+  talents   CategoriesOnTalents[]
+}
+
+model Talent {
+  id         Int                   @id @default(autoincrement())
+  createdAt  DateTime              @default(now())
+  logo       String
+  name       String                @unique
+  website    String
+  work       String
+  favorite   Boolean               @default(false)
+  categories CategoriesOnTalents[]
+}
+
+model CategoriesOnTalents {
+  talent     Talent   @relation(fields: [talentId], references: [id])
+  talentId   Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([talentId, categoryId])
+  @@index([talentId])
+  @@index([categoryId])
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  views     Int      @default(0)
+  title     String
+}
