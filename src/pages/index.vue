@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { useThemeStore } from '~/store/theme'
-import { ColorsTheme } from '~~/types'
 
 const { getColor, getTheme, nextColor, nextTheme } = useThemeStore()
 const { getThemeTextColor, getThemeBackgroundColor } = useTheme()
+
+const { query } = useRoute()
+const { $trpc } = useNuxtApp()
+const user = await $trpc.hello.query({ name: query.name?.toString() })
 </script>
 
 <template>
@@ -28,6 +31,9 @@ const { getThemeTextColor, getThemeBackgroundColor } = useTheme()
     </div>
     <div @click="nextTheme()">
       setNextTheme()
+    </div>
+    <div>
+      {{ user.greeting }}
     </div>
   </section>
 </template>
