@@ -10,9 +10,13 @@ export enum ColorsTheme {
   CYAN = 'cyan',
   BLACK = 'black',
   WHITE = 'white',
+  PINK = 'pink',
+  FUCHSIA = 'fuchsia',
+  VIOLET = 'violet',
 }
 
 export interface Theme {
+  symbol: String
   name: String
   colors: ColorsTheme[]
   availability?: {
@@ -23,6 +27,7 @@ export interface Theme {
 
 // Create the themes
 const RainbowTheme: Theme = {
+  symbol: '🌈',
   name: 'Rainbow',
   colors: [
     ColorsTheme.ORANGE,
@@ -36,6 +41,7 @@ const RainbowTheme: Theme = {
 }
 
 const XMasTheme: Theme = {
+  symbol: '🎄',
   name: 'Xmas',
   colors: [ColorsTheme.RED, ColorsTheme.GREEN],
   availability: {
@@ -45,6 +51,7 @@ const XMasTheme: Theme = {
 }
 
 const EasterTheme: Theme = {
+  symbol: '🐣',
   name: 'Easter',
   colors: [ColorsTheme.ROSE, ColorsTheme.YELLOW, ColorsTheme.CYAN],
   availability: {
@@ -54,11 +61,13 @@ const EasterTheme: Theme = {
 }
 
 const BlackAndWhiteTheme: Theme = {
+  symbol: '📺',
   name: 'B & W',
   colors: [ColorsTheme.BLACK, ColorsTheme.WHITE],
 }
 
 const HalloweenTheme: Theme = {
+  symbol: '🎃',
   name: 'Halloween',
   colors: [
     ColorsTheme.ORANGE,
@@ -73,10 +82,14 @@ const HalloweenTheme: Theme = {
 }
 
 const ValentineTheme: Theme = {
+  symbol: '💖',
   name: 'Valentine',
   colors: [
     ColorsTheme.RED,
     ColorsTheme.ROSE,
+    ColorsTheme.PINK,
+    ColorsTheme.FUCHSIA,
+    ColorsTheme.VIOLET,
   ],
   availability: {
     start: '12/02',

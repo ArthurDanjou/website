@@ -22,6 +22,12 @@ export const useTheme = () => {
         return 'text-red-500'
       case ColorsTheme.YELLOW:
         return 'text-yellow-500'
+      case ColorsTheme.FUCHSIA:
+        return 'text-fuchsia-500'
+      case ColorsTheme.PINK:
+        return 'text-pink-500'
+      case ColorsTheme.VIOLET:
+        return 'text-violet-500'
       case ColorsTheme.BLACK:
         return 'text-black dark:text-white'
       case ColorsTheme.WHITE:
@@ -47,6 +53,12 @@ export const useTheme = () => {
         return 'bg-red-500'
       case ColorsTheme.YELLOW:
         return 'bg-yellow-500'
+      case ColorsTheme.FUCHSIA:
+        return 'bg-fuchsia-500'
+      case ColorsTheme.PINK:
+        return 'bg-pink-500'
+      case ColorsTheme.VIOLET:
+        return 'bg-violet-500'
       case ColorsTheme.BLACK:
         return 'bg-black dark:bg-white dark:text-black text-white'
       case ColorsTheme.WHITE:

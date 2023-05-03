@@ -6,9 +6,10 @@ const { getThemeTextColor, getThemeBackgroundColor } = useTheme()
 
 onMounted(() => swapColor())
 
-const { query } = useRoute()
-const { $trpc } = useNuxtApp()
 const color = useColorMode()
+const { query } = useRoute()
+
+const { $trpc } = useNuxtApp()
 const user = await $trpc.hello.query({ name: query.name?.toString() })
 </script>
 
@@ -23,11 +24,10 @@ const user = await $trpc.hello.query({ name: query.name?.toString() })
     <div>
       Current color : {{ getColor }}
     </div>
-    <div>
-      Theme Name : {{ getTheme.name }}
-    </div>
-    <div>
-      Theme colors : {{ getTheme.colors.map((color) => color.charAt(0).toUpperCase() + color.slice(1)).join(', ') }}
+    <div my-12>
+      <div>Theme symbol : {{ getTheme.symbol }}</div>
+      <div>Theme Name : {{ getTheme.name }}</div>
+      <div>Theme colors : {{ getTheme.colors.map((color) => color.charAt(0).toUpperCase() + color.slice(1)).join(', ') }}</div>
     </div>
     <div @click="nextTheme()">
       setNextTheme()
