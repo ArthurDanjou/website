@@ -7,7 +7,7 @@ export const useThemeStore = defineStore(
   () => {
     const currentTheme = ref<Theme>(Themes[THEMES.RainbowTheme])
     const currentColor = ref<ColorsTheme>(currentTheme.value.colors[0])
-    let intervalId: NodeJS.Timeout | null = null
+    const intervalId = ref<NodeJS.Timeout | null>(null)
 
     const isAvailable = (next: Theme): boolean => {
       if (!next.availability)
@@ -23,10 +23,10 @@ export const useThemeStore = defineStore(
     }
 
     const swapColor = () => {
-      if (intervalId !== null)
-        clearInterval(intervalId)
+      if (intervalId.value !== null)
+        clearInterval(intervalId.value)
 
-      intervalId = setInterval(() => {
+      intervalId.value = setInterval(() => {
         const colors = currentTheme.value.colors
         const currentIndex = colors.indexOf(currentColor.value)
         const nextIndex = (currentIndex + 1) % colors.length

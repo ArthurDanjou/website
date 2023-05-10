@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import announcement from './announcement'
 import { publicProcedure, router } from '~/server/trpc/trpc'
 
 export const appRouter = router({
@@ -11,6 +12,7 @@ export const appRouter = router({
         greeting: `Hello ${input.name ?? 'World'}!`,
       }
     }),
+  announcement,
 })
 
 export type AppRouter = typeof appRouter
