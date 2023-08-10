@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useThemeStore } from '~/store/theme'
-
-const { swapColor } = useThemeStore()
-onMounted(() => swapColor())
+const days = ref(0)
+useHead({
+  title: 'Arthur Danjou • Software Engineer and Maths Lover',
+})
 </script>
 
 <template>
   <section>
-    Hey
-    <Announcement />
+    <MainBanner />
+    <NewsletterCard />
   </section>
 </template>

@@ -10,32 +10,37 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@nuxthq/ui',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    '@unocss/nuxt',
     '@nuxt/devtools',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/fontaine',
     '@vueuse/nuxt',
     '@nuxt/content',
-    'nuxt-icon',
   ],
 
   colorMode: {
-    preference: 'system',
+    preference: 'light',
     fallback: 'light',
     classPrefix: '',
     classSuffix: '',
   },
 
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
+
+  tailwindcss: {
+    viewer: true,
+  },
+
+  ui: {
+    icons: 'all',
+  },
+
   devtools: {
     enabled: true,
-    vscode: {
-      enabled: true,
-      startOnBoot: true,
-      port: 3001,
-      reuseExistingServer: true,
-      mode: 'tunnel',
-    },
   },
 })
