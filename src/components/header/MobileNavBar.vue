@@ -1,5 +1,61 @@
 <script lang="ts" setup>
 const isOpen = ref(false)
+
+const router = useRouter()
+router.afterEach(() => isOpen.value = false)
+
+const navs = [
+  {
+    label: 'Home',
+    to: '/',
+    icon: 'i-ph-house-bold',
+  },
+  {
+    label: 'About',
+    to: '/about',
+    icon: 'i-ph-person-arms-spread-bold',
+  },
+  {
+    label: 'Articles',
+    to: '/writing',
+    icon: 'i-ph-pencil-bold',
+  },
+  {
+    label: 'Projects',
+    to: '/work',
+    icon: 'i-ph-flask-bold',
+  },
+  {
+    label: 'Uses',
+    to: '/uses',
+    icon: 'i-ph-tree-evergreen-bold',
+  },
+  {
+    label: 'Talents',
+    to: '/talents',
+    icon: 'i-ph-shooting-star-bold',
+  },
+  {
+    label: 'Bookmarks',
+    to: '/bookmarks',
+    icon: 'i-ph-bookmarks-bold',
+  },
+  {
+    label: 'Ask Me',
+    to: '/ama',
+    icon: 'i-octicon-comment-discussion-16',
+  },
+  {
+    label: 'Contact',
+    to: '/contact',
+    icon: 'i-ph-push-pin-bold',
+  },
+]
+
+const route = useRoute()
+function isRoute(path: string) {
+  return route.path === path
+}
 </script>
 
 <template>
@@ -17,12 +73,30 @@ const isOpen = ref(false)
     <USlideover v-model="isOpen">
       <UCard class="flex flex-col flex-1" :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
-          <div>
-            Header
+          <div class="flex justify-between items-center">
+            <div>Logo</div>
+            <UButton
+              size="md"
+              icon="i-ic-round-close"
+              :ui="{ rounded: 'rounded-full' }"
+              @click.prevent="isOpen = false"
+            />
           </div>
         </template>
 
-        Content
+        <div class="flex flex-col space-y-2">
+          <UButton
+            v-for="nav in navs"
+            :key="nav.label"
+            size="sm"
+            :variant="isRoute(nav.to) ? 'solid' : 'ghost'"
+            color="primary"
+            :to="nav.to"
+            :icon="nav.icon"
+          >
+            {{ nav.label }}
+          </UButton>
+        </div>
 
         <template #footer>
           Footer

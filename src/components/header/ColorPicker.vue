@@ -14,6 +14,7 @@ const { setColor, getColor } = useColorStore()
     :ui="{
       background: 'bg-white dark:bg-stone-900',
       ring: 'ring-1 ring-gray-200 dark:ring-stone-800',
+      container: 'z-30',
     }"
   >
     <UButton trailing-icon="i-heroicons-swatch-20-solid" variant="ghost" color="primary" size="sm" />

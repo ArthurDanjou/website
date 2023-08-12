@@ -1,5 +1,5 @@
 <template>
-  <div class="w-container flex justify-between py-6 sticky top-0 left-0 bg-white dark:bg-zinc-900 border-b border-zinc-100 dark:border-zinc-300/10">
+  <header class="w-container z-30 flex justify-between py-6 sticky top-0 left-0 bg-white dark:bg-zinc-900 border-b border-zinc-100 dark:border-zinc-300/10">
     <Logo />
     <NavBar />
     <div class="flex gap-2">
@@ -11,5 +11,5 @@
         <MobileNavBar />
       </ClientOnly>
     </div>
-  </div>
+  </header>
 </template>

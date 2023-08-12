@@ -8,6 +8,5 @@ useHead({
 <template>
   <section>
     <MainBanner />
-    <NewsletterCard />
   </section>
 </template>

@@ -1,0 +1,135 @@
+{
+  "body": [
+    {
+      "name": "TypeScript",
+      "icon": "skill-icons:typescript",
+      "color": "sky-500"
+    },
+    {
+      "name": "Python",
+      "icon": {
+        "dark": "skill-icons:python-dark",
+        "light": "skill-icons:python-light"
+      },
+      "color": "amber-500"
+    },
+    {
+      "name": "Java",
+      "icon": {
+        "dark": "skill-icons:java-dark",
+        "light": "skill-icons:java-light"
+      },
+      "color": "blue-400"
+    },
+    {
+      "name": "Rust",
+      "icon": "skill-icons:rust",
+      "color": "orange-600"
+    },
+    {
+      "name": "HTML5",
+      "icon": "skill-icons:html",
+      "color": "orange-500"
+    },
+    {
+      "name": "CSS3",
+      "icon": "skill-icons:css",
+      "color": "blue-500"
+    },
+    {
+      "name": "Sass",
+      "icon": "skill-icons:sass",
+      "color": "rose-500"
+    },
+    {
+      "name": "VueJS 3",
+      "icon": {
+        "dark": "skill-icons:vuejs-dark",
+        "light": "skill-icons:vuejs-light"
+      },
+      "color": "emerald-500"
+    },
+    {
+      "name": "NuxtJS 3",
+      "icon": {
+        "dark": "skill-icons:nuxtjs-dark",
+        "light": "skill-icons:nuxtjs-light"
+      },
+      "color": "emerald-500"
+    },
+    {
+      "name": "TailwindCSS",
+      "icon": {
+        "dark": "skill-icons:tailwindcss-dark",
+        "light": "skill-icons:tailwindcss-light"
+      },
+      "color": "cyan-300"
+    },
+    {
+      "name": "ViteJS",
+      "icon": {
+        "dark": "skill-icons:vite-dark",
+        "light": "skill-icons:vite-light"
+      },
+      "color": "amber-500"
+    },
+    {
+      "name": "AdonisJS",
+      "icon": "skill-icons:adonis",
+      "color": "purple-500"
+    },
+    {
+      "name": "MySQL",
+      "icon": {
+        "dark": "skill-icons:mysql-dark",
+        "light": "skill-icons:mysql-light"
+      },
+      "color": "sky-300"
+    },
+    {
+      "name": "Redis",
+      "icon": {
+        "dark": "skill-icons:redis-dark",
+        "light": "skill-icons:redis-light"
+      },
+      "color": "red-500"
+    },
+    {
+      "name": "RabbitMQ",
+      "icon": {
+        "dark": "skill-icons:rabbitmq-dark",
+        "light": "skill-icons:rabbitmq-light"
+      },
+      "color": "orange-500"
+    },
+    {
+      "name": "Docker",
+      "icon": "skill-icons:docker",
+      "color": "blue-600"
+    },
+    {
+      "name": "Kubernetes",
+      "icon": "skill-icons:kubernetes",
+      "color": "blue-600"
+    },
+    {
+      "name": "Git",
+      "icon": "skill-icons:git",
+      "color": "orange-500"
+    },
+    {
+      "name": "Prisma.io",
+      "icon": "skill-icons:prisma",
+      "color": "sky-600"
+    },
+    {
+      "name": "Supabase",
+      "icon": {
+        "dark": "skill-icons:supabase-dark",
+        "light": "skill-icons:supabase-light"
+      },
+      "color": "green-500"
+    }
+  ]
+
+}
