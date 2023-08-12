@@ -105,7 +105,3 @@ function isRoute(path: string) {
     </USlideover>
   </div>
 </template>
-
-<style>
-
-</style>

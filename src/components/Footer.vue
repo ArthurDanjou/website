@@ -3,7 +3,7 @@ const year = computed(() => new Date().getFullYear())
 </script>
 
 <template>
-  <footer class="w-container flex justify-between py-6 bg-white dark:bg-zinc-900 border-t border-zinc-100 dark:border-zinc-300/10">
+  <footer class="w-container flex justify-between py-4 bg-white dark:bg-zinc-900 border-t border-zinc-100 dark:border-zinc-300/10">
     <div class="w-full duration-300 text-center flex flex-col md:flex-row md:justify-between items-center gap-y-2">
       <p class="text-subtitle text-sm">
         © {{ year }} ArtDanjProduction
@@ -21,7 +21,3 @@ const year = computed(() => new Date().getFullYear())
     </div>
   </footer>
 </template>
-
-<style>
-
-</style>

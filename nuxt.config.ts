@@ -26,10 +26,8 @@ export default defineNuxtConfig({
   },
 
   components: [
-    {
-      path: '~/components',
-      pathPrefix: false,
-    },
+    'components/',
+    'components/header',
   ],
 
   tailwindcss: {

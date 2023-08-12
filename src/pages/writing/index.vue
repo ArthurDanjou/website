@@ -13,7 +13,7 @@ const { data: posts } = await usePosts()
 </script>
 
 <template>
-  <div class="w-container lg:my-32 my-16">
+  <div class="w-container lg:my-24 my-16">
     <div class="max-w-3xl space-y-8">
       <div>
         <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">

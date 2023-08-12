@@ -1,21 +1,22 @@
 <script lang="ts" setup>
 useHead({
-  title: 'My uses — Arthur Danjou',
+  title: 'My Uses — Arthur Danjou',
 })
 </script>
 
 <template>
-  <div class="w-container lg:my-32 my-16">
-    <div class="max-w-3xl space-y-8">
+  <div class="w-container lg:my-24 my-16">
+    <div class="max-w-2xl space-y-8">
+      <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
+        Software I use, Hardware I own, and my favorite stack
+      </h1>
+      <p class="leading-relaxed text-subtitle">
+        I get often asked what I use to create software, to play games or to work and learn. Here's a big list of all my favourite things.
+      </p>
       <ContentDoc
-        class="my-16 prose leading-6 prose-table:w-full md:prose-table:w-4/5 lg:prose-table:w-3/5 max-w-none
-             dark:prose dark:prose-invert dark:leading-6 dark:max-w-none dark:prose-table:w-full dark:md:prose-table:w-3/4 dark:lg:prose-table:w-2/5"
+        class="my-16"
         path="/uses"
       />
     </div>
   </div>
 </template>
-
-<style>
-
-</style>

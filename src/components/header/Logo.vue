@@ -3,11 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="flex items-center">
     LOGO
   </div>
 </template>
-
-<style>
-
-</style>

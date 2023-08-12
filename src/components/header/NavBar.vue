@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const route = useRoute()
 const items = [
   [{
     label: 'Talents',
@@ -27,7 +28,7 @@ const items = [
       <UButton to="/about" size="sm" variant="ghost" color="white">
         About
       </UButton>
-      <UButton to="/writing" size="sm" variant="ghost" color="white">
+      <UButton to="/writing" size="sm" variant="ghost" color="white" :class="{ 'router-link-exact-active': route.path.includes('/writing') }">
         Articles
       </UButton>
       <UButton to="/work" size="sm" variant="ghost" color="white">
