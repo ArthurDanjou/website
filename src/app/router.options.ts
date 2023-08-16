@@ -4,7 +4,7 @@ function findHashPosition(hash: any): { el: any; behavior: ScrollBehavior; top: 
   const el = document.querySelector(hash)
   // vue-router does not incorporate scroll-margin-top on its own.
   if (el) {
-    const top = parseFloat(getComputedStyle(el).scrollMarginTop)
+    const top = Number.parseFloat(getComputedStyle(el).scrollMarginTop)
 
     return {
       el: hash,

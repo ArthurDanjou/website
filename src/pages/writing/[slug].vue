@@ -4,10 +4,15 @@ import type { Post } from '../../../types'
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
 
+const { post, view, like, likes, views } = await usePost(route.params.slug.toString())
+
+onMounted(() => {
+  view()
+})
+
 useHead({
   title: `${postContent.value?.title} — Arthur Danjou's shelf`,
 })
-
 function top() {
   window.scrollTo({
     top: 0,
@@ -25,7 +30,7 @@ const router = useRouter()
 </script>
 
 <template>
-  <section v-if="postContent">
+  <section v-if="postContent && post">
     <div class="w-container lg:mt-24 mt-16">
       <div class="lg:relative">
         <div class="max-w-3xl space-y-8 mx-auto">
@@ -49,7 +54,7 @@ const router = useRouter()
                     <span>•</span>
                     <div>{{ postContent.readingMins }} min</div>
                     <span>•</span>
-                    <div>x views</div>
+                    <div>{{ views }} views</div>
                   </div>
                 </time>
                 <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -67,17 +72,17 @@ const router = useRouter()
                  dark:prose dark:prose-invert dark:leading-6 dark:max-w-none dark:prose-table:w-full dark:md:prose-table:w-3/4 dark:lg:prose-table:w-2/5"
                 :value="postContent || undefined"
               />
-              <footer class="my-8 space-y-4">
+              <footer class="my-8 space-y-8">
                 <p class="text-subtitle">
                   Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't forget to leave a like!</strong>
                 </p>
                 <div class="flex gap-4 flex-wrap">
                   <UButton
-                    label="x"
+                    :label="`${likes} likes`"
                     icon="i-ph-heart-bold"
                     size="lg"
                     variant="soft"
-                    @click.prevent=""
+                    @click.prevent="like()"
                   />
                   <UButton
                     label="Go to top"

@@ -57,5 +57,13 @@ model Post {
   slug      String   @unique
   createdAt DateTime @default(now())
   views     Int      @default(0)
-  title     String
+  likes      Int         @default(0)
+}
+
+model Form {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  content   String
+  createdAt DateTime @default(now())
 }

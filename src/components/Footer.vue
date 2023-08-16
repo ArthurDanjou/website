@@ -16,7 +16,7 @@ const year = computed(() => new Date().getFullYear())
       </div>
       <p class="text-subtitle flex items-center">
         Made with
-        <UButton variant="link" color="green" label="Nuxt 3" to="https://nuxt.com/" target="_blank" icon="i-vscode-icons-file-type-nuxt" trailing/>
+        <UButton variant="link" color="green" label="Nuxt 3" to="https://nuxt.com/" target="_blank" icon="i-vscode-icons-file-type-nuxt" trailing />
       </p>
     </div>
   </footer>

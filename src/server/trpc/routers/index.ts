@@ -1,18 +1,14 @@
-import { z } from 'zod'
 import announcement from './announcement'
-import { publicProcedure, router } from '~/server/trpc/trpc'
+import maintenance from './maintenance'
+import talents from './talents'
+import post from './post'
+import { router } from '~/server/trpc/trpc'
 
 export const appRouter = router({
-  hello: publicProcedure
-    .input(z.object({
-      name: z.string().optional(),
-    }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.name ?? 'World'}!`,
-      }
-    }),
   announcement,
+  post,
+  talents,
+  maintenance,
 })
 
 export type AppRouter = typeof appRouter
