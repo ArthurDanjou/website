@@ -4,7 +4,7 @@ import { ColorsTheme } from '~~/types'
 
 const colors = Object.values(ColorsTheme)
 
-const { setColor, getColor } = useColorStore()
+const { getColor, setColor } = useColorStore()
 </script>
 
 <template>

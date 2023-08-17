@@ -13,10 +13,15 @@ useHead({
       <p class="leading-relaxed text-subtitle">
         I get often asked what I use to create software, to play games or to work and learn. Here's a big list of all my favourite things.
       </p>
-      <ContentDoc
-        class="my-16"
-        path="/uses"
-      />
+      <ClientOnly>
+        <ContentDoc
+          class="my-16"
+          path="/uses"
+        />
+        <template #fallback>
+          <p class="my-16 text-subtitle">The content of the page is loading...</p>
+        </template>
+      </ClientOnly>
     </div>
   </div>
 </template>
