@@ -26,7 +26,7 @@ const { data: posts } = await usePosts()
       <div class="mt-16 md:mt-20">
         <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div class="flex max-w-3xl flex-col space-y-16">
-            <article v-for="post in posts" :key="post.slug" class="md:grid md:grid-cols-4 md:items-baseline">
+            <article v-for="post in posts" :key="post.slug" class="group md:grid md:grid-cols-4 md:items-baseline">
               <div class="md:col-span-3 group relative flex flex-col items-start">
                 <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                   <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
@@ -48,7 +48,7 @@ const { data: posts } = await usePosts()
                 </p>
                 <div class="relative z-10 mt-4 flex items-center gap-2 justify-center text-sm font-medium" :class="getColor()">
                   <p>Read article</p>
-                  <UIcon name="i-ph-arrow-circle-right-bold" />
+                  <UIcon name="i-ph-arrow-circle-right-bold" class="duration-300 group-hover:ml-2"/>
                 </div>
               </div>
               <time class="mt-1 md:block relative z-10 order-first mb-3 hidden text-sm text-zinc-400 dark:text-zinc-500">

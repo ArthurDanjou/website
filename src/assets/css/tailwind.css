@@ -4,7 +4,7 @@
 
 @layer components {
   .w-container {
-    @apply mx-auto max-w-7xl lg:px-24 sm:px-4;
+    @apply mx-auto max-w-7xl lg:px-24 md:px-12 sm:px-4;
   }
 
   .text-subtitle {

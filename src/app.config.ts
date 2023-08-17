@@ -14,6 +14,9 @@ export default defineAppConfig({
     },
     dropdown: {
       background: 'bg-white dark:bg-zinc-800',
+      item: {
+        base: 'duration-300 group flex items-center gap-2 w-full',
+      },
     },
     button: {
       base: 'duration-300 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0',

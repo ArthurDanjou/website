@@ -1,18 +1,23 @@
 <script lang="ts" setup>
-import type { Post } from '../../../types'
+import type { Post } from '~~/types'
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
 
-const { post, view, like, likes, views } = await usePost(route.params.slug.toString())
+if (!postContent.value) {
+  throw createError({
+    statusMessage: 'The post you are looking for was not found.',
+    statusCode: 404,
+  })
+}
 
-onMounted(() => {
-  view()
-})
+const { post, view, like, likes, views } = await usePost(route.params.slug.toString())
+view()
 
 useHead({
   title: `${postContent.value?.title} — Arthur Danjou's shelf`,
 })
+
 function top() {
   window.scrollTo({
     top: 0,
@@ -25,8 +30,6 @@ const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/writing/${route.params.slug}`,
   copiedDuring: 4000,
 })
-
-const router = useRouter()
 </script>
 
 <template>
@@ -41,7 +44,7 @@ const router = useRouter()
               size="lg"
               :ui="{ rounded: 'rounded-full' }"
               class="lg:absolute left-0 mb-8"
-              @click.prevent="router.back()"
+              @click.prevent="useRouter().back()"
             />
             <article>
               <header class="flex flex-col space-y-6">
@@ -54,7 +57,7 @@ const router = useRouter()
                     <span>•</span>
                     <div>{{ postContent.readingMins }} min</div>
                     <span>•</span>
-                    <div>{{ views }} views</div>
+                    <div>{{ views }} {{ views > 1 ? 'views' : 'view' }}</div>
                   </div>
                 </time>
                 <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -67,18 +70,25 @@ const router = useRouter()
               <div class="w-full rounded-md my-8">
                 {{ postContent.cover }}
               </div>
-              <ContentRenderer
-                class="mt-12 prose leading-6 prose-table:w-full md:prose-table:w-3/4 lg:prose-table:w-2/5 max-w-none
+              <ClientOnly>
+                <ContentRenderer
+                  class="mt-12 prose leading-6 prose-table:w-full md:prose-table:w-3/4 lg:prose-table:w-2/5 max-w-none
                  dark:prose dark:prose-invert dark:leading-6 dark:max-w-none dark:prose-table:w-full dark:md:prose-table:w-3/4 dark:lg:prose-table:w-2/5"
-                :value="postContent || undefined"
-              />
+                  :value="postContent"
+                />
+                <template #fallback>
+                  <p class="my-16 text-subtitle">
+                    The content of the page is loading...
+                  </p>
+                </template>
+              </ClientOnly>
               <footer class="my-8 space-y-8">
                 <p class="text-subtitle">
                   Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't forget to leave a like!</strong>
                 </p>
                 <div class="flex gap-4 flex-wrap">
                   <UButton
-                    :label="`${likes} likes`"
+                    :label="`${likes} ${likes > 1 ? 'likes' : 'like'}`"
                     icon="i-ph-heart-bold"
                     size="lg"
                     variant="soft"
