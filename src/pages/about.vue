@@ -1,5 +1,11 @@
-<script setup>
+<script setup lang="ts">
+useHead({
+  title: 'About me • Arthur Danjou',
+})
 
+const { data: skills } = await useSkills()
+const { data: educations } = await useEducations()
+const { data: experiences } = await useWorkExperiences()
 </script>
 
 <template>
@@ -32,6 +38,21 @@
         <GridSlot title="Fitness">
           In addition to my studies and programming, I go to the gym every day to relax and stay in shape. Sport allows me to recharge my batteries and move on to other things.
         </GridSlot>
+      </GridSection>
+      <GridSection v-if="skills" title="Skills">
+        <div class="grid grid-cols-3 md:grid-cols-4 gap-2">
+          <Skill
+            v-for="skill in skills.body"
+            :key="skill.name"
+            :skill="skill"
+          />
+        </div>
+      </GridSection>
+      <GridSection v-if="experiences" title="Work Experiences">
+        <Experience v-for="experience in experiences" :key="experience.title" :experience="experience" />
+      </GridSection>
+      <GridSection v-if="educations" title="Educations">
+        <Education v-for="education in educations" :key="education.title" :education="education" />
       </GridSection>
     </div>
   </section>

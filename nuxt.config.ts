@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@vueuse/nuxt',
     '@nuxt/content',
+    'nuxt-icon',
   ],
 
   colorMode: {
@@ -28,6 +29,7 @@ export default defineNuxtConfig({
   components: [
     'components/',
     'components/header',
+    'components/resume',
   ],
 
   tailwindcss: {

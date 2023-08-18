@@ -2,10 +2,6 @@
 const error = useError()
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
-
-definePageMeta({
-  layout: 'default',
-})
 </script>
 
 <template>
