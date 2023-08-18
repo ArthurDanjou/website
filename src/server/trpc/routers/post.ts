@@ -1,8 +1,8 @@
-import { z } from 'zod'
+import { object, string } from 'valibot'
 import { publicProcedure, router } from '~/server/trpc/trpc'
 
-const PostSchema = z.object({
-  slug: z.string(),
+const PostSchema = object({
+  slug: string(),
 })
 
 export default router({

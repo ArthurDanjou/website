@@ -30,6 +30,19 @@ const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/writing/${route.params.slug}`,
   copiedDuring: 4000,
 })
+
+const likeCookie = useCookie<boolean>(`post:like:${postContent.value.slug}`, {
+  maxAge: 604_800,
+})
+
+const isLiked = computed(() => {
+  return likeCookie.value === true
+})
+
+async function handleLike() {
+  await like()
+  likeCookie.value = true
+}
 </script>
 
 <template>
@@ -86,13 +99,22 @@ const { copy, copied } = useClipboard({
                 <p class="text-subtitle">
                   Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't forget to leave a like!</strong>
                 </p>
+                {{ likeCookie }}
                 <div class="flex gap-4 flex-wrap">
                   <UButton
+                    v-if="isLiked"
+                    :label="`${likes} ${likes > 1 ? 'likes' : 'like'}`"
+                    icon="i-ph-heart-bold"
+                    size="lg"
+                    variant="solid"
+                  />
+                  <UButton
+                    v-else
                     :label="`${likes} ${likes > 1 ? 'likes' : 'like'}`"
                     icon="i-ph-heart-bold"
                     size="lg"
                     variant="soft"
-                    @click.prevent="like()"
+                    @click.prevent="handleLike()"
                   />
                   <UButton
                     label="Go to top"

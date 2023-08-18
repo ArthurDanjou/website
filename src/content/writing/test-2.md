@@ -1,5 +1,5 @@
 ---
-slug: 'test'
+slug: 'test-2'
 title: 'Test'
 description: 'Description de test'
 publishedAt: '06 February 2021'

@@ -1,5 +1,5 @@
 ---
-slug: 'test-123-123'
+slug: 'test'
 title: 'Test de titre plus long'
 description: "Description de test, car c'est mieux que l'ancien"
 publishedAt: '7 May 2021'
