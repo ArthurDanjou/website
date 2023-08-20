@@ -9,7 +9,7 @@ const talents = ref<Talent[]>()
 
 const currentFavorite = ref<boolean>(false)
 const currentCategory = ref('all')
-const { getCategories, getTalents } = await useTalents()
+const { getCategories, getTalents, getCategoryById } = await useTalents()
 
 talents.value = await getTalents(currentCategory.value, currentFavorite.value)
 
@@ -106,7 +106,7 @@ function getColor() {
           class="group relative flex flex-col justify-between"
         >
           <div class="flex gap-6 items-center">
-            <img :src="talent.logo" class="h-8 w-8 rounded-md">
+            <img :src="talent.logo" class="z-20 h-8 w-8 rounded-md">
             <div>
               <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
                 <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
@@ -126,6 +126,13 @@ function getColor() {
                 {{ talent.work }}
               </p>
             </div>
+          </div>
+          <div class="flex gap-2 z-10">
+            <span
+              v-for="category in talent.categories"
+              :key="category"
+              class="text-[.7rem] px-0.5 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+            >{{ getCategoryById(category.categoryId) }}</span>
           </div>
           <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
