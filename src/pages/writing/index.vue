@@ -1,19 +1,18 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
-
 function getColor() {
   return `text-${appConfig.ui.primary}-500`
 }
 
 useHead({
-  title: 'My Shelf — Arthur Danjou',
+  title: 'My Shelf • Arthur Danjou',
 })
 
 const { data: posts } = await usePosts()
 </script>
 
 <template>
-  <div class="w-container lg:my-24 my-16">
+  <section class="w-container lg:my-24 my-16">
     <div class="max-w-3xl space-y-8">
       <div>
         <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
@@ -60,5 +59,5 @@ const { data: posts } = await usePosts()
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>

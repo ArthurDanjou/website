@@ -10,11 +10,6 @@ const items = [
     label: 'Bookmarks',
     to: '/bookmarks',
     icon: 'i-ph-bookmark-simple-bold',
-  },
-  {
-    label: 'Ask Me',
-    to: '/ama',
-    icon: 'i-octicon-comment-discussion-16',
   }],
 ]
 </script>

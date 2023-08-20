@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 useHead({
-  title: 'My Uses — Arthur Danjou',
+  title: 'My Uses • Arthur Danjou',
 })
 </script>
 
 <template>
-  <div class="w-container lg:my-24 my-16">
+  <section class="w-container lg:my-24 my-16">
     <div class="max-w-2xl space-y-8">
       <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
         Software I use, Hardware I own, and my favorite stack
@@ -23,5 +23,5 @@ useHead({
         </template>
       </ClientOnly>
     </div>
-  </div>
+  </section>
 </template>
