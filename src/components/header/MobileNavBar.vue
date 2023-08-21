@@ -41,11 +41,6 @@ const navs = [
     icon: 'i-ph-bookmarks-bold',
   },
   {
-    label: 'Ask Me',
-    to: '/ama',
-    icon: 'i-octicon-comment-discussion-16',
-  },
-  {
     label: 'Contact',
     to: '/contact',
     icon: 'i-ph-push-pin-bold',

@@ -13,7 +13,7 @@ const getColor = computed(() => appConfig.ui.primary)
   <div class="relative z-50">
     <Header />
     <UContainer>
-      <NuxtPage />
+      <slot />
     </UContainer>
     <Footer />
   </div>
