@@ -6,7 +6,7 @@ const getColor = computed(() => appConfig.ui.primary)
 
 <template>
   <NuxtLayout name="default">
-    <div class="flex flex-col items-center gap-4">
+    <div class="flex flex-col items-center gap-4 mt-12">
       <h1 class="font-medium text-[8rem] md:text-[16rem] leading-none bg-error bg-clip-text tracking-wider font-error" :class="`text-${getColor}-500`">
         {{ error.statusCode }}
       </h1>
@@ -19,7 +19,7 @@ const getColor = computed(() => appConfig.ui.primary)
         Let's find a better place for you to go.
       </p>
     </div>
-    <div>
+    <div class="flex justify-center mt-8 mb-12">
       <UButton to="/" size="md" variant="soft" color="primary">
         Go back to the main page
       </UButton>

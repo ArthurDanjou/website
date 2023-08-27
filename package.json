@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "prisma generate || true && nuxt prepare",
@@ -14,7 +14,7 @@
     "@nuxt/content": "2.7.2",
     "@nuxt/image": "0.7.1",
     "@pinia/nuxt": "0.4.11",
-    "@prisma/client": "5.1.1",
+    "@prisma/client": "^5.2.0",
     "@trpc/client": "10.37.1",
     "@trpc/server": "10.37.1",
     "@vercel/analytics": "1.0.2",
@@ -37,9 +37,9 @@
     "@vueuse/core": "10.3.0",
     "@vueuse/nuxt": "10.3.0",
     "eslint": "8.47.0",
-    "nuxt": "3.6.5",
+    "nuxt": "^3.7.0",
     "nuxt-icon": "^0.5.0",
-    "prisma": "5.1.1",
+    "prisma": "^5.2.0",
     "typescript": "5.1.6"
   }
 }
