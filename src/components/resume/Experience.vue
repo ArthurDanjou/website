@@ -24,7 +24,7 @@ defineProps({
           class="my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
         >
           <template #trailing>
-            <UIcon name="i-ph-arrow-up-right-bold" color="gray"/>
+            <UIcon name="i-ph-arrow-up-right-bold" color="gray" />
           </template>
         </UButton>
         <h1 v-else class="my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">

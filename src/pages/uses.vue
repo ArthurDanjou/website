@@ -19,7 +19,9 @@ useHead({
           path="/uses"
         />
         <template #fallback>
-          <p class="my-16 text-subtitle">The content of the page is loading...</p>
+          <p class="my-16 text-subtitle">
+            The content of the page is loading...
+          </p>
         </template>
       </ClientOnly>
     </div>

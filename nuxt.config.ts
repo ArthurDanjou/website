@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@nuxthq/studio',
     '@nuxthq/ui',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',

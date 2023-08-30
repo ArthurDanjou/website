@@ -47,7 +47,7 @@ const { data: posts } = await usePosts()
                 </p>
                 <div class="relative z-10 mt-4 flex items-center gap-2 justify-center text-sm font-medium" :class="getColor()">
                   <p>Read article</p>
-                  <UIcon name="i-ph-arrow-circle-right-bold" class="duration-300 group-hover:ml-2"/>
+                  <UIcon name="i-ph-arrow-circle-right-bold" class="duration-300 group-hover:ml-2" />
                 </div>
               </div>
               <time class="mt-1 md:block relative z-10 order-first mb-3 hidden text-sm text-zinc-400 dark:text-zinc-500">
