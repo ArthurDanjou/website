@@ -1,4 +1,4 @@
-import { publicProcedure, router } from '~/server/trpc/trpc'
+import { publicProcedure, router } from '../trpc'
 
 export default router({
   get: publicProcedure

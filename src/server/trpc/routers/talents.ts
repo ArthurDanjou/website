@@ -1,11 +1,11 @@
-import { boolean, literal, object, string, union } from 'valibot'
-import { publicProcedure, router } from '~/server/trpc/trpc'
+import { z } from 'zod'
+import { publicProcedure, router } from '../trpc'
 
 export default router({
   getTalents: publicProcedure
-    .input(object({
-      favorite: boolean(),
-      category: union([string(), literal('all')]),
+    .input(z.object({
+      favorite: z.boolean(),
+      category: z.union([z.string(), z.literal('all')]),
     }))
     .query(async ({ ctx, input }) => {
       if (input.favorite) {

@@ -37,7 +37,9 @@ const { getColor, setColor } = useColorStore()
               :variant="color === getColor ? 'solid' : 'ghost'"
               @click.stop.prevent="setColor(color)"
             >
-              <span class="inline-block w-3 h-3 rounded-full" :class="`bg-${color}-500`" />
+              <span class="flex items-center justify-center w-4 h-4 rounded-[4px] border text-white" :class="`bg-${color}-500/80 border-${color}-500`">
+                <UIcon v-if="color === getColor" name="i-ic-round-check" />
+              </span>
             </UButton>
           </UTooltip>
         </div>

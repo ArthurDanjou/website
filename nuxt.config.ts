@@ -1,4 +1,9 @@
 export default defineNuxtConfig({
+  experimental: {
+    typedPages: true,
+    componentIslands: true,
+  },
+
   srcDir: 'src',
 
   build: {
@@ -32,10 +37,6 @@ export default defineNuxtConfig({
     'components/header',
     'components/resume',
   ],
-
-  tailwindcss: {
-    viewer: true,
-  },
 
   ui: {
     icons: 'all',

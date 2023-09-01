@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const error = useError()
+import type { NuxtError } from 'nuxt/app'
+
+defineProps({
+  error: Object as () => NuxtError,
+})
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
 </script>
@@ -8,10 +12,10 @@ const getColor = computed(() => appConfig.ui.primary)
   <NuxtLayout name="default">
     <div class="flex flex-col items-center gap-4 mt-12">
       <h1 class="font-medium text-[8rem] md:text-[16rem] leading-none bg-error bg-clip-text tracking-wider font-error" :class="`text-${getColor}-500`">
-        {{ error.statusCode }}
+        {{ error?.statusCode }}
       </h1>
       <p class="text-lg md:text-2xl text-subtitle text-center">
-        Sorry, {{ error.statusCode === 404
+        Sorry, {{ error?.statusCode === 404
           ? "the page you are looking for doesn't exist or as been moved."
           : "you have encountered a problem."
         }}

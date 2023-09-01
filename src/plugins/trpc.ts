@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { loggerLink } from '@trpc/client'
 import SuperJSON from 'superjson'
 import { createTRPCNuxtClient, httpBatchLink } from 'trpc-nuxt/client'
