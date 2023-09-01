@@ -1,9 +1,4 @@
 export default defineNuxtConfig({
-  experimental: {
-    typedPages: true,
-    componentIslands: true,
-  },
-
   srcDir: 'src',
 
   build: {
