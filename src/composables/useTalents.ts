@@ -23,14 +23,9 @@ export async function useTalents() {
     data: getCategories,
   } = await $trpc.talents.getCategories.useQuery()
 
-  function getCategoryById(id: number) {
-    return getCategories.value?.find(category => category.id === id)?.name || 'Not Found'
-  }
-
   return {
     talents,
     getCategories,
-    getCategoryById,
     isFavorite,
     switchCategory,
     toggleFavorite,

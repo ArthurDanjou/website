@@ -4,7 +4,7 @@ useHead({
 })
 
 const categories = ref<Array<{ label: string, slug: string }>>([{ label: 'All', slug: 'all' }])
-const { getCategories, talents, getCategoryById, isFavorite, toggleFavorite, switchCategory  } = await useTalents()
+const { getCategories, talents, isFavorite, toggleFavorite, switchCategory } = await useTalents()
 
 getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
@@ -103,9 +103,9 @@ function getColor() {
           <div class="flex gap-2 z-10">
             <span
               v-for="category in talent.categories"
-              :key="category.id"
+              :key="`${category.talentId}-${category.categoryId}`"
               class="text-[.6rem] px-1 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-            >{{ getCategoryById(category.categoryId) }}</span>
+            >{{ category.category.name }}</span>
           </div>
           <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
@@ -114,7 +114,7 @@ function getColor() {
         </div>
       </div>
       <p v-else-if="talents?.length === 0" class="my-8 text-subtitle">
-        There are no talents here. Maybe soon...
+        There are no talents for this category. Maybe soon...
       </p>
       <p v-else class="my-8 text-subtitle">
         The talents are loading...

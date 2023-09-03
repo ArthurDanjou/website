@@ -15,7 +15,12 @@ export default router({
               createdAt: 'desc',
             },
             include: {
-              categories: true,
+              categories: {
+                include: {
+                  talent: true,
+                  category: true,
+                }
+              },
             },
             where: {
               favorite: true,
@@ -27,7 +32,12 @@ export default router({
               createdAt: 'desc',
             },
             include: {
-              categories: true,
+              categories: {
+                include: {
+                  talent: true,
+                  category: true,
+                }
+              },
             },
             where: {
               favorite: true,
@@ -42,7 +52,12 @@ export default router({
               createdAt: 'desc',
             },
             include: {
-              categories: true,
+              categories: {
+                include: {
+                  talent: true,
+                  category: true,
+                }
+              },
             },
             where: {
               categories: { every: { category: {} } },
@@ -53,7 +68,12 @@ export default router({
               createdAt: 'desc',
             },
             include: {
-              categories: true,
+              categories: {
+                include: {
+                  talent: true,
+                  category: true,
+                }
+              },
             },
             where: {
               categories: { some: { category: { slug: input.category } } },
