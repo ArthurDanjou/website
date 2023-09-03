@@ -3,8 +3,8 @@ useHead({
   title: 'Discover new talents • Arthur Danjou',
 })
 
-const categories = ref<Array<{ label: string, slug: string }>>([{ label: 'All', slug: 'all' }])
-const { getCategories, talents, isFavorite, toggleFavorite, switchCategory } = await useTalents()
+const categories = ref<Array<{ label: string; slug: string }>>([{ label: 'All', slug: 'all' }])
+const { getCategories, talents, isFavorite, toggleFavorite, switchCategory, pending } = await useTalents()
 
 getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
@@ -45,7 +45,9 @@ function getColor() {
         <UTabs :items="categories">
           <template #default="{ item }">
             <div class="flex items-center gap-2 relative w-full" @click="switchCategory(item.slug)">
-              <div class="w-full">{{ item.label }}</div >
+              <div class="w-full">
+                {{ item.label }}
+              </div>
             </div>
           </template>
         </UTabs>
@@ -69,8 +71,8 @@ function getColor() {
         </template>
       </UPopover>
     </div>
-    <div v-if="talents && getCategories" class="mt-16 md:mt-20">
-      <div v-if="talents.length > 0" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-if="talents && getCategories" class="mt-8 md:mt-16">
+      <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="talent in talents"
           :key="talent.name.toLowerCase().trim()"
@@ -79,24 +81,24 @@ function getColor() {
           <div class="flex ">
             <div class="flex gap-6 items-center">
               <img :src="talent.logo" class="z-20 h-12 w-12 rounded-md">
-            <div>
-              <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-                <NuxtLink :to="talent.website" target="_blank">
-                  <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                  <div class="flex gap-2 items-center">
-                    <h1 class="relative z-10">
-                      {{ talent.name }}
-                    </h1>
-                    <UTooltip v-if="talent.favorite" text="You can set the filter to only show favorites.">
-                      <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold" />
-                    </UTooltip>
-                  </div>
-                </NuxtLink>
-              </h2>
-              <p class="relative z-10 my-2 text-sm text-zinc-600 dark:text-zinc-400">
-                {{ talent.work }}
-              </p>
+              <div>
+                <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                  <NuxtLink :to="talent.website" target="_blank">
+                    <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                    <div class="flex gap-2 items-center">
+                      <h1 class="relative z-10">
+                        {{ talent.name }}
+                      </h1>
+                      <UTooltip v-if="talent.favorite" text="You can set the filter to only show favorites.">
+                        <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold" />
+                      </UTooltip>
+                    </div>
+                  </NuxtLink>
+                </h2>
+                <p class="relative z-10 my-2 text-sm text-zinc-600 dark:text-zinc-400">
+                  {{ talent.work }}
+                </p>
               </div>
             </div>
           </div>
@@ -113,12 +115,18 @@ function getColor() {
           </p>
         </div>
       </div>
-      <p v-else-if="talents?.length === 0" class="my-8 text-subtitle">
-        There are no talents for this category. Maybe soon...
-      </p>
-      <p v-else class="my-8 text-subtitle">
-        The talents are loading...
-      </p>
+      <div v-else-if="talents?.length === 0 && !pending" class="my-4 text-subtitle">
+        <div class="flex gap-2 items-center">
+          <UIcon name="i-akar-icons-cross" />
+          <p>There are no talents for this category. Maybe soon...</p>
+        </div>
+      </div>
+      <div v-else class="my-4 text-subtitle">
+        <div class="flex gap-2 items-center">
+          <UIcon name="i-eos-icons-loading" />
+          <p>The talents are loading...</p>
+        </div>
+      </div>
     </div>
   </section>
 </template>

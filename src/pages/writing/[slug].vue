@@ -89,9 +89,12 @@ async function handleLike() {
                 :value="postContent"
               />
               <template #fallback>
-                <p class="my-16 text-subtitle">
-                  The content of the page is loading...
-                </p>
+                <div class="my-16 text-subtitle">
+                  <div class="flex gap-2 items-center">
+                    <UIcon name="i-eos-icons-loading" />
+                    <p>The talents are loading...</p>
+                  </div>
+                </div>
               </template>
             </ClientOnly>
             <footer class="my-8 space-y-8">

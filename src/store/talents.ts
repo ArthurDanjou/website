@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useTalentsStore = defineStore(
-  'talents', 
+  'talents',
   () => {
     const currentCategory = ref<string>('all')
     const currentFavorite = ref<boolean>(false)
@@ -26,5 +26,5 @@ export const useTalentsStore = defineStore(
   },
   {
     persist: true,
-  }
+  },
 )

@@ -19,7 +19,7 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
-                }
+                },
               },
             },
             where: {
@@ -36,7 +36,7 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
-                }
+                },
               },
             },
             where: {
@@ -56,7 +56,7 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
-                }
+                },
               },
             },
             where: {
@@ -72,7 +72,7 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
-                }
+                },
               },
             },
             where: {
