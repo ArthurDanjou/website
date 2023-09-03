@@ -98,7 +98,6 @@ async function handleLike() {
               <p class="text-subtitle">
                 Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't forget to leave a like!</strong>
               </p>
-              {{ likeCookie }}
               <div class="flex gap-4 flex-wrap">
                 <UButton
                   v-if="isLiked"
