@@ -1,12 +1,12 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
   provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Maintenance {
@@ -43,10 +43,10 @@ model Talent {
 }
 
 model CategoriesOnTalents {
-  talent     Talent   @relation(fields: [talentId], references: [id])
   talentId   Int
-  category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  talent     Talent   @relation(fields: [talentId], references: [id])
 
   @@id([talentId, categoryId])
   @@index([talentId])

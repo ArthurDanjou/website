@@ -73,7 +73,7 @@
   :::
 
   :::grid-slot{title="BackEnd"}
-    Prisma, AdonisJs, Supabase, TRPC.io
+    Prisma, AdonisJs, Supabase, TRPC.io, Vercel
   :::
 
 ::
