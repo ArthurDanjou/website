@@ -11,7 +11,7 @@ export const useColorStore = defineStore(
       appConfig.ui.primary = newColor
     }, { immediate: true })
 
-    const setColor = (color: string) => {
+    function setColor(color: string) {
       colorCookie.value = color as ColorsTheme
     }
 

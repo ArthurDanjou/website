@@ -1,31 +1,12 @@
 <script lang="ts" setup>
-import type { Talent } from '@prisma/client'
-
 useHead({
   title: 'Discover new talents • Arthur Danjou',
 })
 
-const talents = ref<Talent[]>()
+const categories = ref<Array<{ label: string, slug: string }>>([{ label: 'All', slug: 'all' }])
+const { getCategories, talents, getCategoryById, isFavorite, toggleFavorite, switchCategory  } = await useTalents()
 
-const currentFavorite = ref<boolean>(false)
-const currentCategory = ref('all')
-const { getCategories, getTalents, getCategoryById } = await useTalents()
-
-talents.value = await getTalents(currentCategory.value, currentFavorite.value)
-
-watch(currentFavorite, async () => {
-  talents.value = await getTalents(currentCategory.value, currentFavorite.value)
-})
-
-watch(currentCategory, async () => {
-  talents.value = await getTalents(currentCategory.value, currentFavorite.value)
-})
-
-const setCategory = (category: string) => currentCategory.value = category
-
-function isCategory(category: string) {
-  return currentCategory.value === category
-}
+getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
 const appConfig = useAppConfig()
 function getColor() {
@@ -59,54 +40,45 @@ function getColor() {
         <UButton label="Join the talent's list" color="primary" />
       </NuxtLink>
     </div>
-    <div v-if="getCategories" class="flex gap-2 justify-between border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
+    <div v-if="getCategories" class="flex gap-2 items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
       <div class="flex gap-4 overflow-x-scroll sm:overflow-x-hidden">
-        <div
-          class="category"
-          :class="{ 'current-category': isCategory('all') }"
-          @click.prevent="setCategory('all')"
-        >
-          All
-        </div>
-        <div
-          v-for="category in getCategories"
-          :key="category.slug"
-          class="category"
-          :class="{ 'current-category': isCategory(category.slug) }"
-          @click.prevent="setCategory(category.slug)"
-        >
-          <p class="w-full">
-            {{ category.name }}
-          </p>
-        </div>
+        <UTabs :items="categories">
+          <template #default="{ item }">
+            <div class="flex items-center gap-2 relative w-full" @click="switchCategory(item.slug)">
+              <div class="w-full">{{ item.label }}</div >
+            </div>
+          </template>
+        </UTabs>
       </div>
       <UPopover>
         <UButton
-          :icon="currentFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
+          :icon="isFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
           color="primary"
-          variant="ghost"
+          variant="soft"
+          size="lg"
         />
         <template #panel>
           <div
             class="flex p-2 gap-2 items-center cursor-pointer select-none text-subtitle"
-            @click.prevent="currentFavorite = !currentFavorite"
+            @click.prevent="toggleFavorite()"
           >
-            <UIcon v-if="currentFavorite" name="i-material-symbols-check-box-outline-rounded" />
+            <UIcon v-if="isFavorite" name="i-material-symbols-check-box-outline-rounded" />
             <UIcon v-else name="i-material-symbols-check-box-outline-blank" />
             <p>Show favorites only</p>
           </div>
         </template>
       </UPopover>
     </div>
-    <div class="mt-16 md:mt-20">
-      <div v-if="talents && getCategories" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-if="talents && getCategories" class="mt-16 md:mt-20">
+      <div v-if="talents.length > 0" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="talent in talents"
           :key="talent.name.toLowerCase().trim()"
           class="group relative flex flex-col justify-between"
         >
-          <div class="flex gap-6 items-center">
-            <img :src="talent.logo" class="z-20 h-8 w-8 rounded-md">
+          <div class="flex ">
+            <div class="flex gap-6 items-center">
+              <img :src="talent.logo" class="z-20 h-12 w-12 rounded-md">
             <div>
               <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
                 <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
@@ -125,13 +97,14 @@ function getColor() {
               <p class="relative z-10 my-2 text-sm text-zinc-600 dark:text-zinc-400">
                 {{ talent.work }}
               </p>
+              </div>
             </div>
           </div>
           <div class="flex gap-2 z-10">
             <span
               v-for="category in talent.categories"
-              :key="category"
-              class="text-[.7rem] px-0.5 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+              :key="category.id"
+              class="text-[.6rem] px-1 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
             >{{ getCategoryById(category.categoryId) }}</span>
           </div>
           <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
@@ -140,18 +113,12 @@ function getColor() {
           </p>
         </div>
       </div>
-      <p v-else class="my-16 text-subtitle">
+      <p v-else-if="talents?.length === 0" class="my-8 text-subtitle">
+        There are no talents here. Maybe soon...
+      </p>
+      <p v-else class="my-8 text-subtitle">
         The talents are loading...
       </p>
     </div>
   </section>
 </template>
-
-<style lang="scss">
-.category {
-  @apply min-w-fit cursor-pointer py-2 text-gray-500 dark:text-gray-400 duration-300 transition-colors hover:text-black dark:hover:text-white
-}
-.current-category {
-  @apply text-black dark:text-white border-b-2 border-black dark:border-white
-}
-</style>
