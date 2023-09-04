@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Post } from '~~/types';
+import type { Post } from '~~/types'
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())

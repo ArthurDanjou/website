@@ -16,13 +16,13 @@ export default router({
           createdAt: 'desc',
         },
       })
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env.NODE_ENV === 'development')
         return false
-      }
+
       const today = new Date()
-      return !!maintenance 
-      && maintenance.enabled 
-      && maintenance.beginAt.getTime() < today.getTime() 
+      return !!maintenance
+      && maintenance.enabled
+      && maintenance.beginAt.getTime() < today.getTime()
       && maintenance.endAt.getTime() > today.getTime()
     }),
 })

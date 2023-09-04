@@ -49,7 +49,7 @@ export default defineNuxtConfig({
   image: {
     domains: [
       'avatars0.githubusercontent.com',
-      'pbs.twimg.com'
-    ]
-  }
+      'pbs.twimg.com',
+    ],
+  },
 })
