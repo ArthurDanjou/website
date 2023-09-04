@@ -14,7 +14,7 @@ function formatTodayDate(date: string) {
 </script>
 
 <template>
-  <UBadge v-if="startDate === endDate" variant="soft" size="xs">
+  <UBadge v-if="startDate !== endDate" variant="soft" size="xs">
     {{ formatTodayDate(startDate!.toString()) }} — {{ formatTodayDate(endDate) }}
   </UBadge>
   <UBadge v-else variant="soft" size="xs">
