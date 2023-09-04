@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 const appConfig = useAppConfig()
-function getColor() {
-  return `text-${appConfig.ui.primary}-500`
-}
+const getColor = computed(() => appConfig.ui.primary)
 
 useHead({
   title: 'My work • Arthur Danjou',
@@ -54,7 +52,7 @@ const { data: projects } = await useProjects()
               {{ tag }}
             </UBadge>
           </div>
-          <p class="relative z-10 mt-6 flex text-sm font-medium items-center" :class="getColor()">
+          <p class="relative z-10 mt-6 flex text-sm font-medium items-center" :class="getColor">
             <UIcon name="i-ph-link-bold" />
             <span class="ml-2">{{ project.link.replace('https://', '') }}</span>
           </p>

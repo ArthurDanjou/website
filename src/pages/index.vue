@@ -6,6 +6,7 @@ useHead({
 
 <template>
   <section>
+    <Announcement />
     <MainBanner />
   </section>
 </template>

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
-function getColor() {
-  return `text-${appConfig.ui.primary}-500`
-}
+const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
 
 useHead({
   title: 'My Shelf • Arthur Danjou',
@@ -45,7 +43,7 @@ const { data: posts } = await usePosts()
                 <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                   {{ post.description }}
                 </p>
-                <div class="relative z-10 mt-4 flex items-center gap-2 justify-center text-sm font-medium" :class="getColor()">
+                <div class="relative z-10 mt-4 flex items-center gap-2 justify-center text-sm font-medium" :class="getColor">
                   <p>Read article</p>
                   <UIcon name="i-ph-arrow-circle-right-bold" class="duration-300 group-hover:ml-2" />
                 </div>
