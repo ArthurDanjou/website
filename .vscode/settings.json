@@ -34,4 +34,5 @@
     "jsonc",
     "yaml"
   ],
+  "grammarly.files.include": ["**/*.txt", "**/*.md"]
 }
