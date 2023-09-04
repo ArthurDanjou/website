@@ -141,4 +141,3 @@ const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
     </div>
   </section>
 </template>
-
