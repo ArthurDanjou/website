@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { Post } from '~~/types'
+import type { Post } from '~~/types';
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
 
 if (!postContent.value) {
-  throw createError({
+  throw showError({
     statusMessage: 'The post you are looking for was not found.',
     statusCode: 404,
   })
@@ -92,7 +92,7 @@ async function handleLike() {
                 <div class="my-16 text-subtitle">
                   <div class="flex gap-2 items-center">
                     <UIcon name="i-eos-icons-loading" />
-                    <p>The talents are loading...</p>
+                    <p>The content of the post is loading...</p>
                   </div>
                 </div>
               </template>
