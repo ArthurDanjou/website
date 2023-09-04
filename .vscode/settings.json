@@ -20,7 +20,7 @@
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.organizeImports": false
+    "source.organizeImports": true
   },
   "eslint.validate": [
     "javascript",
@@ -33,5 +33,5 @@
     "json",
     "jsonc",
     "yaml"
-  ]
+  ],
 }
