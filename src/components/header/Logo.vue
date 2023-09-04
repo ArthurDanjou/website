@@ -1,9 +1,14 @@
 <script lang="ts" setup>
-
+const appConfig = useAppConfig()
+const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
 </script>
 
 <template>
-  <div class="flex items-center">
-    LOGO
-  </div>
+  <UButton 
+  class="flex items-center" 
+  variant="ghost"
+  to="/"
+  :class="getColor">
+    ArthurDanj
+  </UButton>
 </template>
