@@ -17,6 +17,6 @@ export default router({
         },
       })
       const today = new Date()
-      return !!maintenance && maintenance.beginAt.getTime() < today.getTime() && maintenance.endAt.getTime() > today.getTime()
+      return !!maintenance && maintenance.enabled && maintenance.beginAt.getTime() < today.getTime() && maintenance.endAt.getTime() > today.getTime()
     }),
 })

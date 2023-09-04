@@ -15,6 +15,7 @@ model Maintenance {
   beginAt   DateTime @default(now())
   endAt     DateTime @default(now())
   createdAt DateTime @default(now())
+  enabled   Boolean  @default(true)
 }
 
 model Announcement {

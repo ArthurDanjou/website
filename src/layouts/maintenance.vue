@@ -12,7 +12,7 @@ const getColor = computed(() => appConfig.ui.primary)
       </div>
     </section>
     <div class="relative z-50 min-h-[100svh]">
-      <Header :navbar="false" />
+      <Header :navigation="false" />
       <UContainer>
         <NuxtPage />
       </UContainer>
