@@ -43,9 +43,3 @@ const items = [
     </div>
   </nav>
 </template>
-
-<style lang="scss" scoped>
-.router-link-exact-active {
-  @apply bg-white/60 dark:bg-black
-}
-</style>
