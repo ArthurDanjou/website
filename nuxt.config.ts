@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   ],
 
   modules: [
+    '@nuxt/image',
     '@nuxthq/studio',
     '@nuxthq/ui',
     '@pinia/nuxt',
@@ -44,4 +45,11 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
+
+  image: {
+    domains: [
+      'avatars0.githubusercontent.com',
+      'pbs.twimg.com'
+    ]
+  }
 })

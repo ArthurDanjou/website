@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Post } from '~~/types'
+import type { Post } from '~~/types';
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
@@ -79,7 +79,7 @@ async function handleLike() {
                 {{ postContent.description }}
               </p>
             </header>
-            <div class="w-full rounded-md my-8">
+            <div v-if="postContent.cover" class="w-full rounded-md my-8">
               {{ postContent.cover }}
             </div>
             <ClientOnly>

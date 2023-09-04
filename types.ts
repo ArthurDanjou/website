@@ -30,9 +30,7 @@ export interface Post extends MarkdownParsedContent {
   description: string
   readingMins: number
   publishedAt: string
-  modifiedAt: string
-  cover: string
-  author: string
+  cover?: string
 }
 
 export interface Project extends MarkdownParsedContent {
