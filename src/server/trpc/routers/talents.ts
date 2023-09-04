@@ -20,6 +20,11 @@ export default router({
                   talent: true,
                   category: true,
                 },
+                orderBy: {
+                  category: {
+                    name: 'asc',
+                  },
+                },
               },
             },
             where: {
@@ -36,6 +41,11 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
+                },
+                orderBy: {
+                  category: {
+                    name: 'asc',
+                  },
                 },
               },
             },
@@ -57,6 +67,11 @@ export default router({
                   talent: true,
                   category: true,
                 },
+                orderBy: {
+                  category: {
+                    name: 'asc',
+                  },
+                },
               },
             },
             where: {
@@ -72,6 +87,11 @@ export default router({
                 include: {
                   talent: true,
                   category: true,
+                },
+                orderBy: {
+                  category: {
+                    name: 'asc',
+                  },
                 },
               },
             },
