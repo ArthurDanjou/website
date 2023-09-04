@@ -26,3 +26,6 @@ logs
 
 # Vercel
 .vercel
+
+# Prisma
+migrations
