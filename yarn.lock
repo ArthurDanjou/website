@@ -723,10 +723,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/json@2.2.109":
-  version "2.2.109"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.2.109.tgz#e661eef1bf770d9d03000d1f562d103ad9f973d8"
-  integrity sha512-Hi5InevdpLbDOjaJ1a0e5wQq8x8lDcNh3xyCq7yMyH/N/wniKa2vGUzzLQWLwENYcMm81b50jCAt7R4cOkx1BQ==
+"@iconify/json@2.2.111":
+  version "2.2.111"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.2.111.tgz#3aad0ad1e5440b940dd0d40bfe9ef5a23c78a456"
+  integrity sha512-/LpDXn355r1TJIooRiRjoEHpfmvmDBfWQFtP04bo9xO05NOfQpZwadCfXZw4d3eIF0SfIlPiLMHt3UfKOCRIMw==
   dependencies:
     "@iconify/types" "*"
     pathe "^1.1.0"
@@ -1709,15 +1709,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*":
+"@types/node@*", "@types/node@20.5.9":
   version "20.5.9"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.9.tgz#a70ec9d8fa0180a314c3ede0e20ea56ff71aed9a"
   integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
-
-"@types/node@20.5.7":
-  version "20.5.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.7.tgz#4b8ecac87fbefbc92f431d09c30e176fc0a7c377"
-  integrity sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -10093,6 +10088,7 @@ widest-line@^4.0.1:
     string-width "^5.0.1"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
