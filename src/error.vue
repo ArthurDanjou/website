@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { NuxtError } from 'nuxt/app'
+import type { NuxtError } from 'nuxt/app';
 
 defineProps({
   error: Object as () => NuxtError,
 })
+
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
 </script>
