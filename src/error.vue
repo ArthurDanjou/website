@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NuxtError } from 'nuxt/app';
+import type { NuxtError } from 'nuxt/app'
 
 defineProps({
   error: Object as () => NuxtError,
@@ -21,23 +21,23 @@ const getColor = computed(() => appConfig.ui.primary)
       <Header />
       <UContainer>
         <div class="flex flex-col items-center gap-4 mt-12">
-      <h1 class="font-medium text-[8rem] md:text-[16rem] leading-none bg-error bg-clip-text tracking-wider font-error" :class="`text-${getColor}-500`">
-        {{ error?.statusCode }}
-      </h1>
-      <p class="text-lg md:text-2xl text-subtitle text-center">
-        Sorry, {{ error?.statusCode === 404
-          ? "the page you are looking for doesn't exist or as been moved."
-          : "you have encountered a problem."
-        }}
-        <br>
-        Let's find a better place for you to go.
-      </p>
-    </div>
-    <div class="flex justify-center mt-8 mb-12">
-      <UButton to="/" size="md" variant="soft" color="primary">
-        Go back to the main page
-      </UButton>
-    </div>
+          <h1 class="font-medium text-[8rem] md:text-[16rem] leading-none bg-error bg-clip-text tracking-wider font-error" :class="`text-${getColor}-500`">
+            {{ error?.statusCode }}
+          </h1>
+          <p class="text-lg md:text-2xl text-subtitle text-center">
+            Sorry, {{ error?.statusCode === 404
+              ? "the page you are looking for doesn't exist or as been moved."
+              : "you have encountered a problem."
+            }}
+            <br>
+            Let's find a better place for you to go.
+          </p>
+        </div>
+        <div class="flex justify-center mt-8 mb-12">
+          <UButton to="/" size="md" variant="soft" color="primary">
+            Go back to the main page
+          </UButton>
+        </div>
       </UContainer>
       <Footer />
     </div>
