@@ -4,7 +4,7 @@ useHead({
 })
 
 const categories = ref<Array<{ label: string; slug: string }>>([{ label: 'All', slug: 'all' }])
-const { getCategories, talents, isFavorite, toggleFavorite, switchCategory, pending } = await useTalents()
+const { getCategories, talents, isFavorite, toggleFavorite, switchCategory, pending, isCategory } = await useTalents()
 
 getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
@@ -40,17 +40,26 @@ function getColor() {
         <UButton label="Join the talent's list" color="primary" />
       </NuxtLink>
     </div>
-    <div v-if="getCategories" class="flex gap-2 items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
-      <div class="flex gap-4 overflow-x-scroll sm:overflow-x-hidden">
-        <UTabs :items="categories">
-          <template #default="{ item }">
-            <div class="flex items-center gap-2 relative w-full" @click="switchCategory(item.slug)">
-              <div class="w-full">
-                {{ item.label }}
-              </div>
-            </div>
-          </template>
-        </UTabs>
+    <div v-if="getCategories" class="flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
+      <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
+        <div
+          class="category"
+          :class="{ 'current-category': isCategory('all') }"
+          @click.prevent="switchCategory('all')"
+        >
+          All
+        </div>
+        <div
+          v-for="category in getCategories"
+          :key="category.slug"
+          class="category"
+          :class="{ 'current-category': isCategory(category.slug) }"
+          @click.prevent="switchCategory(category.slug)"
+        >
+          <p class="w-full">
+            {{ category.name }}
+          </p>
+        </div>
       </div>
       <UPopover>
         <UButton
@@ -78,7 +87,7 @@ function getColor() {
           :key="talent.name.toLowerCase().trim()"
           class="group relative flex flex-col justify-between"
         >
-          <div class="flex ">
+          <div class="flex">
             <div class="flex gap-6 items-center">
               <img :src="talent.logo" class="z-20 h-12 w-12 rounded-md">
               <div>
@@ -130,3 +139,12 @@ function getColor() {
     </div>
   </section>
 </template>
+
+<style lang="scss">
+.category {
+  @apply relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out
+}
+.current-category {
+  @apply text-gray-900 dark:text-white relative bg-white dark:bg-gray-900 rounded-md shadow-sm
+}
+</style>

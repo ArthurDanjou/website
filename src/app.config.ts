@@ -19,7 +19,10 @@ export default defineAppConfig({
       },
     },
     button: {
-      base: 'duration-300 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0',
+      base: 'duration-300 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75',
     },
+    popover: {
+      container: "z-30",
+    }
   },
 })

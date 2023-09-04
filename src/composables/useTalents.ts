@@ -20,6 +20,10 @@ export async function useTalents() {
     await refreshTalents()
   }
 
+  function isCategory(category: string) {
+    return getCategory.value === category
+  }
+
   const {
     data: getCategories,
   } = await $trpc.talents.getCategories.useQuery()
@@ -31,5 +35,6 @@ export async function useTalents() {
     switchCategory,
     toggleFavorite,
     pending,
+    isCategory,
   }
 }
