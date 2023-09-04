@@ -112,11 +112,15 @@ function getColor() {
             </div>
           </div>
           <div class="flex gap-2 z-10">
-            <span
+            <UBadge
               v-for="category in talent.categories"
               :key="`${category.talentId}-${category.categoryId}`"
-              class="text-[.6rem] px-1 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-            >{{ category.category.name }}</span>
+              color="primary"
+              variant="soft"
+              size="xs"
+            >
+              {{ category.category.name }}
+            </UBadge>
           </div>
           <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />

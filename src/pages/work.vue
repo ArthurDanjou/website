@@ -44,11 +44,15 @@ const { data: projects } = await useProjects()
             {{ project.description }}
           </p>
           <div class="flex gap-2 z-10">
-            <span
+            <UBadge
               v-for="tag in project.tags"
               :key="tag"
-              class="text-[.7rem] px-0.5 text-subtitle rounded-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
-            >{{ tag }}</span>
+              color="primary"
+              variant="soft"
+              size="xs"
+            >
+              {{ tag }}
+            </UBadge>
           </div>
           <p class="relative z-10 mt-6 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
