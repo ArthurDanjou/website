@@ -142,9 +142,13 @@ function getColor() {
 
 <style lang="scss">
 .category {
-  @apply relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out
+  @apply relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white
 }
 .current-category {
-  @apply text-gray-900 dark:text-white relative bg-white dark:bg-gray-900 rounded-md shadow-sm
+  @apply text-gray-900 dark:text-white relative dark:bg-gray-900 rounded-md shadow-sm;
+  background-color: white !important;
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(23 23 23) !important;
+  }
 }
 </style>
