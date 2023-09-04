@@ -15,7 +15,7 @@ const items = [
 </script>
 
 <template>
-  <nav class="hidden md:block pointer-events-auto z-50">
+  <nav class="hidden md:block z-50">
     <div class="flex items-center h-10 rounded-md p-1 gap-1 relative bg-black/5 text-sm font-medium text-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-300">
       <UButton to="/" size="sm" variant="ghost" color="white" :class="{ 'router-link-exact-active': route.path === '/' }">
         Home
