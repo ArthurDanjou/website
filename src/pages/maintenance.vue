@@ -11,6 +11,9 @@ const { $trpc } = useNuxtApp()
 const maintenance = await $trpc.maintenance.get.query()
 const format = 'DD MMMM YYYY, HH:mm'
 
+const appConfig = useAppConfig()
+const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
+
 const socials = [
   {
     name: 'mail',
@@ -38,18 +41,18 @@ const socials = [
 <template>
   <section class="w-full min-h-[80svh] flex justify-center items-center">
     <div class="text-center space-y-8 max-w-5xl">
-      <h3 class="text-subtitle uppercase text-sm">
+      <h3 class="uppercase text-xs text-transparent bg-clip-text bg-origin-content bg-gradient-to-b from-gray-100 to-gray-300 dark:from-zinc-600 to-55% dark:to-zinc-800">
         Coming back soon
       </h3>
       <h1 class="text-4xl md:text-7xl font-bold">
         The website is under maintenance
       </h1>
       <div v-if="maintenance">
-        <p class="text-subtitle">
+        <p :class="getColor" class="font-bold mb-8 text-xl">
           {{ maintenance.reason }}
         </p>
         <div>
-          <p class="text-subtitle">
+          <p class="text-subtitle italic">
             Maintenance planned from {{ useDateFormat(maintenance.beginAt, format).value }} to {{ useDateFormat(maintenance.endAt, format).value }}
           </p>
         </div>
