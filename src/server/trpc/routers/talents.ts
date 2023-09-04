@@ -103,6 +103,10 @@ export default router({
     }),
   getCategories: publicProcedure
     .query(async ({ ctx }) => {
-      return await ctx.prisma.category.findMany()
+      return await ctx.prisma.category.findMany({
+        where: {
+          type: 'TALENT',
+        },
+      })
     }),
 })
