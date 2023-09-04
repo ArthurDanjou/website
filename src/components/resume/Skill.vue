@@ -12,7 +12,7 @@ const isLight = computed(() => $colorMode.value === 'light')
 <template>
   <li
     v-if="skill"
-    class="flex items-center gap-2 rounded-md px-2 py-3 duration-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+    class="flex items-center gap-2 rounded-md px-2 py-3 duration-300 md:hover:bg-gray-100 md:dark:hover:bg-gray-800"
   >
     <div class="flex items-center">
       <Icon v-if="isLight" :name="skill.icon.light ? skill.icon.light : skill.icon" size="20" />
