@@ -28,7 +28,7 @@ const socials = [
   {
     name: 'github',
     icon: 'i-ph-github-logo-bold',
-    link: 'https://twitter.com/ArthurDanj',
+    link: 'https://github.com/ArthurDanjou',
   },
   {
     name: 'linkedin',
@@ -65,8 +65,8 @@ const socials = [
           class="link"
           target="_blank"
         >
-        <span class="flex-shrink-0 h-5 w-5" aria-hidden="true" :class="social.icon"/>
-      </a>
+          <span class="flex-shrink-0 h-5 w-5" aria-hidden="true" :class="social.icon" />
+        </a>
       </div>
     </div>
   </section>
