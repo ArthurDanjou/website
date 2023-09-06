@@ -58,17 +58,22 @@ const socials = [
         </div>
       </div>
       <div class="flex justify-center items-center gap-4">
-        <UButton
+        <a
           v-for="social in socials"
           :key="social.name"
-          :icon="social.icon"
-          size="lg"
-          :link="social.link"
-          variant="ghost"
+          :href="social.link"
+          class="link"
           target="_blank"
-          :ui="{ rounded: 'rounded-full' }"
-        />
+        >
+        <span class="flex-shrink-0 h-5 w-5" aria-hidden="true" :class="social.icon"/>
+      </a>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.link {
+  @apply cursor-pointer duration-300 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 font-medium rounded-full text-sm gap-x-2.5 p-2.5 text-primary-500 dark:text-primary-400 hover:bg-primary-50 disabled:bg-transparent dark:hover:bg-primary-950 dark:disabled:bg-transparent focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 inline-flex items-center;
+}
+</style>
