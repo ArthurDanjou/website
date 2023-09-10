@@ -8,5 +8,6 @@ useHead({
   <section>
     <Announcement />
     <MainBanner />
+    <MainPhotos />
   </section>
 </template>

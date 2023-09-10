@@ -11,12 +11,10 @@ const getColor = computed(() => appConfig.ui.primary)
         <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
       </div>
     </section>
-    <div class="relative z-50 min-h-[100svh]">
+    <main class="relative z-50 min-h-[100svh]">
       <Header />
-      <UContainer>
-        <NuxtPage />
-      </UContainer>
+      <NuxtPage />
       <Footer />
-    </div>
+    </main>
   </div>
 </template>

@@ -10,16 +10,25 @@ const { data: experiences } = await useWorkExperiences()
 
 <template>
   <section class="w-container lg:my-24 my-16">
-    <div class="max-w-2xl space-y-8 mb-16">
-      <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
-        I'm Arthur, I live and study in France where I learn new things.
-      </h1>
-      <p class="leading-relaxed text-subtitle">
-        As a software engineer with a passion for AI and the cloud, I have a deep understanding of emerging technologies that are transforming the way businesses and organizations operate. I am at the heart of an ever-changing and rapidly growing field. My background in mathematics also gives me an edge in understanding the mathematical concepts and theories behind these technologies as well as how to design them.
-      </p>
-      <p class="leading-relaxed text-subtitle">
-        I enjoy sharing my knowledge and learning new theorems and technologies. I am a curious person and eager to continue learning and growing throughout your life. My passion and commitment to these subjects are admirable qualities and will help me succeed in my career and education.
-      </p>
+    <div class="px-4 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+      <div class="lg:pl-20">
+        <div class="max-w-xs px-2.5 lg:max-w-none">
+          <NuxtImage src="/about.jpg" class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" placeholder />
+        </div>
+      </div>
+      <div class="lg:order-first lg:row-span-2">
+        <div class="max-w-2xl space-y-8 mb-16">
+          <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
+            I'm Arthur, I live and study in France where I learn new things.
+          </h1>
+          <p class="leading-relaxed text-subtitle">
+            As a software engineer with a passion for AI and the cloud, I have a deep understanding of emerging technologies that are transforming the way businesses and organizations operate. I am at the heart of an ever-changing and rapidly growing field. My background in mathematics also gives me an edge in understanding the mathematical concepts and theories behind these technologies as well as how to design them.
+          </p>
+          <p class="leading-relaxed text-subtitle">
+            I enjoy sharing my knowledge and learning new theorems and technologies. I am a curious person and eager to continue learning and growing throughout your life. My passion and commitment to these subjects are admirable qualities and will help me succeed in my career and education.
+          </p>
+        </div>
+      </div>
     </div>
     <GridSection title="Interests">
       <GridSlot title="Development">

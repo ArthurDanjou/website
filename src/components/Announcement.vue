@@ -9,7 +9,7 @@ function getColor() {
 </script>
 
 <template>
-  <div v-if="announce" class="w-full flex justify-center mt-8">
+  <div v-if="announce" class="w-container flex justify-center mt-8">
     <div class="relative">
       <h1 class="px-4 py-2 bg-white dark:bg-zinc-900 rounded-md border border-zinc-100 dark:border-zinc-300/10" v-html="announce.content" />
       <span class="absolute -top-0.5 -right-0.5 flex h-2 w-2">

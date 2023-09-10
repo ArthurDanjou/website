@@ -19,9 +19,12 @@ useHead({
           path="/uses"
         />
         <template #fallback>
-          <p class="my-16 text-subtitle">
-            The content of the page is loading...
-          </p>
+          <div class="my-16 text-subtitle">
+            <div class="flex gap-2 items-center">
+              <UIcon name="i-eos-icons-loading" />
+              <p>The content of the page is loading...</p>
+            </div>
+          </div>
         </template>
       </ClientOnly>
     </div>
