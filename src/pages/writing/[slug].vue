@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Post } from '~~/types'
+import type { Post } from '~~/types';
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
@@ -12,7 +12,8 @@ if (!postContent.value) {
 }
 
 const { post, view, like, likes, views } = await usePost(route.params.slug.toString())
-view()
+const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replaceAll('"', '')
+onMounted(() => view())
 
 useHead({
   title: `${postContent.value?.title} • Arthur Danjou's shelf`,
@@ -64,7 +65,7 @@ async function handleLike() {
                 <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                 <div class="ml-3 flex gap-3">
                   <div>
-                    {{ postContent.publishedAt }}
+                    {{ format(postContent.publishedAt) }}
                   </div>
                   <span>•</span>
                   <div>{{ postContent.readingMins }} min</div>

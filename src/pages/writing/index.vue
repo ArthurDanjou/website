@@ -7,6 +7,7 @@ useHead({
 })
 
 const { data: posts } = await usePosts()
+const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replaceAll('"', '')
 </script>
 
 <template>
@@ -39,7 +40,7 @@ const { data: posts } = await usePosts()
                 <span class="absolute inset-y-0 left-0 flex items-center">
                   <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                 </span>
-                {{ post.publishedAt }}
+                {{ format(post.publishedAt) }}
               </time>
               <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
                 {{ post.description }}
@@ -50,7 +51,7 @@ const { data: posts } = await usePosts()
               </div>
             </div>
             <time class="mt-1 md:block relative z-10 order-first mb-3 hidden text-sm text-zinc-400 dark:text-zinc-500">
-              <p>{{ post.publishedAt }}</p>
+              <p>{{ format(post.publishedAt) }}</p>
               <p>{{ post.readingMins }} min.</p>
             </time>
           </article>
