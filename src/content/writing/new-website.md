@@ -2,7 +2,7 @@
 slug: 'new-website'
 title: 'New version for my portfolio'
 description: 'Description de test'
-publishedAt: '04 September 2023'
+publishedAt: '09/09/2021'
 readingMins: 5
 ---
 

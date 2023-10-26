@@ -42,22 +42,19 @@ export function useSkills() {
 }
 
 export function usePosts() {
-  return useAsyncData('content:posts', () => {
-    return queryContent<Post>('writing')
-      .sort({
-        publishedAt: -1,
-      })
-      .find()
+  return useAsyncData('content:posts', async () => {
+    const posts = await queryContent<Post>('writing').find()
+    return posts.sort((a, b) => {
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    })
   })
 }
 
 export function useLatestPost() {
-  return useAsyncData('content:latestPost', () => {
-    return queryContent<Post>('writing')
-      .sort({
-        publishedAt: -1,
-      })
-      .limit(1)
-      .find()
+  return useAsyncData('content:latestPost', async () => {
+    const posts = await queryContent<Post>('writing').find()
+    return posts.sort((a, b) => {
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    })[0]
   })
 }
