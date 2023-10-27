@@ -5,8 +5,7 @@ const items = [
     label: 'Talents',
     to: '/talents',
     icon: 'i-ph-users-bold',
-  },
-  {
+  }, {
     label: 'Bookmarks',
     to: '/bookmarks',
     icon: 'i-ph-bookmark-simple-bold',
