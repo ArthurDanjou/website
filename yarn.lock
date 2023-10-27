@@ -20,15 +20,15 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@antfu/eslint-config@1.0.0-beta.28":
-  version "1.0.0-beta.28"
-  resolved "https://registry.yarnpkg.com/@antfu/eslint-config/-/eslint-config-1.0.0-beta.28.tgz#03957ab5f97a2de8dbc216997d45e4ac1f576701"
-  integrity sha512-JhY4vmucBbJgISm04C5ze3T+amCrWWIdc3SUQ3+utLNLKT9PFJIJt5YIatZNRHxuR2/myMFBTlshgOepUmYwaA==
+"@antfu/eslint-config@1.0.0-beta.29":
+  version "1.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/@antfu/eslint-config/-/eslint-config-1.0.0-beta.29.tgz#077563d2b2b5a98c3fb669403d616423c4c5a8ba"
+  integrity sha512-7Tp0JPAUCi3/mXQ0rtPi0txEK/HPNG7zRvNyEsYmJNB/tRTFA4FfCfy+t+TRuTQthBSpJBGl+vgNkuwphroV2w==
   dependencies:
-    "@antfu/eslint-define-config" "^1.23.0-1"
+    "@antfu/eslint-define-config" "^1.23.0-2"
     "@stylistic/eslint-plugin" "^0.1.1"
-    "@typescript-eslint/eslint-plugin" "^6.8.0"
-    "@typescript-eslint/parser" "^6.8.0"
+    "@typescript-eslint/eslint-plugin" "^6.9.0"
+    "@typescript-eslint/parser" "^6.9.0"
     eslint-config-flat-gitignore "^0.1.1"
     eslint-plugin-antfu "^1.0.0-beta.12"
     eslint-plugin-eslint-comments "^3.2.0"
@@ -42,15 +42,15 @@
     eslint-plugin-unicorn "^48.0.1"
     eslint-plugin-unused-imports "^3.0.0"
     eslint-plugin-vitest "^0.3.8"
-    eslint-plugin-vue "^9.17.0"
+    eslint-plugin-vue "^9.18.0"
     eslint-plugin-yml "^1.10.0"
     globals "^13.23.0"
-    jsonc-eslint-parser "^2.3.0"
+    jsonc-eslint-parser "^2.4.0"
     local-pkg "^0.5.0"
     vue-eslint-parser "^9.3.2"
     yaml-eslint-parser "^1.2.2"
 
-"@antfu/eslint-define-config@^1.23.0-1":
+"@antfu/eslint-define-config@^1.23.0-2":
   version "1.23.0-2"
   resolved "https://registry.yarnpkg.com/@antfu/eslint-define-config/-/eslint-define-config-1.23.0-2.tgz#05681d45b7fd24e4666750b6fd8da2bd8bf30a1f"
   integrity sha512-LvxY21+ZhpuBf/aHeBUtGQhSEfad4PkNKXKvDOSvukaM3XVTfBhwmHX2EKwAsdq5DlfjbT3qqYyMiueBIO5iDQ==
@@ -2187,7 +2187,7 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.18.tgz#74bd1c8fd3a2058cb6fc76b188fcded50a83d866"
   integrity sha512-v/ZHEj9xh82usl8LMR3GarzFY1IrbXJw5L4QfQhokjRV91q+SelFqxQWSep1ucXEZ22+dSTwLFkXeur25sPIbw==
 
-"@typescript-eslint/eslint-plugin@^6.8.0":
+"@typescript-eslint/eslint-plugin@^6.9.0":
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.9.0.tgz#fdb6f3821c0167e3356e9d89c80e8230b2e401f4"
   integrity sha512-lgX7F0azQwRPB7t7WAyeHWVfW1YJ9NIgd9mvGhfQpRY56X6AVf8mwM8Wol+0z4liE7XX3QOt8MN1rUKCfSjRIA==
@@ -2204,7 +2204,7 @@
     semver "^7.5.4"
     ts-api-utils "^1.0.1"
 
-"@typescript-eslint/parser@^6.8.0":
+"@typescript-eslint/parser@^6.9.0":
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-6.9.0.tgz#2b402cadeadd3f211c25820e5433413347b27391"
   integrity sha512-GZmjMh4AJ/5gaH4XF2eXA8tMnHWP+Pm1mjQR2QN4Iz+j/zO04b9TOvJYOX2sCNIQHtRStKTxRY1FX7LhpJT4Gw==
@@ -4476,10 +4476,10 @@ eslint-plugin-vitest@^0.3.8:
   dependencies:
     "@typescript-eslint/utils" "^6.7.5"
 
-eslint-plugin-vue@^9.17.0:
-  version "9.17.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-9.17.0.tgz#4501547373f246547083482838b4c8f4b28e5932"
-  integrity sha512-r7Bp79pxQk9I5XDP0k2dpUC7Ots3OSWgvGZNu3BxmKK6Zg7NgVtcOB6OCna5Kb9oQwJPl5hq183WD0SY5tZtIQ==
+eslint-plugin-vue@^9.18.0:
+  version "9.18.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-9.18.1.tgz#73cf29df7450ce5913296465f8d1dc545344920c"
+  integrity sha512-7hZFlrEgg9NIzuVik2I9xSnJA5RsmOfueYgsUGUokEDLJ1LHtxO0Pl4duje1BriZ/jDWb+44tcIlC3yi0tdlZg==
   dependencies:
     "@eslint-community/eslint-utils" "^4.4.0"
     natural-compare "^1.4.0"
@@ -6157,10 +6157,20 @@ json5@^2.1.2, json5@^2.2.3:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
-jsonc-eslint-parser@^2.0.4, jsonc-eslint-parser@^2.3.0:
+jsonc-eslint-parser@^2.0.4:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/jsonc-eslint-parser/-/jsonc-eslint-parser-2.3.0.tgz#7c2de97d01bff7227cbef2f25d1025d42a36198b"
   integrity sha512-9xZPKVYp9DxnM3sd1yAsh/d59iIaswDkai8oTxbursfKYbg/ibjX0IzFt35+VZ8iEW453TVTXztnRvYUQlAfUQ==
+  dependencies:
+    acorn "^8.5.0"
+    eslint-visitor-keys "^3.0.0"
+    espree "^9.0.0"
+    semver "^7.3.5"
+
+jsonc-eslint-parser@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jsonc-eslint-parser/-/jsonc-eslint-parser-2.4.0.tgz#74ded53f9d716e8d0671bd167bf5391f452d5461"
+  integrity sha512-WYDyuc/uFcGp6YtM2H0uKmUwieOuzeE/5YocFJLnLfclZ4inf3mRn8ZVy1s7Hxji7Jxm6Ss8gqpexD/GlKoGgg==
   dependencies:
     acorn "^8.5.0"
     eslint-visitor-keys "^3.0.0"
