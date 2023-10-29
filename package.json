@@ -7,7 +7,6 @@
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate || true && nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -33,6 +32,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.29",
     "@iconify/json": "2.2.134",
+    "@nuxt-themes/typography": "^1.0.1",
     "@nuxt/devtools": "1.0.0",
     "@nuxthq/studio": "1.0.2",
     "@nuxthq/ui": "2.7.0",

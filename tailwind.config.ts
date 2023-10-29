@@ -5,7 +5,9 @@ export default {
   safelist: [
     // Theme text colors
     ...Object.values(ColorsTheme).map(color => `text-${color}-500`),
+    ...Object.values(ColorsTheme).map(color => `!text-${color}-500`),
     ...Object.values(ColorsTheme).map(color => `hover:text-${color}-500`),
+    ...Object.values(ColorsTheme).map(color => `group-hover:text-${color}-500`),
     ...'bg-black dark:bg-white dark:text-black text-white'.split(' '),
 
     // Theme background colors
@@ -18,11 +20,4 @@ export default {
     ...Object.values(ColorsTheme).map(color => `hover:border-${color}-500`),
     ...'border-black dark:border-white'.split(' '),
   ],
-  theme: {
-    extend: {
-      boxShadow: {
-        card: '0 0 10px 1px rgba(0,0,0,.1)',
-      },
-    },
-  },
 } satisfies Partial<Config>

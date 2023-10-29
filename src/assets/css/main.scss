@@ -2,7 +2,3 @@ body {
   font-family: 'DM Sans', sans-serif;
   @apply flex h-full flex-col bg-zinc-50 dark:bg-black;
 }
-
-.router-link-exact-active {
-  @apply bg-white/60 dark:bg-black
-}

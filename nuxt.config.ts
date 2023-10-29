@@ -1,4 +1,6 @@
 export default defineNuxtConfig({
+  extends: ['@nuxt-themes/typography'],
+
   srcDir: 'src',
 
   build: {

@@ -30,8 +30,8 @@ So I installed my first development environment and started with very small proj
 ## 2. And the web in all this?
 
 It was much later that I became aware of the vastness of the web domain. As I got interested in this new field, I learned new programming languages: **JavaScript**, **HTML**, and **CSS**.
-These languages were much easier to learn because I had a good foundation in programming. I trained as much in `Front` as in` Back` development.
-The `Front` results in the interface of the application being visible to a user and the` Back` the part invisible and inaccessible to a user.
+These languages were much easier to learn because I had a good foundation in programming. I trained as much in `Front` as in `Back` development.
+The `Front` results in the interface of the application being visible to a user and the `Back` the part invisible and inaccessible to a user.
 
 ## 3. What training did I take?
 

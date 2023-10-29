@@ -10,9 +10,6 @@ export default defineAppConfig({
       padding: 'px-4 sm:px-6 lg:px-8',
       constrained: 'max-w-7xl',
     },
-    card: {
-      background: 'bg-white dark:bg-zinc-900',
-    },
     dropdown: {
       background: 'bg-white dark:bg-zinc-800',
       item: {

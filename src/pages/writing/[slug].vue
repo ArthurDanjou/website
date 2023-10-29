@@ -85,8 +85,7 @@ async function handleLike() {
             </div>
             <ClientOnly>
               <ContentRenderer
-                class="mt-12 prose leading-6 prose-table:w-full md:prose-table:w-3/4 lg:prose-table:w-2/5 max-w-none
-                 dark:prose dark:prose-invert dark:leading-6 dark:max-w-none dark:prose-table:w-full dark:md:prose-table:w-3/4 dark:lg:prose-table:w-2/5"
+                class="mt-12"
                 :value="postContent"
               />
               <template #fallback>

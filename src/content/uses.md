@@ -17,7 +17,7 @@
   :::
 
   :::grid-slot{title="Phone, Sound & Other"}
-    I have the Iphone 14 Pro. For my studies, I use the Ipad Air 64Go Space Gray with the AirPods Pro or the Jabra Elite 85th.
+    I have the Iphone 14 Pro. For my studies, I use the Ipad Air 64Go Space Gray with the AirPods Pro or the Jabra Elite 85h.
   :::
 
 ::
