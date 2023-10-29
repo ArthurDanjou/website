@@ -45,7 +45,7 @@ const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replac
         <MainSection v-else icon="i-ph-pencil-line-bold" :title="latestArticle?.title">
           <div>
             <h3>{{ latestArticle.description }}</h3>
-            <div class="text-sm italic">
+            <div class="text-xs italic">
               {{ format(latestArticle.publishedAt) }} — {{ latestArticle.readingMins }} min.
             </div>
           </div>
@@ -77,13 +77,13 @@ const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replac
         </MainSection>
       </div>
       <div class="md:w-1/2 gap-8 flex flex-col">
-        <MainSection icon="i-ph-person-arms-spread-bold" title="My environment">
+        <MainSection icon="i-ph-tree-evergreen-bold" title="My environment">
           <p>
             My uses page provides insights into the software, hardware, and favorite tech stack I use for software development, gaming, work, and learning. It's a comprehensive list of my preferred tools and resources.
           </p>
           <template #footer>
             <UButton
-              label="Move on"
+              label="Explore my setup"
               icon="i-ph-arrow-up-right-bold"
               trailing
               block
@@ -92,7 +92,7 @@ const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replac
             />
           </template>
         </MainSection>
-        <MainSection icon="i-ph-person-arms-spread-bold" title="Discover more about me">
+        <MainSection icon="i-ph-book-bookmark-bold" title="My bookmarks">
           Bookmarks
           <template #footer>
             <UButton
