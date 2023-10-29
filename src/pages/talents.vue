@@ -9,7 +9,9 @@ const { getCategories, talents, isFavorite, toggleFavorite, switchCategory, pend
 getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
 const appConfig = useAppConfig()
-const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
+function getColor() {
+  return `text-${appConfig.ui.primary}-500`
+}
 </script>
 
 <template>
@@ -120,7 +122,7 @@ const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
               {{ category.category.name }}
             </UBadge>
           </div>
-          <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor">
+          <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
             <span class="ml-2">{{ talent.website.replace('https://', '') }}</span>
           </p>
