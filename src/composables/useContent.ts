@@ -1,19 +1,8 @@
-import type { Education, JsonParsedContent, Post, Project, Skill, WorkExperience } from '../../types'
+import type { Education, JsonParsedContent, Post, Project, Skill, WorkExperience } from '~~/types'
 
 export function useProjects() {
   return useAsyncData('content:projects', () => {
     return queryContent<Project>('projects').find()
-  })
-}
-
-export function useLatestProject() {
-  return useAsyncData('content:latestProject', () => {
-    return queryContent<Project>('projects')
-      .where({
-        latest: true,
-      })
-      .limit(1)
-      .findOne()
   })
 }
 
@@ -47,14 +36,5 @@ export function usePosts() {
     return posts.sort((a, b) => {
       return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     })
-  })
-}
-
-export function useLatestPost() {
-  return useAsyncData('content:latestPost', async () => {
-    const posts = await queryContent<Post>('writing').find()
-    return posts.sort((a, b) => {
-      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    })[0]
   })
 }
