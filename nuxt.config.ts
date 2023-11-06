@@ -1,6 +1,4 @@
 export default defineNuxtConfig({
-  extends: ['@nuxt-themes/typography'],
-
   srcDir: 'src',
 
   build: {
@@ -14,12 +12,12 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
     '@nuxthq/studio',
-    '@nuxthq/ui',
+    '@nuxt/content',
+    '@nuxt/ui',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/devtools',
     '@vueuse/nuxt',
-    '@nuxt/content',
     'nuxt-icon',
   ],
 
@@ -35,6 +33,12 @@ export default defineNuxtConfig({
     'components/header',
     'components/resume',
   ],
+
+  content: {
+    highlight: {
+      theme: 'github-dark',
+    },
+  },
 
   ui: {
     icons: 'all',
