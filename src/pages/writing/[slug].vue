@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 import type { Post } from '~~/types'
 
+const appConfig = useAppConfig()
+
 const route = useRoute()
-const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, async () => await queryContent<Post>(`/writing/${route.params.slug}`).findOne())
+const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, () => queryContent<Post>(`/writing/${route.params.slug}`).findOne())
 
 if (!postContent.value) {
   throw showError({
@@ -85,7 +87,8 @@ async function handleLike() {
             </div>
             <ClientOnly>
               <ContentRenderer
-                class="mt-12"
+                class="mt-12 prose dark:prose-invert max-w-none"
+                :class="`prose-${appConfig.ui.primary}`"
                 :value="postContent"
               />
               <template #fallback>
@@ -98,6 +101,7 @@ async function handleLike() {
               </template>
             </ClientOnly>
             <footer class="my-8 space-y-8">
+              <UDivider />
               <p class="text-subtitle">
                 Thanks for reading this post! If you liked it, please consider sharing it with your friends. <strong>Don't forget to leave a like!</strong>
               </p>
