@@ -87,7 +87,7 @@ async function handleLike() {
             </div>
             <ClientOnly>
               <ContentRenderer
-                class="mt-12 prose dark:prose-invert max-w-none"
+                class="mt-12 prose dark:prose-invert max-w-none prose-style"
                 :class="`prose-${appConfig.ui.primary}`"
                 :value="postContent"
               />
@@ -160,3 +160,9 @@ async function handleLike() {
     </div>
   </section>
 </template>
+
+<style lang="scss">
+.prose-style {
+  @apply prose-a:no-underline
+}
+</style>

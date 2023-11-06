@@ -8,6 +8,8 @@ export default {
   ],
   safelist: [
     ...Object.values(ColorsTheme).map(color => `prose-${color}`),
+    ...Object.values(ColorsTheme).map(color => `hover:border-${color}-500`),
+    ...Object.values(ColorsTheme).map(color => `dark:hover:border-${color}-500`),
   ],
   plugins: [
     typography(),
