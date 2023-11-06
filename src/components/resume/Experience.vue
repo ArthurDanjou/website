@@ -20,6 +20,7 @@ defineProps({
           :padded="false"
           color="white"
           size="xl"
+          target="_blank"
           :label="experience.company"
           class="my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
         >
