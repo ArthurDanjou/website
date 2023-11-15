@@ -69,7 +69,7 @@
   :::
 
   :::grid-slot{title="BackEnd"}
-    On the other hand, I use Prisma (ORM) or AdonisJs v5 (for more complexes apps), TRPC.io and Vercel (Hosting + DB)
+    On the other hand, I use Prisma (ORM) or AdonisJs v5 (for more complex apps), TRPC.io and Vercel (Hosting + DB)
   :::
 
 ::
