@@ -5,3 +5,9 @@ description: 'I am currently in a decisive year of my life where I have to choos
 publishedAt: '11/15/2023'
 readingMins: 7
 ---
+
+## My license
+
+## My hobbies and passions
+
+## My future
