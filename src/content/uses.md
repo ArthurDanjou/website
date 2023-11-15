@@ -1,7 +1,7 @@
 ::grid-section{title="Computers"}
 
   :::grid-slot{title="MacBook Pro 13'"}
-    My main programing computer is a MacBook Pro 13' 2020 with the Apple M1 Chip and 16Go Ram. I use MacOS Sorona.
+    My main programming computer is a MacBook Pro 13' 2020 with the Apple M1 Chip and 16Go Ram. I use MacOS Sorona.
   :::
 
   :::grid-slot{title="Custom Built Gaming PC"}
@@ -13,11 +13,11 @@
 ::grid-section{title="Peripherals"}
 
   :::grid-slot{title="Gaming"}
-    For the gaming, I use the SteelSeris Apex 9 Tkl with the Logitech G203 LightSync Black.
+    For the gaming, I use the SteelSeries Apex 9 Tkl with the Logitech G203 LightSync Black.
   :::
 
   :::grid-slot{title="Phone, Sound & Other"}
-    I have the Iphone 14 Pro. For my studies, I use the Ipad Air 64Go Space Gray with the AirPods Pro or the Jabra Elite 85h.
+    I have the Iphone 14 Pro. For my studies, I use the iPad Air 64Go Space Gray with the AirPods Pro or the Jabra Elite 85h.
   :::
 
 ::
@@ -25,7 +25,7 @@
 ::grid-section{title="Editors & Terminal"}
 
   :::grid-slot{title="Visual Studio Code & Co"}
-    VSCode has been my main editor for 2 years now and is my favorite one. I also use the Jetbrains Toolbox 
+    VSCode has been my main editor for 2 years now and is my favorite one. I also use the JetBrains Toolbox 
   :::
 
   :::grid-slot{title="Warp"}
@@ -33,7 +33,7 @@
   :::
 
   :::grid-slot{title="Theme & Font"}
-    My font
+    My theme is One Hunter Theme, a theme inspired by Vercel Theme and One Dark Pro. My main fonts are Vercel Geist and JetBrains Mono
   :::
 
 ::
@@ -41,15 +41,15 @@
 ::grid-section{title="Software and Applications"}
 
   :::grid-slot{title="Apple Apps"}
-    I'm using the Apple Suite including Mail, Calendar, Music and Reminders for my daily organisation.
+    I'm using the Apple Suite including Mail, Calendar, Music and Reminders for my daily organization.
   :::
 
   :::grid-slot{title="Notion"}
-    Notion is my all-in-one note taking, kanban boards, wikis, and draft noetebook.
+    Notion is my all-in-one note-taking, kanban boards, wikis, and draft notebook.
   :::
   
   :::grid-slot{title="Google Chrome"}
-    I'm using Google Chrome for browsing, the devtool and the extension market.
+    I'm using Google Chrome for browsing, the dev tool and the extension market.
   :::
 
   :::grid-slot{title="Discord"}
@@ -65,11 +65,11 @@
 ::grid-section{title="Favorite Stack"}
 
   :::grid-slot{title="FrontEnd"}
-    TypeScript, Vue 3 with Nuxt 3, TailwindCss and Nuxt UI
+    I mainly use TypeScript, Vue 3 with Nuxt 3, TailwindCss and Nuxt UI for the FrontEnd.
   :::
 
   :::grid-slot{title="BackEnd"}
-    Prisma (ORM), AdonisJs v5 (Complex apps), TRPC.io, Vercel (Hosting + DB)
+    On the other hand, I use Prisma (ORM) or AdonisJs v5 (for more complexes apps), TRPC.io and Vercel (Hosting + DB)
   :::
 
 ::
