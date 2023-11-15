@@ -2,7 +2,7 @@
 slug: how-i-start
 title: 'How do I start programming?'
 description: 'Description de test'
-publishedAt: '01/02/2023'
+publishedAt: '01/09/2021'
 readingMins: 5
 ---
 
