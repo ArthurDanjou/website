@@ -16,7 +16,7 @@
     "@nuxt/image": "1.0.0",
     "@nuxt/ui": "^2.10.0",
     "@pinia/nuxt": "0.5.1",
-    "@prisma/client": "5.5.2",
+    "@prisma/client": "^5.6.0",
     "@tresjs/nuxt": "^1.2.2",
     "@trpc/client": "10.43.3",
     "@trpc/server": "10.43.3",
@@ -44,7 +44,7 @@
     "eslint": "8.53.0",
     "nuxt": "3.8.1",
     "nuxt-icon": "0.5.0",
-    "prisma": "5.5.2",
+    "prisma": "^5.6.0",
     "typescript": "5.2.2"
   }
 }
