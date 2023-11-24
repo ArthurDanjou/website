@@ -13,7 +13,9 @@ const { data: experiences } = await useWorkExperiences()
     <div class="px-4 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <div class="lg:pl-20">
         <div class="max-w-xs px-2.5 lg:max-w-none">
-          <NuxtImg src="/about.jpg" class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" placeholder />
+          <UTooltip text="It's me 👋" :popper="{ offsetDistance: 20 }">
+            <NuxtImg src="/about.jpg" class="border dark:border-0 aspect-square rotate-3 hover:rotate-0 duration-300 rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800" placeholder />
+          </UTooltip>
         </div>
       </div>
       <div class="lg:order-first lg:row-span-2">
