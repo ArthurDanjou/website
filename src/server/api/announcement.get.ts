@@ -1,5 +1,5 @@
-export default defineEventHandler(() => {
-  return usePrisma().announcement.findFirst({
+export default defineEventHandler(async () => {
+  return await usePrisma().announcement.findFirst({
     orderBy: {
       createdAt: 'desc',
     },
