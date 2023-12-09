@@ -8,7 +8,11 @@ export default defineEventHandler(async (event) => {
     where: {
       slug,
     },
-    update: {},
+    update: {
+      views: {
+        increment: 1,
+      },
+    },
     create: {
       slug,
     },

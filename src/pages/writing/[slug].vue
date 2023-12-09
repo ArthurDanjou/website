@@ -1,10 +1,30 @@
 <script lang="ts" setup>
+import type { Post as PrismaPost } from '@prisma/client'
 import type { Post } from '~~/types'
 
 const appConfig = useAppConfig()
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, () => queryContent<Post>(`/writing/${route.params.slug}`).findOne())
+const {
+  data: post,
+} = await useFetch<PrismaPost>('/api/article', {
+  method: 'post',
+  body: {
+    slug: route.params.slug.toString(),
+  },
+})
+
+const likes = ref(post.value?.likes)
+async function like() {
+  const data = await $fetch<PrismaPost>('/api/like', {
+    method: 'PUT',
+    body: {
+      slug: post.value?.slug,
+    },
+  })
+  likes.value = data.likes
+}
 
 if (!postContent.value) {
   throw showError({
@@ -13,10 +33,7 @@ if (!postContent.value) {
   })
 }
 
-const { post, view, like, likes, views } = await usePost(route.params.slug.toString())
 const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replaceAll('"', '')
-onMounted(() => view())
-
 useHead({
   title: `${postContent.value?.title} • Arthur Danjou's shelf`,
 })
@@ -36,10 +53,6 @@ const { copy, copied } = useClipboard({
 
 const likeCookie = useCookie<boolean>(`post:like:${postContent.value.slug}`, {
   maxAge: 604_800,
-})
-
-const isLiked = computed(() => {
-  return likeCookie.value === true
 })
 
 async function handleLike() {
@@ -72,7 +85,7 @@ async function handleLike() {
                   <span>•</span>
                   <div>{{ postContent.readingMins }} min</div>
                   <span>•</span>
-                  <div>{{ views }} {{ views > 1 ? 'views' : 'view' }}</div>
+                  <div>{{ post.views }} {{ post.views > 1 ? 'views' : 'view' }}</div>
                 </div>
               </time>
               <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -107,15 +120,7 @@ async function handleLike() {
               </p>
               <div class="flex gap-4 flex-wrap">
                 <UButton
-                  v-if="isLiked"
-                  :label="`${likes} ${likes > 1 ? 'likes' : 'like'}`"
-                  icon="i-ph-heart-bold"
-                  size="lg"
-                  variant="solid"
-                />
-                <UButton
-                  v-else
-                  :label="`${likes} ${likes > 1 ? 'likes' : 'like'}`"
+                  :label="`${likes} ${likes! > 1 ? 'likes' : 'like'}`"
                   icon="i-ph-heart-bold"
                   size="lg"
                   variant="soft"

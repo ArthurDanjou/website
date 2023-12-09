@@ -9,13 +9,13 @@ export default defineEventHandler(async (event) => {
   const { user } = await requireUserSession(event)
   return await usePrisma().suggestion.upsert({
     where: {
-      author: user.email,
+      email: user.email,
     },
     update: {
       content,
     },
     create: {
-      author: user.email,
+      email: user.email,
       content,
     },
   })

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { Category, Suggestion, Talent } from '@prisma/client'
 import { useTalentsStore } from '~/store/talents'
 import { providers } from '~~/types'
 
@@ -13,7 +14,7 @@ const { loggedIn, clear } = useUserSession()
 const {
   data: talents,
   pending,
-} = await useFetch('/api/talents', {
+} = await useFetch<Array<Talent>>('/api/talents', {
   method: 'get',
   query: {
     favorite: isFavorite,
@@ -28,9 +29,8 @@ function isCategory(category: string) {
 
 const {
   data: getCategories,
-} = await useFetch('/api/categories', { method: 'GET' })
-
-getCategories.value?.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug }))
+} = await useFetch<Array<Category>>('/api/categories', { method: 'GET' })
+getCategories.value!.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug }))
 
 const appConfig = useAppConfig()
 function getColor() {
@@ -43,7 +43,7 @@ async function suggest() {
   if (suggestContent.value.trim().length < 4)
     return
 
-  await $fetch('/api/suggestion', {
+  await $fetch<Suggestion>('/api/suggestion', {
     method: 'post',
     body: {
       content: suggestContent.value,

@@ -36,9 +36,9 @@ const navs = [
     icon: 'i-ph-shooting-star-bold',
   },
   {
-    label: 'Bookmarks',
-    to: '/bookmarks',
-    icon: 'i-ph-bookmarks-bold',
+    label: 'Guestbook',
+    to: '/guestbook',
+    icon: 'i-material-symbols-book-2-outline',
   },
   {
     label: 'Contact',

@@ -1,4 +1,3 @@
-import exp from 'node:constants'
 import type { MarkdownParsedContent, ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 export enum ColorsTheme {
