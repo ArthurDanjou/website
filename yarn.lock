@@ -20,10 +20,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@antfu/eslint-config@2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@antfu/eslint-config/-/eslint-config-2.4.2.tgz#d2d81d164cb1e477c619ef8024c06efd3305992d"
-  integrity sha512-19l69ER3GS0yHHTS65tRkuawJKndeGv9wmr5wYV3QNmzBXQeXsmt8CW7hUC1qfQ1eb1nLn/zMa+krqIWqdclbw==
+"@antfu/eslint-config@2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@antfu/eslint-config/-/eslint-config-2.4.3.tgz#662ba45c1caae70861a247501ad47290369f7e98"
+  integrity sha512-DUMNwxPHxC0To63h7Z3bII41HqBUd+5iL0woubgjhhxJlZ0YRevOLHiSVGOifuivknwPW2nweF//8+BfoQCLjg==
   dependencies:
     "@antfu/eslint-define-config" "^1.23.0-2"
     "@antfu/install-pkg" "^0.3.1"
@@ -973,10 +973,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify/json@2.2.153":
-  version "2.2.153"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.2.153.tgz#f213187ecd8cf8e5a4fbe9b473186f2984164b8c"
-  integrity sha512-aGX9jwdUHpH0Iqr2k5d+eRdheklsloSrnvpdgkOWZOmgNaSP5JqkuTsOgSOwZySqotFbDqZK8Il7ezMj1vCFJQ==
+"@iconify/json@2.2.154":
+  version "2.2.154"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.2.154.tgz#a8ef602225cff2a757c28c64bd203cd267f6bd5f"
+  integrity sha512-AafpksywlG0N1vYny+Jjdi79j0URy5HQFCnOcjcr+H24OS1nDZU4udfyQZ1rQsLqzpIOYaWOkpDODsCU9SfHcQ==
   dependencies:
     "@iconify/types" "*"
     pathe "^1.1.0"
@@ -2140,16 +2140,6 @@
     lodash.isplainobject "^4.0.6"
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
-
-"@trpc/client@10.44.1":
-  version "10.44.1"
-  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.44.1.tgz#5666f5b81566d2e44802706581d9e6f2b591502e"
-  integrity sha512-vTWsykNcgz1LnwePVl2fKZnhvzP9N3GaaLYPkfGINo314ZOS0OBqe9x0ytB2LLUnRVTAAZ2WoONzARd8nHiqrA==
-
-"@trpc/server@10.44.1":
-  version "10.44.1"
-  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.44.1.tgz#0d089a3cd5d1268aa8f6845a183329fcac7f2fac"
-  integrity sha512-mF7B+K6LjuboX8I1RZgKE5GA/fJhsJ8tKGK2UBt3Bwik7hepEPb4NJgNr7vO6BK5IYwPdBLRLTctRw6XZx0sRg==
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -9559,15 +9549,6 @@ trough@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/trough/-/trough-2.1.0.tgz#0f7b511a4fde65a46f18477ab38849b22c554876"
   integrity sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==
-
-trpc-nuxt@0.10.15:
-  version "0.10.15"
-  resolved "https://registry.yarnpkg.com/trpc-nuxt/-/trpc-nuxt-0.10.15.tgz#8cb8ef6a27cfb85f7d7260a7897a697a0fdf47f6"
-  integrity sha512-jYVZClfJwkLK/OCYtaQN2Nbd3y6ZMhTtCSMj8IZpLDn1n5wVOsY7qckicz5FoNftc9KMFQ/1/8849o6YOR2irw==
-  dependencies:
-    h3 "^1.9.0"
-    ofetch "^1.3.3"
-    ohash "^1.1.3"
 
 ts-api-utils@^1.0.1:
   version "1.0.3"
