@@ -54,7 +54,7 @@ function isRoute(path: string) {
 </script>
 
 <template>
-  <div class="md:hidden">
+  <div class="lg:hidden">
     <div class="p-1 rounded-md bg-black/5 text-sm font-medium text-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-300">
       <UButton
         variant="ghost"
@@ -69,7 +69,7 @@ function isRoute(path: string) {
       <UCard class="flex flex-col flex-1" :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
           <div class="flex justify-between items-center">
-            <div>Logo</div>
+            <Logo />
             <UButton
               size="md"
               icon="i-ic-round-close"

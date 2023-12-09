@@ -29,8 +29,6 @@ model Category {
   createdAt DateTime                @default(now())
   slug      String
   name      String
-  type      CategoryType
-  bookmarks CategoriesOnBookMarks[]
   talents   CategoriesOnTalents[]
 }
 
@@ -56,26 +54,6 @@ model CategoriesOnTalents {
   @@index([categoryId])
 }
 
-model BookMark {
-  id                    Int                     @id @default(autoincrement())
-  createdAd             DateTime                @default(now())
-  name                  String
-  description           String
-  link                  String
-  CategoriesOnBookMarks CategoriesOnBookMarks[]
-}
-
-model CategoriesOnBookMarks {
-  bookmarkId Int
-  categoryId Int
-  bookmark   BookMark @relation(fields: [bookmarkId], references: [id])
-  category   Category @relation(fields: [categoryId], references: [id])
-
-  @@id([bookmarkId, categoryId])
-  @@index([bookmarkId])
-  @@index([categoryId])
-}
-
 model Post {
   id        Int      @id @default(autoincrement())
   slug      String   @unique
@@ -84,15 +62,18 @@ model Post {
   likes     Int      @default(0)
 }
 
+model Suggestion {
+  id        Int          @id @default(autoincrement())
+  author    String       @unique
+  content   String
+  added     Boolean @default(false)
+  createdAt DateTime     @default(now())
+}
+
 model Form {
   id        Int      @id @default(autoincrement())
   name      String
   email     String
   content   String
   createdAt DateTime @default(now())
-}
-
-enum CategoryType {
-  TALENT
-  BOOKMARK
 }

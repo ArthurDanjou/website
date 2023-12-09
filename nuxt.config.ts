@@ -1,24 +1,19 @@
 export default defineNuxtConfig({
   srcDir: 'src',
 
-  build: {
-    transpile: ['trpc-nuxt'],
-  },
-
   css: [
     '@/assets/css/main.scss',
   ],
 
   modules: [
+    '@nuxt/ui',
+    'nuxt-auth-utils',
     '@nuxt/image',
     '@nuxthq/studio',
     '@nuxt/content',
-    '@nuxt/ui',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    '@nuxt/devtools',
     '@vueuse/nuxt',
-    'nuxt-icon',
   ],
 
   colorMode: {

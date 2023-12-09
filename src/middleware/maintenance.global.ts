@@ -1,9 +1,9 @@
 export default defineNuxtRouteMiddleware(async (to) => {
   const isMaintenance = ref<boolean>(true)
-  const { $trpc } = useNuxtApp()
-
   try {
-    isMaintenance.value = await $trpc.maintenance.is.query()
+    await $fetch('/api/maintenance').then((maintenance: any) => {
+      isMaintenance.value = maintenance.enabled
+    })
   }
   catch (error) {
     return navigateTo('/maintenance')

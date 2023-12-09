@@ -15,8 +15,8 @@ const isLight = computed(() => $colorMode.value === 'light')
     class="flex items-center gap-2 rounded-md px-2 py-3 duration-300 md:hover:bg-gray-100 md:dark:hover:bg-neutral-800"
   >
     <div class="flex items-center">
-      <Icon v-if="isLight" :name="skill.icon.light ? skill.icon.light : skill.icon" size="20" />
-      <Icon v-else :name="skill.icon.dark ? skill.icon.dark : skill.icon" size="20" />
+      <UIcon v-if="isLight" :name="skill.icon.light ? skill.icon.light : skill.icon" size="20" dynamic />
+      <UIcon v-else :name="skill.icon.dark ? skill.icon.dark : skill.icon" size="20" dynamic />
     </div>
     <span class="text-sm text-subtitle">{{ skill.name }}</span>
   </li>

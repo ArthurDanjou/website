@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-const { $trpc } = useNuxtApp()
-const announce = await $trpc.announcement.get.query()
+const { data: announce } = await useFetch('/api/announcement')
 
 const appConfig = useAppConfig()
 function getColor() {

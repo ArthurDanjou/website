@@ -7,21 +7,20 @@ export const useTalentsStore = defineStore(
     const currentFavorite = ref<boolean>(false)
 
     const getCategory = computed(() => currentCategory)
-    const isFavorite = computed(() => currentFavorite)
-
-    function setCategory(category: string) {
-      currentCategory.value = category
+    function setCategory(newCategory: string) {
+      currentCategory.value = newCategory
     }
 
-    function setFavorite() {
+    const isFavorite = computed(() => currentFavorite)
+    function toggleFavorite() {
       currentFavorite.value = !currentFavorite.value
     }
 
     return {
       getCategory,
       setCategory,
-      setFavorite,
       isFavorite,
+      toggleFavorite,
     }
   },
   {

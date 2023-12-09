@@ -7,8 +7,7 @@ useHead({
   title: 'Site under maintenance • Arthur Danjou',
 })
 
-const { $trpc } = useNuxtApp()
-const maintenance = await $trpc.maintenance.get.query()
+const { data: maintenance } = await useFetch('/api/maintenance')
 const format = 'DD MMMM YYYY, HH:mm'
 
 const appConfig = useAppConfig()
@@ -47,13 +46,13 @@ const socials = [
       <h1 class="text-4xl md:text-7xl font-bold">
         The website is under maintenance
       </h1>
-      <div v-if="maintenance">
+      <div v-if="maintenance && maintenance.maintenance">
         <p :class="getColor" class="font-bold mb-8 text-xl">
-          {{ maintenance.reason }}
+          {{ maintenance.maintenance.reason }}
         </p>
         <div>
           <p class="text-subtitle italic">
-            Maintenance planned from {{ useDateFormat(maintenance.beginAt, format).value }} to {{ useDateFormat(maintenance.endAt, format).value }}
+            Maintenance planned from {{ useDateFormat(maintenance.maintenance.beginAt, format).value }} to {{ useDateFormat(maintenance.maintenance.endAt, format).value }}
           </p>
         </div>
       </div>

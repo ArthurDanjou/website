@@ -1,10 +1,32 @@
 <script lang="ts" setup>
+import { useTalentsStore } from '~/store/talents'
+
 useHead({
   title: 'Discover new talents • Arthur Danjou',
 })
 
 const categories = ref<Array<{ label: string; slug: string }>>([{ label: 'All', slug: 'all' }])
-const { getCategories, talents, isFavorite, toggleFavorite, switchCategory, pending, isCategory } = await useTalents()
+const { getCategory, setCategory, isFavorite, toggleFavorite } = useTalentsStore()
+
+const {
+  data: talents,
+  pending,
+} = await useFetch('/api/talents', {
+  method: 'get',
+  query: {
+    favorite: isFavorite,
+    category: getCategory,
+  },
+  watch: [isFavorite, getCategory]
+})
+
+function isCategory(category: string) {
+  return getCategory.value === category
+}
+
+const {
+  data: getCategories,
+} = await useFetch('/api/categories', { method: 'GET' })
 
 getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
@@ -28,6 +50,7 @@ function getColor() {
       <div class="mb-6">
         <div class="mb-2 flex items-center gap-2">
           <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
+          <!-- TODO: use suggestions -->
           <h1 class="text-lg font-bold">
             Want to be here ?
           </h1>
@@ -43,21 +66,14 @@ function getColor() {
     <div v-if="getCategories" class="flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <div
-          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
-          :class="{ 'text-gray-900 dark:text-white relative !bg-white dark:!bg-stone-900 rounded-md shadow-sm': isCategory('all') }"
-          @click.prevent="switchCategory('all')"
-        >
-          All
-        </div>
-        <div
-          v-for="category in getCategories"
+          v-for="category in categories"
           :key="category.slug"
           class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
           :class="{ 'text-gray-900 dark:text-white relative !bg-white dark:!bg-stone-900 rounded-md shadow-sm': isCategory(category.slug) }"
-          @click.prevent="switchCategory(category.slug)"
+          @click.prevent="setCategory(category.slug)"
         >
           <p class="w-full">
-            {{ category.name }}
+            {{ category.label }}
           </p>
         </div>
       </div>

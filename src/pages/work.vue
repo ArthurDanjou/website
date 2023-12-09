@@ -31,7 +31,7 @@ const { data: projects } = await useProjects()
           class="group relative flex flex-col justify-between"
         >
           <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-            <Icon :name="project.icon" size="24" />
+            <UIcon :name="project.icon" size="24" dynamic />
           </div>
           <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
             <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />

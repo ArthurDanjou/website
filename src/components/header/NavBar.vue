@@ -6,15 +6,15 @@ const items = [
     to: '/talents',
     icon: 'i-ph-users-bold',
   }, {
-    label: 'Bookmarks',
-    to: '/bookmarks',
-    icon: 'i-ph-bookmark-simple-bold',
+    label: 'Guestbook',
+    to: '/guestbook',
+    icon: 'i-material-symbols-book-2-outline',
   }],
 ]
 </script>
 
 <template>
-  <nav class="hidden md:block z-50">
+  <nav class="hidden lg:block z-50">
     <div class="flex items-center h-10 rounded-md p-1 gap-1 relative bg-black/5 text-sm font-medium text-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-300">
       <UButton to="/" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path === '/' }">
         Home

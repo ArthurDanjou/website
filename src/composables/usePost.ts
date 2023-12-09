@@ -1,23 +1,24 @@
 export async function usePost(slug: string) {
-  const { $trpc } = useNuxtApp()
-
   const {
     data: post,
     refresh: refreshPost,
-  } = await useAsyncData(`blog:post-db:${slug}`, async () => await $trpc.post.createOrUpdate.mutate({
-    slug,
-  }))
+  } = useFetch('/api/article', {
+    method: 'POST',
+    body: {
+      slug,
+    },
+  })
 
-  const likes = ref(post.value!.likes)
+  const likes = ref(post.value?.likes)
   const like = async () => {
-    const data = await $trpc.post.like.mutate({ slug })
-    likes.value = data.likes
+    const { data } = await useFetch('/api/like', { method: 'PUT' })
+    likes.value = data
   }
 
   const views = ref(post.value!.views)
   const view = async () => {
-    const data = await $trpc.post.view.mutate({ slug })
-    views.value = data.views
+    const { data } = await useFetch('/api/view', { method: 'PUT' })
+    likes.value = data
   }
 
   return {
