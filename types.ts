@@ -1,3 +1,4 @@
+import exp from 'node:constants'
 import type { MarkdownParsedContent, ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 export enum ColorsTheme {
@@ -69,3 +70,27 @@ export interface Skill extends ParsedContent {
   }
   color: string
 }
+
+export const providers = [
+  {
+    slug: 'github',
+    label: 'Use Github',
+    icon: 'i-ph-github-logo-bold',
+    link: '/auth/github',
+    color: 'black',
+  },
+  /* {
+    slug: 'twitter',
+    label: 'Use Twitter',
+    icon: 'i-ph-twitter-logo-bold',
+    link: '/auth/twitter',
+    color: 'cyan',
+  }, */
+  {
+    slug: 'google',
+    label: 'Use Google',
+    icon: 'i-ph-google-logo-bold',
+    link: '/auth/google',
+    color: 'red',
+  },
+]

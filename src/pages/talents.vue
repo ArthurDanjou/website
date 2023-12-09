@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import { useTalentsStore } from '~/store/talents'
+import { providers } from '~~/types'
 
 useHead({
   title: 'Discover new talents • Arthur Danjou',
 })
 
-const categories = ref<Array<{ label: string; slug: string }>>([{ label: 'All', slug: 'all' }])
+const categories = ref<Array<{ label: string, slug: string }>>([{ label: 'All', slug: 'all' }])
 const { getCategory, setCategory, isFavorite, toggleFavorite } = useTalentsStore()
+const { loggedIn, clear } = useUserSession()
 
 const {
   data: talents,
@@ -17,7 +19,7 @@ const {
     favorite: isFavorite,
     category: getCategory,
   },
-  watch: [isFavorite, getCategory]
+  watch: [isFavorite, getCategory],
 })
 
 function isCategory(category: string) {
@@ -28,11 +30,37 @@ const {
   data: getCategories,
 } = await useFetch('/api/categories', { method: 'GET' })
 
-getCategories.value?.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
+getCategories.value?.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug }))
 
 const appConfig = useAppConfig()
 function getColor() {
   return `text-${appConfig.ui.primary}-500`
+}
+
+const toast = useToast()
+const suggestContent = ref<string>('')
+async function suggest() {
+  if (suggestContent.value.trim().length < 4)
+    return
+
+  await $fetch('/api/suggestion', {
+    method: 'post',
+    body: {
+      content: suggestContent.value,
+    },
+  }).then((suggestion) => {
+    toast.add({
+      title: `Your suggestion for '${suggestion.content}'' has been successfully added`,
+      icon: 'i-material-symbols-check-circle-outline-rounded',
+      timeout: 4000,
+    })
+  }).catch(() => {
+    toast.add({
+      title: 'You already have suggested someone',
+      color: 'red',
+    })
+  })
+  suggestContent.value = ''
 }
 </script>
 
@@ -59,16 +87,49 @@ function getColor() {
           Are you a web talent? Do you want to promote your project? Do you want to launch your career or gain visibility?
         </p>
       </div>
-      <NuxtLink href="mailto:arthurdanjou@outlook.fr?subject=Join your talents' list">
-        <UButton label="Join the talent's list" color="primary" />
-      </NuxtLink>
+      <div v-if="loggedIn" class="flex items-center justify-between gap-4">
+        <div class="w-full relative flex items-center">
+          <input
+            v-model="suggestContent"
+            type="text"
+            required
+            min="4"
+            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-stone-800"
+            placeholder="Suggest one name"
+          >
+          <UButton
+            class="absolute right-1 top-1 text-gray-900 dark:text-white  rounded-md"
+            label="Send"
+            :disabled="suggestContent.trim().length < 4"
+            variant="soft"
+            @click.prevent="suggest()"
+          />
+        </div>
+        <UButton
+          @click.prevent="clear()"
+        >
+          Logout
+        </UButton>
+      </div>
+      <div v-else class="flex gap-2">
+        <UButton
+          v-for="provider in providers"
+          :key="provider.slug"
+          :label="provider.label"
+          :color="provider.color"
+          variant="solid"
+          :icon="provider.icon"
+          :to="provider.link"
+          external
+        />
+      </div>
     </div>
     <div v-if="getCategories" class="flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <div
           v-for="category in categories"
           :key="category.slug"
-          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
+          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
           :class="{ 'text-gray-900 dark:text-white relative !bg-white dark:!bg-stone-900 rounded-md shadow-sm': isCategory(category.slug) }"
           @click.prevent="setCategory(category.slug)"
         >

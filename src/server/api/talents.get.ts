@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   return await prisma.talent.findMany({
     where: whereClause,
     orderBy: {
-      createdAt: 'desc',
+      name: 'asc',
     },
     include: {
       categories: {

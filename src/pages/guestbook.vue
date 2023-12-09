@@ -1,31 +1,9 @@
 <script lang="ts" setup>
+import { providers } from '~~/types'
+
 useHead({
   title: 'Sign my guestbook • Arthur Danjou',
 })
-
-const providers = [
-  {
-    slug: 'github',
-    label: 'Use Github',
-    icon: 'i-ph-github-logo-bold',
-    link: '/api/auth/github',
-    color: 'black',
-  },
-  {
-    slug: 'twitter',
-    label: 'Use Twitter',
-    icon: 'i-ph-twitter-logo-bold',
-    link: '/api/auth/twitter',
-    color: 'cyan',
-  },
-  {
-    slug: 'google',
-    label: 'Use Google',
-    icon: 'i-ph-google-logo-bold',
-    link: '/api/auth/google',
-    color: 'red',
-  },
-]
 </script>
 
 <template>

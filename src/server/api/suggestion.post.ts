@@ -1,11 +1,22 @@
 import { z } from 'zod'
 
 const SuggestionValidator = z.object({
-  author: z.string().trim(),
   content: z.string(),
 }).parse
 
 export default defineEventHandler(async (event) => {
-  const { author, content } = await getValidatedQuery(event, SuggestionValidator)
+  const { content } = await readValidatedBody(event, SuggestionValidator)
   const { user } = await requireUserSession(event)
+  return await usePrisma().suggestion.upsert({
+    where: {
+      author: user.email,
+    },
+    update: {
+      content,
+    },
+    create: {
+      author: user.email,
+      content,
+    },
+  })
 })

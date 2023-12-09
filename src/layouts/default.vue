@@ -16,5 +16,6 @@ const getColor = computed(() => appConfig.ui.primary)
       <NuxtPage />
       <Footer />
     </main>
+    <UNotifications />
   </div>
 </template>
