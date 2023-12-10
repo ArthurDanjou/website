@@ -11,6 +11,7 @@ export default defineAppConfig({
       constrained: 'max-w-7xl',
     },
     dropdown: {
+      container: 'z-50',
       background: 'bg-white dark:bg-zinc-800',
       item: {
         base: 'duration-300 group flex items-center gap-2 w-full',
@@ -20,7 +21,7 @@ export default defineAppConfig({
       base: 'duration-300 focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75',
     },
     popover: {
-      container: 'z-30',
+      container: 'z-50',
     },
   },
 })
