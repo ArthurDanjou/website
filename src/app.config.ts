@@ -12,7 +12,7 @@ export default defineAppConfig({
     },
     dropdown: {
       container: 'z-50',
-      background: 'bg-white dark:bg-zinc-800',
+      background: 'bg-white dark:bg-zinc-900/90',
       item: {
         base: 'duration-300 group flex items-center gap-2 w-full',
       },

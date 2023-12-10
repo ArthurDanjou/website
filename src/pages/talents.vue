@@ -93,11 +93,11 @@ async function suggest() {
             type="text"
             required
             min="4"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-50 dark:bg-gray-800"
+            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
             placeholder="Suggest one name"
           >
           <UButton
-            class="absolute right-1 top-1 text-gray-900 dark:text-white rounded-md"
+            class="absolute right-1 top-1 rounded-md"
             label="Send"
             :disabled="suggestContent.trim().length < 4"
             variant="solid"
@@ -105,8 +105,8 @@ async function suggest() {
           />
         </div>
         <UButton
-          @click.prevent="clear()"
           variant="outline"
+          @click.prevent="clear()"
         >
           Logout
         </UButton>

@@ -50,11 +50,16 @@ async function sign() {
       </p>
     </div>
     <div class="my-12 flex flex-col rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <div class="flex items-center gap-2 mb-4">
-        <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
-        <h1 class="text-lg font-bold">
-          Want to sign my book ?
-        </h1>
+      <div class="flex flex-col mb-4">
+        <div class="flex items-center gap-2">
+          <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
+          <h1 class="text-lg font-bold">
+            Want to sign my book ?
+          </h1>
+        </div>
+        <p class="font-sm text-subtitle">
+          Enter your message just below to sign the book.
+        </p>
       </div>
       <div v-if="loggedIn" class="flex items-center justify-between gap-4">
         <div class="w-full relative flex items-center">
@@ -64,18 +69,19 @@ async function sign() {
             required
             min="7"
             max="58"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-stone-800"
+            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
             placeholder="Leave a message"
           >
           <UButton
-            class="absolute right-1 top-1 text-gray-900 dark:text-white  rounded-md"
+            class="absolute right-1 top-1 rounded-md"
             label="Send"
             :disabled="messageContent.trim().length < 7 || messageContent.trim().length > 58"
-            variant="soft"
+            variant="solid"
             @click.prevent="sign()"
           />
         </div>
         <UButton
+          variant="outline"
           @click.prevent="clear()"
         >
           Logout
@@ -94,7 +100,6 @@ async function sign() {
         />
       </div>
     </div>
-    {{ user }}
     <div v-if="messages" class="columns-1 md:columns-2 lg:columns-4 gap-8 space-y-8">
       <div
         v-for="message in messages"
