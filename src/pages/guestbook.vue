@@ -1,13 +1,14 @@
 <script lang="ts" setup>
+import type { GuestbookMessage } from '@prisma/client'
 import { providers } from '~~/types'
 
 useHead({
   title: 'Sign my guestbook • Arthur Danjou',
 })
 
-const { loggedIn, clear , user} = useUserSession()
+const { loggedIn, clear, user } = useUserSession()
 
-const { data: messages, refresh } = useFetch('/api/messages', { method: 'get' })
+const { data: messages, refresh } = useFetch<Array<GuestbookMessage>>('/api/messages', { method: 'get' })
 
 const toast = useToast()
 const messageContent = ref<string>('')
@@ -20,12 +21,14 @@ async function sign() {
     body: {
       message: messageContent.value,
     },
-  }).then(() => {
+  }).then(async () => {
     toast.add({
       title: `Thank's for leaving a message!`,
+      description: 'Your can see it at the top of the messages.',
       icon: 'i-material-symbols-check-circle-outline-rounded',
       timeout: 4000,
     })
+    await refresh()
   }).catch(() => {
     toast.add({
       title: 'An error occured when signing the book!',
@@ -33,7 +36,6 @@ async function sign() {
     })
   })
   messageContent.value = ''
-  await refresh()
 }
 </script>
 
