@@ -14,7 +14,7 @@ const { loggedIn, clear } = useUserSession()
 const {
   data: talents,
   pending,
-} = await useFetch<Array<Talent>>('/api/talents', {
+} = await useFetch<Array<Talent & { categories: Array<{ category: Category }> }>>('/api/talents', {
   method: 'get',
   query: {
     favorite: isFavorite,
@@ -190,7 +190,7 @@ async function suggest() {
           <div class="flex gap-2 z-10">
             <UBadge
               v-for="category in talent.categories"
-              :key="`${category.talentId}-${category.categoryId}`"
+              :key="category.category.slug"
               color="primary"
               variant="soft"
               size="xs"

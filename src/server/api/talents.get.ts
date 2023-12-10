@@ -33,7 +33,6 @@ export default defineEventHandler(async (event) => {
     include: {
       categories: {
         include: {
-          talent: true,
           category: true,
         },
         orderBy: {

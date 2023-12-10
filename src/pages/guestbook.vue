@@ -6,7 +6,7 @@ useHead({
   title: 'Sign my guestbook • Arthur Danjou',
 })
 
-const { loggedIn, clear, user } = useUserSession()
+const { loggedIn, clear } = useUserSession()
 
 const { data: messages, refresh } = useFetch<Array<GuestbookMessage>>('/api/messages', { method: 'get' })
 
