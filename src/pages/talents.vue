@@ -78,7 +78,6 @@ async function suggest() {
       <div class="mb-6">
         <div class="mb-2 flex items-center gap-2">
           <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
-          <!-- TODO: use suggestions -->
           <h1 class="text-lg font-bold">
             Want to be here ?
           </h1>
@@ -94,14 +93,14 @@ async function suggest() {
             type="text"
             required
             min="4"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-stone-800"
+            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-50 dark:bg-stone-800"
             placeholder="Suggest one name"
           >
           <UButton
             class="absolute right-1 top-1 text-gray-900 dark:text-white  rounded-md"
             label="Send"
             :disabled="suggestContent.trim().length < 4"
-            variant="soft"
+            variant="outline"
             @click.prevent="suggest()"
           />
         </div>
@@ -118,7 +117,6 @@ async function suggest() {
           :label="provider.label"
           :color="provider.color"
           variant="solid"
-          :icon="provider.icon"
           :to="provider.link"
           external
         />
