@@ -7,7 +7,7 @@
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate",
+    "postinstall": "prisma generate && nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -27,7 +27,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.4.3",
+    "@antfu/eslint-config": "2.4.4",
     "@iconify/json": "2.2.154",
     "@nuxthq/studio": "1.0.5",
     "@pinia-plugin-persistedstate/nuxt": "1.2.0",
