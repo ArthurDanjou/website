@@ -10,7 +10,7 @@ export default oauth.githubEventHandler({
         username: String(user.name).trim(),
       },
     })
-    return sendRedirect(event, '/')
+    return sendRedirect(event, getCookie(event, 'last-route') || '/')
   },
   onError(error: any) {
     console.error('GitHub OAuth error:', error)

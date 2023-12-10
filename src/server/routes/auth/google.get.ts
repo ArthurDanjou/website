@@ -1,7 +1,4 @@
 export default oauth.googleEventHandler({
-  config: {
-    redirectUrl: '/talents',
-  },
   async onSuccess(event: any, { user }: any) {
     await setUserSession(event, {
       user: {
@@ -10,6 +7,9 @@ export default oauth.googleEventHandler({
         username: String(user.name).trim(),
       },
     })
-    return sendRedirect(event, '/')
+    return sendRedirect(event, getCookie(event, 'last-route') || '/')
+  },
+  onError(error: any) {
+    console.error('Google OAuth error:', error)
   },
 })

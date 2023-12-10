@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
+
+const router = useRouter()
+router.afterEach((route) => {
+  useCookie('last-route', { path: '/', default: () => '/' }).value = route.fullPath
+})
 </script>
 
 <template>
