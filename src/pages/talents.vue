@@ -93,19 +93,20 @@ async function suggest() {
             type="text"
             required
             min="4"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-50 dark:bg-stone-800"
+            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-50 dark:bg-gray-800"
             placeholder="Suggest one name"
           >
           <UButton
-            class="absolute right-1 top-1 text-gray-900 dark:text-white  rounded-md"
+            class="absolute right-1 top-1 text-gray-900 dark:text-white rounded-md"
             label="Send"
             :disabled="suggestContent.trim().length < 4"
-            variant="outline"
+            variant="solid"
             @click.prevent="suggest()"
           />
         </div>
         <UButton
           @click.prevent="clear()"
+          variant="outline"
         >
           Logout
         </UButton>
@@ -122,7 +123,7 @@ async function suggest() {
         />
       </div>
     </div>
-    <div v-if="getCategories" class="flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
+    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] pt-2 left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <div
           v-for="category in categories"
@@ -175,7 +176,7 @@ async function suggest() {
                         {{ talent.name }}
                       </h1>
                       <UTooltip v-if="talent.favorite" text="You can set the filter to only show favorites.">
-                        <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold" />
+                        <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold hover:rotate-[143deg] duration-300" />
                       </UTooltip>
                     </div>
                   </NuxtLink>
