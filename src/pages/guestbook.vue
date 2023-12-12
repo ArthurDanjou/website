@@ -6,8 +6,7 @@ useHead({
   title: 'Sign my guestbook • Arthur Danjou',
 })
 
-const { loggedIn, clear } = useUserSession()
-
+const { loggedIn, clear, user } = useUserSession()
 const { data: messages, refresh } = useFetch<Array<GuestbookMessage>>('/api/messages', { method: 'get' })
 
 const toast = useToast()
@@ -36,6 +35,30 @@ async function sign() {
     })
   })
   messageContent.value = ''
+}
+async function deleteMessage(id: number) {
+  if (!user.value.admin)
+    return
+
+  await $fetch('/api/message', {
+    method: 'delete',
+    body: {
+      id,
+    },
+  }).then(async () => {
+    toast.add({
+      title: `Message successfully deleted`,
+      icon: 'i-material-symbols-check-circle-outline-rounded',
+      color: 'green',
+      timeout: 4000,
+    })
+    await refresh()
+  }).catch(() => {
+    toast.add({
+      title: 'An error occured when deleting a message!',
+      color: 'red',
+    })
+  })
 }
 </script>
 
@@ -104,7 +127,7 @@ async function sign() {
       <div
         v-for="message in messages"
         :key="message.id"
-        class="overflow-hidden sm:p-6 px-4 py-5 border border-zinc-100 p-6 dark:border-zinc-700/40 rounded-lg"
+        class="relative overflow-hidden sm:p-6 px-4 py-5 border border-zinc-100 p-6 dark:border-zinc-700/40 rounded-lg"
       >
         <p class="text-sm text-subtitle">
           “{{ message.message }}”
@@ -117,6 +140,16 @@ async function sign() {
             {{ message.username }}
           </p>
         </div>
+        <UButton
+          v-if="user && user.admin"
+          class="absolute top-1 right-1"
+          icon="i-material-symbols-delete-forever-outline-rounded"
+          color="red"
+          variant="ghost"
+          :ui="{ rounded: 'rounded-full' }"
+          size="xs"
+          @click.prevent="deleteMessage(message.id)"
+        />
       </div>
     </div>
     <div v-else class="my-4 text-subtitle">

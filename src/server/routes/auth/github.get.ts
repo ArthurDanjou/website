@@ -8,6 +8,8 @@ export default oauth.githubEventHandler({
         email: user.email,
         picture: user.avatar_url,
         username: String(user.name).trim(),
+        // eslint-disable-next-line node/prefer-global/process
+        admin: user.email === process.env.NUXT_AUTH_ADMIN_EMAIL,
       },
     })
     return sendRedirect(event, getCookie(event, 'last-route') || '/')
