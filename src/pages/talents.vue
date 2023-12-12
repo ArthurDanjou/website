@@ -29,7 +29,7 @@ function isCategory(category: string) {
 
 const {
   data: getCategories,
-} = await useFetch<Array<Category>>('/api/categories', { method: 'GET' })
+} = await useFetch<Array<Category>>('/api/categories', { method: 'GET', query: { type: 'TALENT' } })
 getCategories.value!.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug }))
 
 const appConfig = useAppConfig()
