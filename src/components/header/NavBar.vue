@@ -1,20 +1,7 @@
 <script setup lang="ts">
+import { otherTab } from '~~/types'
+
 const route = useRoute()
-const items = [
-  [{
-    label: 'Talents',
-    to: '/talents',
-    icon: 'i-ph-users-bold',
-  }, {
-    label: 'Guestbook',
-    to: '/guestbook',
-    icon: 'i-material-symbols-book-2-outline',
-  }, {
-    label: 'Bookmarks',
-    to: '/bookmarks',
-    icon: 'i-material-symbols-bookmark-add-outline-rounded',
-  }],
-]
 </script>
 
 <template>
@@ -35,7 +22,7 @@ const items = [
       <UButton to="/uses" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path.includes('/uses') }">
         Uses
       </UButton>
-      <UDropdown mode="hover" :items="items" :popper="{ placement: 'bottom' }">
+      <UDropdown mode="hover" :items="otherTab" :popper="{ placement: 'bottom' }">
         <UButton size="sm" variant="ghost" color="white" class="duration-300">
           Other
         </UButton>

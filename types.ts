@@ -22,6 +22,7 @@ export enum ColorsTheme {
 
 export interface JsonParsedContent<T> extends ParsedContent {
   body: T
+  excerpt: ''
 }
 
 export interface Post extends MarkdownParsedContent {
@@ -93,3 +94,57 @@ export const providers = [
     color: 'red',
   },
 ]
+
+export const otherTab = [
+  [
+    {
+      label: 'Talents',
+      to: '/talents',
+      icon: 'i-ph-users-bold',
+    },
+    {
+      label: 'Guestbook',
+      to: '/guestbook',
+      icon: 'i-material-symbols-book-2-outline',
+    },
+    {
+      label: 'Bookmarks',
+      to: '/bookmarks',
+      icon: 'i-material-symbols-bookmark-add-outline-rounded',
+    },
+  ],
+]
+
+export const navs = [
+  {
+    label: 'Home',
+    to: '/',
+    icon: 'i-ph-house-bold',
+  },
+  {
+    label: 'About',
+    to: '/about',
+    icon: 'i-ph-person-arms-spread-bold',
+  },
+  {
+    label: 'Articles',
+    to: '/writing',
+    icon: 'i-ph-pencil-bold',
+  },
+  {
+    label: 'Projects',
+    to: '/work',
+    icon: 'i-ph-flask-bold',
+  },
+  {
+    label: 'Uses',
+    to: '/uses',
+    icon: 'i-ph-tree-evergreen-bold',
+  },
+  ...otherTab,
+  {
+    label: 'Contact',
+    to: '/contact',
+    icon: 'i-ph-push-pin-bold',
+  },
+].flat()

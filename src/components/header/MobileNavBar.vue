@@ -1,56 +1,10 @@
 <script lang="ts" setup>
+import { navs } from '~~/types'
+
 const isOpen = ref(false)
 
 const router = useRouter()
 router.afterEach(() => isOpen.value = false)
-
-const navs = [
-  {
-    label: 'Home',
-    to: '/',
-    icon: 'i-ph-house-bold',
-  },
-  {
-    label: 'About',
-    to: '/about',
-    icon: 'i-ph-person-arms-spread-bold',
-  },
-  {
-    label: 'Articles',
-    to: '/writing',
-    icon: 'i-ph-pencil-bold',
-  },
-  {
-    label: 'Projects',
-    to: '/work',
-    icon: 'i-ph-flask-bold',
-  },
-  {
-    label: 'Uses',
-    to: '/uses',
-    icon: 'i-ph-tree-evergreen-bold',
-  },
-  {
-    label: 'Talents',
-    to: '/talents',
-    icon: 'i-ph-shooting-star-bold',
-  },
-  {
-    label: 'Guestbook',
-    to: '/guestbook',
-    icon: 'i-material-symbols-book-2-outline',
-  },
-  {
-    label: 'Bookmarks',
-    to: '/bookmarks',
-    icon: 'i-material-symbols-bookmark-add-outline-rounded',
-  },
-  {
-    label: 'Contact',
-    to: '/contact',
-    icon: 'i-ph-push-pin-bold',
-  },
-]
 
 const route = useRoute()
 function isRoute(path: string) {
