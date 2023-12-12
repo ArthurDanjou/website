@@ -24,12 +24,19 @@ model Announcement {
   content   String   @default("")
 }
 
+enum CategoryType {
+  TALENT
+  BOOKMARK
+}
+
 model Category {
-  id        Int                   @id @default(autoincrement())
-  createdAt DateTime              @default(now())
-  slug      String                @default("")
-  name      String                @default("")
-  talents   CategoriesOnTalents[]
+  id                    Int                     @id @default(autoincrement())
+  createdAt             DateTime                @default(now())
+  slug                  String                  @default("")
+  name                  String                  @default("")
+  type                  CategoryType            @default(TALENT)
+  talents               CategoriesOnTalents[]
+  CategoriesOnBookmarks CategoriesOnBookmarks[]
 }
 
 model Talent {
@@ -43,6 +50,16 @@ model Talent {
   categories CategoriesOnTalents[]
 }
 
+model Bookmark {
+  id         Int                     @id @default(autoincrement())
+  createdAt  DateTime                @default(now())
+  name       String                  @unique @default("")
+  website    String                  @default("")
+  content    String                  @default("")
+  favorite   Boolean                 @default(false)
+  categories CategoriesOnBookmarks[]
+}
+
 model CategoriesOnTalents {
   talentId   Int
   categoryId Int
@@ -51,6 +68,17 @@ model CategoriesOnTalents {
 
   @@id([talentId, categoryId])
   @@index([talentId])
+  @@index([categoryId])
+}
+
+model CategoriesOnBookmarks {
+  bookmarkId Int
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  bookmark   Bookmark @relation(fields: [bookmarkId], references: [id])
+
+  @@id([bookmarkId, categoryId])
+  @@index([bookmarkId])
   @@index([categoryId])
 }
 
