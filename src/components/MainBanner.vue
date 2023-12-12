@@ -24,12 +24,12 @@ const socials = [
 </script>
 
 <template>
-  <div class="w-container my-16">
-    <div class="max-w-2xl space-y-8">
-      <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
-        Software engineer and mathematics lover
+  <div class="w-container mt-32 mb-24">
+    <div class="flex items-center flex-col space-y-4">
+      <h1 class="text-center lg:text-6xl sm:text-5xl text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 !leading-tight md:w-2/3">
+        Software engineer, mathematics lover and AI enthusiast
       </h1>
-      <p class="leading-relaxed text-subtitle">
+      <p class="leading-relaxed text-subtitle text-center md:w-2/3 p-2">
         I'm Arthur, a software engineer passionate about artificial intelligence and the cloud but also a mathematics student living in France. I am currently studying mathematics at the Faculty of Sciences of Paris-Saclay.
       </p>
       <div class="flex gap-4">
