@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { Bookmark, Category } from '@prisma/client'
 import { useBookmarksStore } from '~/store/bookmarks'
-import { providers } from '~~/types'
 
 useHead({
   title: 'Discover new talents • Arthur Danjou',
@@ -81,7 +80,7 @@ function getColor() {
       </UPopover>
     </div>
     <div v-if="bookmarks && getCategories" class="mt-8 md:mt-16">
-      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         <div
           v-for="bookmark in bookmarks"
           :key="bookmark.name.toLowerCase().trim()"
