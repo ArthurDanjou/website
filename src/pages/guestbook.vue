@@ -9,6 +9,8 @@ useHead({
 const { loggedIn, clear, user } = useUserSession()
 const { data: messages, refresh } = useFetch<Array<GuestbookMessage>>('/api/messages', { method: 'get' })
 
+const isOpen = ref(false)
+
 const toast = useToast()
 const messageContent = ref<string>('')
 async function sign() {
@@ -40,6 +42,7 @@ async function deleteMessage(id: number) {
   if (!user.value.admin)
     return
 
+  isOpen.value = false
   await $fetch('/api/message', {
     method: 'delete',
     body: {
@@ -63,7 +66,7 @@ async function deleteMessage(id: number) {
 </script>
 
 <template>
-  <section class="w-container lg:my-24 my-16">
+  <section class="w-container lg:mt-24 my-8">
     <div class="max-w-2xl space-y-8 mb-16">
       <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
         You want to leave a message ?
@@ -72,57 +75,62 @@ async function deleteMessage(id: number) {
         Your opinion means a lot to me. Feel free to share your impressions of my projects, explore my site, or simply leave a personalised message. Your comments are a source of inspiration and continuous improvement. Thank you for taking the time to contribute to this virtual community. I look forward to reading what you have to share!
       </p>
     </div>
-    <div class="my-12 flex flex-col rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <div class="flex flex-col mb-4">
-        <div class="flex items-center gap-2">
-          <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
-          <h1 class="text-lg font-bold">
-            Want to sign my book ?
-          </h1>
+    <UButton class="mb-8" label="Want to sign my book ?" icon="i-ph-circle-wavy-question-bold" @click.prevent="isOpen = true" />
+    <UModal v-model="isOpen">
+      <UCard>
+        <template #header>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
+              <h1 class="text-md font-bold">
+                Enter just below your message to sign my book
+              </h1>
+            </div>
+            <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />
+          </div>
+        </template>
+        <div>
+          <div v-if="loggedIn" class="flex items-center justify-between gap-4">
+            <div class="w-full relative flex items-center">
+              <input
+                v-model="messageContent"
+                type="text"
+                required
+                min="7"
+                max="58"
+                class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
+                placeholder="Leave a message"
+              >
+              <UButton
+                class="absolute right-1 top-1 rounded-md"
+                label="Send"
+                :disabled="messageContent.trim().length < 7 || messageContent.trim().length > 58"
+                variant="solid"
+                @click.prevent="sign()"
+              />
+            </div>
+            <UButton
+              variant="outline"
+              @click.prevent="clear()"
+            >
+              Logout
+            </UButton>
+          </div>
+          <div v-else class="flex gap-2">
+            <UButton
+              v-for="provider in providers"
+              :key="provider.slug"
+              :label="provider.label"
+              :color="provider.color"
+              variant="solid"
+              :icon="provider.icon"
+              :to="provider.link"
+              external
+            />
+          </div>
         </div>
-        <p class="font-sm text-subtitle">
-          Enter your message just below to sign the book.
-        </p>
-      </div>
-      <div v-if="loggedIn" class="flex items-center justify-between gap-4">
-        <div class="w-full relative flex items-center">
-          <input
-            v-model="messageContent"
-            type="text"
-            required
-            min="7"
-            max="58"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
-            placeholder="Leave a message"
-          >
-          <UButton
-            class="absolute right-1 top-1 rounded-md"
-            label="Send"
-            :disabled="messageContent.trim().length < 7 || messageContent.trim().length > 58"
-            variant="solid"
-            @click.prevent="sign()"
-          />
-        </div>
-        <UButton
-          variant="outline"
-          @click.prevent="clear()"
-        >
-          Logout
-        </UButton>
-      </div>
-      <div v-else class="flex gap-2">
-        <UButton
-          v-for="provider in providers"
-          :key="provider.slug"
-          :label="provider.label"
-          :color="provider.color"
-          variant="solid"
-          :icon="provider.icon"
-          :to="provider.link"
-          external
-        />
-      </div>
-    </div>
+      </UCard>
+    </UModal>
     <div v-if="messages" class="columns-1 md:columns-2 lg:columns-4 gap-8 space-y-8">
       <div
         v-for="message in messages"
