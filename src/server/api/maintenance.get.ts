@@ -5,6 +5,7 @@ export default defineEventHandler(async () => {
     },
     cacheStrategy: {
       ttl: 60 * 60 * 24,
+      swr: 60 * 5,
     },
   })
   let enabled = true
