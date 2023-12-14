@@ -54,7 +54,6 @@ model Bookmark {
   createdAt  DateTime                @default(now())
   name       String                  @unique @default("")
   website    String                  @default("")
-  content    String                  @default("")
   favorite   Boolean                 @default(false)
   categories CategoriesOnBookmarks[]
 }
