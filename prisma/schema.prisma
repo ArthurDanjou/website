@@ -1,12 +1,11 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["postgresqlExtensions"]
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider     = "mysql"
+  url          = env("PRISMA_URL")
+  relationMode = "prisma"
 }
 
 model Maintenance {
@@ -30,13 +29,13 @@ enum CategoryType {
 }
 
 model Category {
-  id                    Int                     @id @default(autoincrement())
-  createdAt             DateTime                @default(now())
-  slug                  String                  @default("")
-  name                  String                  @default("")
-  type                  CategoryType            @default(TALENT)
-  talents               CategoriesOnTalents[]
-  CategoriesOnBookmarks CategoriesOnBookmarks[]
+  id        Int                     @id @default(autoincrement())
+  createdAt DateTime                @default(now())
+  slug      String                  @default("")
+  name      String                  @default("")
+  type      CategoryType            @default(TALENT)
+  talents   CategoriesOnTalents[]
+  bookmarks CategoriesOnBookmarks[]
 }
 
 model Talent {
@@ -96,6 +95,7 @@ model Suggestion {
   content   String   @default("")
   added     Boolean  @default(false)
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Form {
@@ -104,6 +104,7 @@ model Form {
   email     String   @default("")
   content   String   @default("")
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model GuestbookMessage {
