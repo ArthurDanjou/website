@@ -6,7 +6,7 @@ useHead({
   title: 'My Shelf • Arthur Danjou',
 })
 
-const { data: posts } = await usePosts()
+const { data: posts } = await getPosts()
 const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replaceAll('"', '')
 </script>
 
