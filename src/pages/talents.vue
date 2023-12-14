@@ -28,13 +28,18 @@ const {
 } = await useFetch<Array<Category>>('/api/categories', { method: 'GET', query: { type: 'TALENT' } })
 getCategories.value!.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug, id: category.id }))
 
-const selected = computed({
-  get() {
-    return categories.value.find(category => getCategory.value === category.slug)?.id || categories.value[0].id
-  },
-  set(value) {
-    setCategory(categories.value.find(category => category.id === value)?.slug || categories.value[0].slug)
-  },
+function isCategory(slug: string) {
+  return getCategory.value === slug
+}
+
+const getMarkerStyle = computed(() => {
+  const selected = window.document.getElementById(categories.value.find(category => category.slug === getCategory.value)?.slug || 'all')
+  return {
+    top: `${selected?.offsetTop}px` || '0px',
+    left: `${selected?.offsetLeft === 12 ? 4 : selected?.offsetLeft}px` || '4px',
+    height: `${selected?.offsetHeight}px` || '0px',
+    width: `${selected?.offsetWidth}px` || '0px',
+  }
 })
 
 const appConfig = useAppConfig()
@@ -129,14 +134,28 @@ async function suggest() {
       </div>
     </div>
     <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40">
-      <UTabs v-model="selected" :items="categories">
-        <template #default="{ item, selected }">
-          <div class="flex items-center gap-2 relative truncate">
-            <span class="truncate">{{ item.label }}</span>
-            <span v-if="selected" class="absolute -right-4 w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400" />
+      <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
+        <ClientOnly>
+          <div
+            class="absolute duration-300 left-1 ease-out focus:outline-none"
+            :style="[getMarkerStyle]"
+          >
+            <div class="w-full h-full bg-white dark:bg-gray-900 rounded-md shadow-sm" />
           </div>
-        </template>
-      </UTabs>
+        </ClientOnly>
+        <div
+          v-for="category in categories"
+          :id="category.slug"
+          :key="category.slug"
+          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none transition-colors duration-200 ease-out cursor-pointer hover:text-black dark:hover:text-white"
+          :class="{ 'text-gray-900 dark:text-white relative': isCategory(category.slug) }"
+          @click.prevent="setCategory(category.slug)"
+        >
+          <p class="w-full">
+            {{ category.label }}
+          </p>
+        </div>
+      </div>
       <UPopover>
         <UButton
           :icon="isFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
