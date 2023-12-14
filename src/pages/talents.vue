@@ -47,12 +47,14 @@ function getColor() {
   return `text-${appConfig.ui.primary}-500`
 }
 
+const isOpen = ref(false)
 const toast = useToast()
 const suggestContent = ref<string>('')
 async function suggest() {
   if (suggestContent.value.trim().length < 4)
     return
 
+  isOpen.value = false
   await $fetch<Suggestion>('/api/suggestion', {
     method: 'post',
     body: {
@@ -75,8 +77,8 @@ async function suggest() {
 </script>
 
 <template>
-  <section class="w-container lg:my-24 my-16">
-    <div class="max-w-2xl space-y-8 mb-16">
+  <section class="w-container lg:mt-24 my-8">
+    <div class="max-w-2xl space-y-8 md:mb-16 mb-8">
       <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
         Showcasing here, I aim to share and introduce inspiring talents.
       </h1>
@@ -84,55 +86,66 @@ async function suggest() {
         You will find a selection of some of the most inspiring web talents I have discovered through my research and work experience. These talents are creative designers, talented web developers, passionate open-source contributors, and much more.
       </p>
     </div>
-    <div class="my-12 flex flex-col rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <div class="mb-6">
-        <div class="mb-2 flex items-center gap-2">
-          <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
-          <h1 class="text-lg font-bold">
-            Want to be here ?
-          </h1>
-        </div>
-        <p class="text-subtitle text-ellipsis">
-          Are you a web talent? Do you want to promote your project? Do you want to launch your career or gain visibility?
-        </p>
-      </div>
-      <div v-if="loggedIn" class="flex items-center justify-between gap-4">
-        <div class="w-full relative flex items-center">
-          <input
-            v-model="suggestContent"
-            type="text"
-            required
-            min="4"
-            class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
-            placeholder="Suggest one name"
-          >
-          <UButton
-            class="absolute right-1 top-1 rounded-md"
-            label="Send"
-            :disabled="suggestContent.trim().length < 4"
-            variant="solid"
-            @click.prevent="suggest()"
-          />
-        </div>
-        <UButton
-          variant="outline"
-          @click.prevent="clear()"
-        >
-          Logout
-        </UButton>
-      </div>
-      <div v-else class="flex gap-2">
-        <UButton
-          v-for="provider in providers"
-          :key="provider.slug"
-          :label="provider.label"
-          :color="provider.color"
-          variant="solid"
-          :to="provider.link"
-          external
-        />
-      </div>
+    <div class="flex justify-center md:justify-start">
+      <UButton
+        class="mb-8 md:mb-16"
+        label="Want to suggest someone ?"
+        icon="i-ph-circle-wavy-question-bold"
+        @click.prevent="isOpen = true"
+      />
     </div>
+    <UModal v-model="isOpen">
+      <UCard>
+        <template #header>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <h1 class="text-md font-bold">
+                Are you a web talent? Do you want to promote your project? Do you want to launch your career or gain visibility?
+              </h1>
+            </div>
+            <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />
+          </div>
+        </template>
+        <div>
+          <div v-if="loggedIn" class="flex items-center justify-between gap-4">
+            <div class="w-full relative flex items-center">
+              <input
+                v-model="suggestContent"
+                type="text"
+                required
+                min="4"
+                class="w-full rounded-lg p-2 h-10 focus:outline-none bg-gray-100 dark:bg-gray-800"
+                placeholder="Suggest one name"
+              >
+              <UButton
+                class="absolute right-1 top-1 rounded-md"
+                label="Send"
+                :disabled="suggestContent.trim().length < 4"
+                variant="solid"
+                @click.prevent="suggest()"
+              />
+            </div>
+            <UButton
+              variant="outline"
+              @click.prevent="clear()"
+            >
+              Logout
+            </UButton>
+          </div>
+          <div v-else class="flex gap-2 justify-center">
+            <UButton
+              v-for="provider in providers"
+              :key="provider.slug"
+              :label="provider.label"
+              :color="provider.color"
+              variant="solid"
+              :to="provider.link"
+              external
+            />
+          </div>
+        </div>
+      </UCard>
+    </UModal>
     <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <ClientOnly>
