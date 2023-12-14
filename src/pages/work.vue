@@ -8,7 +8,7 @@ useHead({
   title: 'My work • Arthur Danjou',
 })
 
-const { data: projects } = await useProjects()
+const { data: projects } = await getProjects()
 </script>
 
 <template>

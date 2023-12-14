@@ -3,9 +3,9 @@ useHead({
   title: 'About me • Arthur Danjou',
 })
 
-const { data: skills } = await useSkills()
-const { data: educations } = await useEducations()
-const { data: experiences } = await useWorkExperiences()
+const { data: skills } = await getSkills()
+const { data: educations } = await getEducations()
+const { data: experiences } = await getWorkExperiences()
 </script>
 
 <template>

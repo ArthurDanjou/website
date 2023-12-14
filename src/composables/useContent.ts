@@ -1,12 +1,12 @@
 import type { Education, JsonParsedContent, Post, Project, Skill, WorkExperience } from '~~/types'
 
-export function useProjects() {
+export function getProjects() {
   return useAsyncData('content:projects', () => {
     return queryContent<Project>('projects').find()
   })
 }
 
-export function useEducations() {
+export function getEducations() {
   return useAsyncData('content:educations', () => {
     return queryContent<Education>('educations')
       .sort({
@@ -16,7 +16,7 @@ export function useEducations() {
   })
 }
 
-export function useWorkExperiences() {
+export function getWorkExperiences() {
   return useAsyncData('content:experiences', () => {
     return queryContent<WorkExperience>('experiences')
       .sort({
@@ -26,11 +26,11 @@ export function useWorkExperiences() {
   })
 }
 
-export function useSkills() {
+export function getSkills() {
   return useAsyncData('content:skills', () => queryContent<JsonParsedContent<Skill[]>>('skills').findOne())
 }
 
-export function usePosts() {
+export function getPosts() {
   return useAsyncData('content:posts', async () => {
     const posts = await queryContent<Post>('writing').find()
     return posts.sort((a, b) => {
