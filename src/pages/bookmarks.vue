@@ -21,14 +21,19 @@ const {
   watch: [isFavorite, getCategory],
 })
 
-function isCategory(category: string) {
-  return getCategory.value === category
-}
-
 const {
   data: getCategories,
 } = await useFetch<Array<Category>>('/api/categories', { method: 'GET', query: { type: 'BOOKMARK' } })
 getCategories.value!.forEach((category: any) => categories.value.push({ label: category.name, slug: category.slug }))
+
+const selected = computed({
+  get() {
+    return categories.value.findIndex(category => getCategory.value === category.slug) || 0
+  },
+  set(index) {
+    setCategory(categories.value[index].slug || categories.value[0].slug)
+  },
+})
 
 const appConfig = useAppConfig()
 function getColor() {
@@ -46,26 +51,22 @@ function getColor() {
         You will find a selection of some of the most inspiring and complete content I have read through my research and work experience.
       </p>
     </div>
-    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] pt-2 left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
-      <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
-        <div
-          v-for="category in categories"
-          :key="category.slug"
-          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none transition-colors duration-200 ease-out cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-black dark:hover:text-white"
-          :class="{ 'text-gray-900 dark:text-white relative !bg-white dark:!bg-stone-900 rounded-md shadow-sm': isCategory(category.slug) }"
-          @click.prevent="setCategory(category.slug)"
-        >
-          <p class="w-full">
-            {{ category.label }}
-          </p>
-        </div>
-      </div>
+    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] pt-2 left-0 bg-white dark:bg-zinc-900 z-100 flex w-full items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
+      <UTabs v-model="selected" :items="categories">
+        <template #default="{ item, selected }">
+          <div class="flex items-center gap-2 relative truncate">
+            <span class="truncate">{{ item.label }}</span>
+            <span v-if="selected" class="absolute -right-4 w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400" />
+          </div>
+        </template>
+      </UTabs>
       <UPopover>
         <UButton
           :icon="isFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
           color="primary"
           variant="soft"
           size="lg"
+          class="mb-2"
         />
         <template #panel>
           <div
@@ -107,9 +108,6 @@ function getColor() {
                     </div>
                   </NuxtLink>
                 </h2>
-                <p class="relative z-10 my-2 text-sm text-zinc-600 dark:text-zinc-400">
-                  {{ bookmark.content }}
-                </p>
               </div>
             </div>
           </div>
