@@ -200,7 +200,7 @@ async function suggest() {
           </div>
           <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
-            <span class="ml-2">{{ talent.website.replace('https://', '') }}</span>
+            <span class="ml-2">{{ talent.website.replace('https://', '').replace('/', '') }}</span>
           </p>
         </div>
       </div>
