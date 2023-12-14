@@ -26,9 +26,6 @@ export default defineEventHandler(async (event) => {
   }
 
   return await prisma.talent.findMany({
-    cacheStrategy: {
-      ttl: 60 * 3,
-    },
     where: whereClause,
     orderBy: {
       name: 'asc',

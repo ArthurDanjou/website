@@ -3,10 +3,6 @@ export default defineEventHandler(async () => {
     orderBy: {
       createdAt: 'desc',
     },
-    cacheStrategy: {
-      ttl: 60 * 60 * 24,
-      swr: 60 * 5,
-    },
   })
   let enabled = true
   if (process.env.NODE_ENV === 'development') {

@@ -7,7 +7,7 @@
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate --no-engine && nuxt prepare",
+    "postinstall": "prisma generate && nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -17,7 +17,6 @@
     "@nuxt/ui": "2.11.1",
     "@pinia/nuxt": "0.5.1",
     "@prisma/client": "^5.7.0",
-    "@prisma/extension-accelerate": "^0.6.2",
     "@vercel/analytics": "1.1.1",
     "@vueuse/motion": "2.0.0",
     "pinia": "2.1.7",
