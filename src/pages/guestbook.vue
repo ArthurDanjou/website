@@ -17,6 +17,7 @@ async function sign() {
   if (messageContent.value.length < 7 || messageContent.value.length > 58)
     return
 
+  isOpen.value = false
   await $fetch('/api/message', {
     method: 'post',
     body: {
@@ -42,7 +43,6 @@ async function deleteMessage(id: number) {
   if (!user.value.admin)
     return
 
-  isOpen.value = false
   await $fetch('/api/message', {
     method: 'delete',
     body: {
@@ -67,7 +67,7 @@ async function deleteMessage(id: number) {
 
 <template>
   <section class="w-container lg:mt-24 my-8">
-    <div class="max-w-2xl space-y-8 mb-16">
+    <div class="max-w-2xl space-y-8 md:mb-16 mb-8">
       <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
         You want to leave a message ?
       </h1>
@@ -75,13 +75,19 @@ async function deleteMessage(id: number) {
         Your opinion means a lot to me. Feel free to share your impressions of my projects, explore my site, or simply leave a personalised message. Your comments are a source of inspiration and continuous improvement. Thank you for taking the time to contribute to this virtual community. I look forward to reading what you have to share!
       </p>
     </div>
-    <UButton class="mb-8" label="Want to sign my book ?" icon="i-ph-circle-wavy-question-bold" @click.prevent="isOpen = true" />
+    <div class="flex justify-center md:justify-start">
+      <UButton
+        class="mb-8 md:mb-16"
+        label="Want to sign my book ?"
+        icon="i-ph-circle-wavy-question-bold"
+        @click.prevent="isOpen = true"
+      />
+    </div>
     <UModal v-model="isOpen">
       <UCard>
         <template #header>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <UIcon name="i-ph-circle-wavy-question-bold" class="text-subtitle text-xl" />
               <h1 class="text-md font-bold">
                 Enter just below your message to sign my book
               </h1>
@@ -116,7 +122,7 @@ async function deleteMessage(id: number) {
               Logout
             </UButton>
           </div>
-          <div v-else class="flex gap-2">
+          <div v-else class="flex gap-2 justify-center">
             <UButton
               v-for="provider in providers"
               :key="provider.slug"
