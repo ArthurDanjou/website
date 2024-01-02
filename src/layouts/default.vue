@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { SpeedInsights } from '@vercel/speed-insights/nuxt'
+
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
 
@@ -10,6 +12,7 @@ router.afterEach((route) => {
 
 <template>
   <div>
+    <SpeedInsights />
     <NuxtLoadingIndicator :color="getColor" />
     <section class="fixed inset-0 flex justify-center sm:px-8">
       <div class="flex w-full max-w-7xl">
