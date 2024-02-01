@@ -1,5 +1,8 @@
 export default defineAppConfig({
   ui: {
+    icons: {
+      dynamic: true,
+    },
     gray: 'neutral',
     primary: 'cyan',
     notifications: {

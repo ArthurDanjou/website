@@ -13,9 +13,9 @@ const route = useRoute()
       <UButton to="/about" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path.includes('/about') }">
         About
       </UButton>
-      <UButton to="/writing" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path.includes('/writing') }">
+      <!-- <UButton to="/writing" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path.includes('/writing') }">
         Articles
-      </UButton>
+      </UButton> -->
       <UButton to="/work" size="sm" variant="ghost" color="white" :class="{ 'link-active': route.path.includes('/work') }">
         Projects
       </UButton>

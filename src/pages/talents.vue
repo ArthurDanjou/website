@@ -198,7 +198,7 @@ async function suggest() {
         >
           <div class="flex">
             <div class="flex gap-6 items-center">
-              <NuxtImg :src="talent.logo" class="z-20 h-12 w-12 rounded-md" placeholder />
+              <img :src="talent.logo" class="z-20 h-12 w-12 rounded-md">
               <div>
                 <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
                   <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />

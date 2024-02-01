@@ -13,24 +13,27 @@ defineProps({
         <div>
           <DateTag :start-date="experience.startDate" :end-date="experience.endDate" />
         </div>
-        <UButton
-          v-if="experience.companyLink"
-          :to="experience.companyLink"
-          variant="link"
-          :padded="false"
-          color="white"
-          size="xl"
-          target="_blank"
-          :label="experience.company"
-          class="my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
-        >
-          <template #trailing>
-            <UIcon name="i-ph-arrow-up-right-bold" color="gray" />
-          </template>
-        </UButton>
-        <h1 v-else class="my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-          {{ experience.company }}
-        </h1>
+        <div class="flex items-center my-1">
+          <UButton
+            v-if="experience.companyLink"
+            :to="experience.companyLink"
+            variant="link"
+            :padded="false"
+            color="white"
+            size="xl"
+            target="_blank"
+            :label="experience.company"
+            class="mr-3 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+          >
+            <template #leading>
+              <UIcon name="i-akar-icons-link-chain" color="gray" />
+            </template>
+          </UButton>
+          <h1 v-else class="mr-3 my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+            {{ experience.company }}
+          </h1>
+          <div class="text-subtitle text-xs">{{ experience.location }}</div>
+        </div>
       </div>
     </div>
     <p class="text-justify leading-5 text-sm text-zinc-600 dark:text-zinc-400">

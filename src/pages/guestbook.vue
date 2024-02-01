@@ -148,7 +148,7 @@ async function deleteMessage(id: number) {
         </p>
         <div class="flex items-center gap-4 mt-4">
           <div class="h-8 w-8 rounded-full">
-            <NuxtImg class="w-full h-full rounded-full" :src="message.image" alt="Nature" placeholder />
+            <img class="w-full h-full rounded-full" :src="message.image" alt="Nature">
           </div>
           <p class="font-bold">
             {{ message.username }}

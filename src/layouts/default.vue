@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 
+import { configureGraphs } from '@ksassnowski/vueclid'
+
 const appConfig = useAppConfig()
 const getColor = computed(() => appConfig.ui.primary)
 
 const router = useRouter()
 router.afterEach((route) => {
   useCookie('last-route', { path: '/', default: () => '/' }).value = route.fullPath
+})
+
+const colorMode = useColorMode()
+watch(colorMode, () => {
+  configureGraphs({ darkMode: colorMode.value === 'dark' })
 })
 </script>
 

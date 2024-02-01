@@ -12,15 +12,18 @@
       }
     },
     {
+      "name": "R-Lang",
+      "icon": {
+        "dark": "i-skill-icons-r-dark",
+        "light": "i-skill-icons-r-light"
+      }
+    },
+    {
       "name": "Java",
       "icon": {
         "dark": "skill-icons:java-dark",
         "light": "skill-icons:java-light"
       }
-    },
-    {
-      "name": "Rust",
-      "icon": "skill-icons:rust"
     },
     {
       "name": "HTML5",
@@ -81,13 +84,6 @@
       }
     },
     {
-      "name": "RabbitMQ",
-      "icon": {
-        "dark": "skill-icons:rabbitmq-dark",
-        "light": "skill-icons:rabbitmq-light"
-      }
-    },
-    {
       "name": "Docker",
       "icon": "skill-icons:docker"
     },
@@ -100,10 +96,10 @@
       "icon": "skill-icons:prisma"
     },
     {
-      "name": "Supabase",
+      "name": "Vercel",
       "icon": {
-        "dark": "skill-icons:supabase-dark",
-        "light": "skill-icons:supabase-light"
+        "dark": "i-skill-icons-vercel-dark",
+        "light": "i-skill-icons-vercel-light"
       }
     }
   ]

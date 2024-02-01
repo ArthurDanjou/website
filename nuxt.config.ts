@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
     'nuxt-auth-utils',
-    '@nuxt/image',
     '@nuxthq/studio',
     '@nuxt/content',
     '@pinia/nuxt',
@@ -27,6 +26,7 @@ export default defineNuxtConfig({
     'components/',
     'components/header',
     'components/resume',
+    'components/maths',
   ],
 
   content: {

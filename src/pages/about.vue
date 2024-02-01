@@ -14,7 +14,7 @@ const { data: experiences } = await getWorkExperiences()
       <div class="lg:pl-20 flex justify-center">
         <div class="max-w-xs px-2.5 lg:max-w-none">
           <UTooltip text="It's me 👋" :popper="{ offsetDistance: 20 }">
-            <NuxtImg src="/about.jpg" class="border dark:border-0 aspect-square rotate-3 hover:rotate-0 duration-300 rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800" placeholder />
+            <img src="/about.jpg" class="border dark:border-0 aspect-square rotate-3 hover:rotate-0 duration-300 rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800">
           </UTooltip>
         </div>
       </div>
