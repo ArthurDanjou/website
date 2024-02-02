@@ -126,11 +126,11 @@ export const navs = [
     to: '/about',
     icon: 'i-ph-person-arms-spread-bold',
   },
-  {
+  /* {
     label: 'Articles',
     to: '/writing',
     icon: 'i-ph-pencil-bold',
-  },
+  }, */
   {
     label: 'Projects',
     to: '/work',
