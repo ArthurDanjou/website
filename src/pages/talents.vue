@@ -146,7 +146,7 @@ async function suggest() {
         </div>
       </UCard>
     </UModal>
-    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40">
+    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <ClientOnly>
           <div
@@ -175,7 +175,6 @@ async function suggest() {
           color="primary"
           variant="soft"
           size="lg"
-          class="mb-2"
         />
         <template #panel>
           <div
@@ -189,6 +188,7 @@ async function suggest() {
         </template>
       </UPopover>
     </div>
+    <UDivider class="my-2"/>
     <div v-if="talents && getCategories" class="mt-8 md:mt-16">
       <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
