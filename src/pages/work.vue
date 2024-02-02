@@ -52,10 +52,6 @@ const { data: projects } = await getProjects()
               {{ tag }}
             </UBadge>
           </div>
-          <p class="relative z-10 mt-6 flex text-sm font-medium items-center" :class="getColor()">
-            <UIcon name="i-ph-link-bold" />
-            <span class="ml-2">{{ project.link.replace('https://', '') }}</span>
-          </p>
         </div>
       </div>
     </div>
