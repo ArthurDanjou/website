@@ -1,9 +1,3 @@
-<script lang="ts" setup>
-useHead({
-  title: 'My Uses • Arthur Danjou',
-})
-</script>
-
 <template>
   <section class="w-container lg:my-24 my-16">
     <div class="max-w-2xl space-y-8">

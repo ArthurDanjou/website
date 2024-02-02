@@ -1,3 +1,7 @@
+---
+title: My Uses • Arthur Danjou
+---
+
 ::grid-section{title="Computers"}
 
   :::grid-slot{title="MacBook Pro 13'"}
@@ -5,7 +9,7 @@
   :::
 
   :::grid-slot{title="Custom Built Gaming PC"}
-    I have bought a customized computer for the gaming. I have chosen an Intel Core i5-10400F, with 16Go DDR4 and my graphical card is a RTX 2060. I use Windows 11. 
+    I have bought a customized computer for the gaming. I have chosen an Intel Core i5-10400F, with 16Go DDR4 and my graphical card is a RTX 2060. I use Windows 11.
   :::
 
 ::
@@ -25,7 +29,7 @@
 ::grid-section{title="Editors & Terminal"}
 
   :::grid-slot{title="Visual Studio Code & Co"}
-    VSCode has been my main editor for 2 years now and is my favorite one. I also use the JetBrains Toolbox 
+    VSCode has been my main editor for 2 years now and is my favorite one. I also use the JetBrains Toolbox
   :::
 
   :::grid-slot{title="Warp"}
@@ -47,7 +51,7 @@
   :::grid-slot{title="Notion"}
     Notion is my all-in-one note-taking, kanban boards, wikis, and draft notebook.
   :::
-  
+
   :::grid-slot{title="Google Chrome"}
     I'm using Google Chrome for browsing, the dev tool and the extension market.
   :::
