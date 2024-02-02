@@ -1,58 +1,88 @@
 <script lang="ts" setup>
-import { Angle, Circle, Graph, Label, Line, Point, Vector, Vector2 } from '@ksassnowski/vueclid'
+import { Circle, FunctionPlot, Graph, Label, Line, Point, Vector } from '@ksassnowski/vueclid'
 
-const angle = ref(0)
+const angle = ref(45)
+const time = ref(0)
 useIntervalFn(() => {
-  angle.value = angle.value + 0.01
+  angle.value = angle.value === 1 ? 0 : angle.value + 0.01
+  time.value += 0.1
 }, 10)
-const to = computed(() => Vector2.fromPolar(angle.value, 4))
 </script>
 
 <template>
-  <section class="flex justify-center gap-5 overflow-hidden py-4 sm:gap-8 mb-16">
-    <div>
-      <Graph :domain-x="[-5, 5]" :domain-y="[-5, 5]">
-        <Circle :radius="4" color="hotpink" />
-        <Angle
-          :a="[1, 0]"
-          :b="[0, 0]"
-          :c="to"
-          :radius="1.5"
-          color="#33aabb"
-          :fill="{ light: '#33aabb33', dark: '#33aabb66' }"
-          dashed
+  <section class="flex items-center justify-center gap-5 overflow-hidden py-4 sm:gap-8 mb-16">
+    <div class="invisible md:visible">
+      <Graph :domain-x="[-3, 3]" :domain-y="[-3, 3]">
+        <FunctionPlot
+          :function="(x) => Math.cos(x)"
+          :line-width="2"
+          animated
+          color="hotpink"
         />
-        <Vector :to="to" />
+        <Label text="cos(x)" color="hotpink" :position="[2, -0.5]" size="small"/>
+        <FunctionPlot
+          :function="(x) => Math.sin(x)"
+          :line-width="2"
+          animated
+          color="#33aabb"
+        />
+        <Label text="sin(x)" color="#33aabb" :position="[2, 1]" size="small"/>
+        <FunctionPlot
+          :function="(x) => Math.exp(x)"
+          :line-width="2"
+          animated
+        />
+        <Label text="exp(x)" :position="[0.7, 2]" size="small"/>
+        <FunctionPlot
+          :function="(x) => Math.log(x)"
+          :domain="[0.001, 4]"
+          :line-width="2"
+          animated
+          color="limegreen"
+        />
+        <Label text="ln(x)" color="limegreen" :position="[0.2, -2]" size="small"/>
+        <FunctionPlot
+          :function="(x) => -x"
+          :domain="[-3, 0]"
+          :line-width="2"
+          animated
+          color="orange"
+        />
+        <FunctionPlot
+          :function="(x) => x"
+          :domain="[0, 3]"
+          :line-width="2"
+          animated
+          color="orange"
+        />
+        <Label text="|x|" color="orange" :position="[-2, 2]" size="small"/>
       </Graph>
     </div>
     <div>
       <Graph
-        :domain-x="[-1.5, 1.5]"
-        :domain-y="[-1.5, 1.5]"
-        :grid-size="0.5"
-        :units="false"
+        :domain-x="[-2, 2]"
+        :domain-y="[-2, 2]"
       >
         <Circle :radius="1" color="#aaa" />
-        <Vector :to="[Math.cos(0.8), Math.sin(0.8)]" />
+        <Vector :to="[Math.cos(angle), Math.sin(angle)]" />
         <Line
-          :from="[Math.cos(0.8), 0]"
-          :to="[Math.cos(0.8), Math.sin(0.8)]"
+          :from="[Math.cos(angle), 0]"
+          :to="[Math.cos(angle), Math.sin(angle)]"
           :line-width="1.5"
           color="hotpink"
           dashed
         />
         <Line
-          :from="[0, Math.sin(0.8)]"
-          :to="[Math.cos(0.8), Math.sin(0.8)]"
+          :from="[0, Math.sin(angle)]"
+          :to="[Math.cos(angle), Math.sin(angle)]"
           :line-width="1.5"
           color="#33aabb"
           dashed
         />
-        <Point :position="[Math.cos(0.8), Math.sin(0.8)]" />
-        <Label :position="[Math.cos(0.8) + 0.2, Math.sin(0.8) + 0.2]" text="M" />
-        <Point :position="[Math.cos(0.8), 0]" color="hotpink" label="cos(x)" />
+        <Point :position="[Math.cos(angle), Math.sin(angle)]" label="M" />
+        <Point :position="[Math.cos(angle), 0]" color="hotpink" label="cos(x)" />
         <Point
-          :position="[0, Math.sin(0.8)]"
+          :position="[0, Math.sin(angle)]"
           color="#33aabb"
           label="sin(x)"
           label-position="top"
