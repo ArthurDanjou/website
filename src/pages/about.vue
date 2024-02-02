@@ -14,7 +14,7 @@ const { data: experiences } = await getWorkExperiences()
       <div class="lg:pl-20 flex justify-center">
         <div class="max-w-xs px-2.5 lg:max-w-none">
           <UTooltip text="It's me 👋" :popper="{ offsetDistance: 20 }">
-            <img src="/about.jpg" class="border dark:border-0 aspect-square rotate-3 hover:rotate-0 duration-300 rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800">
+            <img src="/about.png" class="border dark:border-0 aspect-square rotate-3 hover:rotate-0 duration-300 transition-transform rounded-3xl bg-zinc-100 object-cover dark:bg-zinc-800">
           </UTooltip>
         </div>
       </div>
@@ -65,13 +65,16 @@ const { data: experiences } = await getWorkExperiences()
       <Education v-for="education in educations" :key="education.title" :education="education" />
     </GridSection>
     <div class="flex justify-center">
-      <UButton
-        label="Download my CV"
-        icon="i-material-symbols-lab-profile-outline-rounded"
-        color="primary"
-        variant="outline"
-        size="xl"
-      />
+      <UTooltip text="Coming very soon..." :popper="{ offsetDistance: 20 }">
+        <UButton
+          label="Download my CV"
+          icon="i-material-symbols-lab-profile-outline-rounded"
+          color="primary"
+          variant="outline"
+          size="xl"
+          :disabled="true"
+        />
+      </UTooltip>
     </div>
   </section>
 </template>
