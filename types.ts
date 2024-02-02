@@ -74,24 +74,21 @@ export interface Skill extends ParsedContent {
 export const providers = [
   {
     slug: 'github',
-    label: 'Use Github',
+    label: 'Login with Github',
     icon: 'i-ph-github-logo-bold',
     link: '/auth/github',
-    color: 'black',
   },
   /* {
     slug: 'twitter',
-    label: 'Use Twitter',
+    label: 'Login with Twitter',
     icon: 'i-ph-twitter-logo-bold',
     link: '/auth/twitter',
-    color: 'cyan',
   }, */
   {
     slug: 'google',
-    label: 'Use Google',
+    label: 'Login with Google',
     icon: 'i-ph-google-logo-bold',
     link: '/auth/google',
-    color: 'red',
   },
 ]
 

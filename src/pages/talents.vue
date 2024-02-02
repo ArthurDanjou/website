@@ -137,9 +137,10 @@ async function suggest() {
               v-for="provider in providers"
               :key="provider.slug"
               :label="provider.label"
-              :color="provider.color"
+              color="black"
               variant="solid"
               :to="provider.link"
+              :icon="provider.icon"
               external
             />
           </div>

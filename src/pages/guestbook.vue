@@ -127,10 +127,10 @@ async function deleteMessage(id: number) {
               v-for="provider in providers"
               :key="provider.slug"
               :label="provider.label"
-              :color="provider.color"
+              color="black"
               variant="solid"
-              :icon="provider.icon"
               :to="provider.link"
+              :icon="provider.icon"
               external
             />
           </div>
