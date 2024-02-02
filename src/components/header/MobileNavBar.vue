@@ -47,10 +47,11 @@ const { copy, copied } = useClipboard({ source: 'arthurdanjou@outlook.fr', copie
         </template>
 
         <div class="flex flex-col space-y-2">
-          <div v-for="nav in navs" :key="nav.label">
+          <div v-for="nav in navs" :key="nav.label" class="w-full">
             <UButton
               v-if="nav.to"
               size="sm"
+              class="w-full"
               :variant="isRoute(nav.to) ? 'solid' : 'ghost'"
               color="primary"
               :to="nav.to"
@@ -59,6 +60,7 @@ const { copy, copied } = useClipboard({ source: 'arthurdanjou@outlook.fr', copie
             />
             <UButton
               v-else
+              class="w-full"
               size="sm"
               color="primary"
               variant="ghost"
