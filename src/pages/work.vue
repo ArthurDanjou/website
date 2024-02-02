@@ -1,13 +1,7 @@
 <script lang="ts" setup>
-const appConfig = useAppConfig()
-function getColor() {
-  return `text-${appConfig.ui.primary}-500`
-}
-
 useHead({
   title: 'My work • Arthur Danjou',
 })
-
 const { data: projects } = await getProjects()
 </script>
 
