@@ -144,7 +144,7 @@ export const navs = [
   ...otherTab,
   {
     label: 'Contact',
-    to: '/contact',
+    open: true,
     icon: 'i-ph-push-pin-bold',
   },
 ].flat()

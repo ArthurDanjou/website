@@ -1,15 +1,23 @@
 <script lang="ts" setup>
 import { navs } from '~~/types'
 
-const isOpen = ref(false)
+const isOpenSidebar = ref(false)
+const isOpenModal = ref(false)
 
 const router = useRouter()
-router.afterEach(() => isOpen.value = false)
+router.afterEach(() => isOpenSidebar.value = false)
 
 const route = useRoute()
 function isRoute(path: string) {
   return route.path === path
 }
+
+function openModal() {
+  isOpenSidebar.value = false
+  isOpenModal.value = true
+}
+
+const { copy, copied } = useClipboard({ source: 'arthurdanjou@outlook.fr', copiedDuring: 3000 })
 </script>
 
 <template>
@@ -20,11 +28,11 @@ function isRoute(path: string) {
         color="primary"
         size="sm"
         icon="i-ph-list-bold"
-        @click="isOpen = true"
+        @click="isOpenSidebar = true"
       />
     </div>
 
-    <USlideover v-model="isOpen">
+    <USlideover v-model="isOpenSidebar">
       <UCard class="flex flex-col flex-1" :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
         <template #header>
           <div class="flex justify-between items-center">
@@ -33,23 +41,32 @@ function isRoute(path: string) {
               size="md"
               icon="i-ic-round-close"
               :ui="{ rounded: 'rounded-full' }"
-              @click.prevent="isOpen = false"
+              @click.prevent="isOpenSidebar = false"
             />
           </div>
         </template>
 
         <div class="flex flex-col space-y-2">
-          <UButton
-            v-for="nav in navs"
-            :key="nav.label"
-            size="sm"
-            :variant="isRoute(nav.to) ? 'solid' : 'ghost'"
-            color="primary"
-            :to="nav.to"
-            :icon="nav.icon"
-          >
-            {{ nav.label }}
-          </UButton>
+          <div v-for="nav in navs" :key="nav.label">
+            <UButton
+              v-if="nav.to"
+              size="sm"
+              :variant="isRoute(nav.to) ? 'solid' : 'ghost'"
+              color="primary"
+              :to="nav.to"
+              :icon="nav.icon"
+              :label="nav.label"
+            />
+            <UButton
+              v-else
+              size="sm"
+              color="primary"
+              variant="ghost"
+              :icon="nav.icon"
+              :label="nav.label"
+              @click.prevent="openModal()"
+            />
+          </div>
         </div>
 
         <template #footer>
@@ -57,5 +74,59 @@ function isRoute(path: string) {
         </template>
       </UCard>
     </USlideover>
+    <UModal v-model="isOpenModal">
+      <UCard class="p-4">
+        <div>
+          <div class="mb-8 flex justify-between items-center">
+            <h1 class="text-xl font-bold">
+              Contact me
+            </h1>
+            <UButton size="xs" icon="i-akar-icons-cross" variant="ghost" @click.prevent="isOpenModal = false" />
+          </div>
+          <div class="flex flex-col space-y-6">
+            <div class="flex flex-col md:flex-row justify-between md:items-center space-y-2">
+              <div class="flex flex-col">
+                <h3 class="text-sm">
+                  Email
+                </h3>
+                <p class="text-xs text-subtitle">
+                  arthurdanjou@outlook.fr
+                </p>
+              </div>
+              <div>
+                <UButtonGroup size="sm" orientation="horizontal">
+                  <UButton variant="solid" color="gray" label="Compose" to="mailto:arthurdanjou@outlook.fr" icon="i-mdi-note-edit-outline" />
+                  <UButton v-if="copied" variant="solid" color="green" label="Copied" icon="i-mdi-content-copy" />
+                  <UButton v-else variant="solid" color="gray" label="Copy" icon="i-mdi-content-copy" @click.prevent="copy()" />
+                </UButtonGroup>
+              </div>
+            </div>
+            <UDivider label="OR" />
+            <div class="flex flex-col md:flex-row justify-between md:items-center space-y-2">
+              <div class="flex flex-col">
+                <h3 class="text-sm">
+                  Get in touch
+                </h3>
+                <p class="text-xs text-subtitle">
+                  I'm most active on Twitter
+                </p>
+              </div>
+              <div>
+                <UButtonGroup size="sm" orientation="horizontal">
+                  <UButton
+                    variant="solid" color="gray" label="Twitter" icon="i-ph-twitter-logo-bold"
+                    to="https://twitter.com/ArthurDanj" target="_blank"
+                  />
+                  <UButton
+                    variant="solid" color="gray" label="Github" icon="i-ph-github-logo-bold"
+                    to="https://github.com/ArthurDanjou" target="_blank"
+                  />
+                </UButtonGroup>
+              </div>
+            </div>
+          </div>
+        </div>
+      </UCard>
+    </UModal>
   </div>
 </template>
