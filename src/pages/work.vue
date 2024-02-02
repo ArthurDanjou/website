@@ -14,14 +14,12 @@ const { data: projects } = await getProjects()
 <template>
   <section class="w-container lg:my-24 my-16">
     <div class="px-4 max-w-3xl space-y-8">
-      <div>
-        <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
-          All my projects can be found on GitHub and by scrolling down.
-        </h1>
-        <p class="leading-relaxed text-subtitle">
-          I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
-        </p>
-      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl !leading-tight">
+        All my projects can be found on GitHub and by scrolling down.
+      </h1>
+      <p class="leading-relaxed text-subtitle">
+        I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
+      </p>
     </div>
     <div class="mt-16 md:mt-20">
       <div class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
