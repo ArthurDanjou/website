@@ -10,8 +10,8 @@ useIntervalFn(() => {
 </script>
 
 <template>
-  <section class="flex items-center justify-center gap-5 overflow-hidden py-4 sm:gap-8 mb-16">
-    <div class="invisible md:visible">
+  <section class="flex flex-col md:flex-row items-center justify-center gap-5 overflow-hidden py-4 sm:gap-8 mb-16">
+    <div>
       <Graph :domain-x="[-3, 3]" :domain-y="[-3, 3]">
         <FunctionPlot
           :function="(x) => Math.cos(x)"
