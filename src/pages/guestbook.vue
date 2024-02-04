@@ -89,10 +89,10 @@ async function deleteMessage(id: number) {
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <h1 v-if="loggedIn" class="text-md font-bold">
-                Sign before writing your message
+                Enter just below your message to sign my book
               </h1>
               <h1 v-else class="text-md font-bold">
-                Enter just below your message to sign my book
+                Sign before writing your message
               </h1>
             </div>
             <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />
