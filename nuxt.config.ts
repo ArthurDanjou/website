@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     '@/assets/css/main.scss',
   ],
 
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
+
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxthq/studio',
@@ -40,17 +45,16 @@ export default defineNuxtConfig({
   },
 
   devtools: {
-    enabled: true,
+    enabled: false,
 
     timeline: {
       enabled: true,
     },
   },
 
-  image: {
-    domains: [
-      'avatars0.githubusercontent.com',
-      'pbs.twimg.com',
-    ],
+  site: {
+    url: 'https://arthurdanjou.fr',
+    name: 'My portfolio',
+    description: 'Developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
   },
 })
