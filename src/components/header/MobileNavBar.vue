@@ -116,12 +116,12 @@ const { copy, copied } = useClipboard({ source: 'arthurdanjou@outlook.fr', copie
               <div>
                 <UButtonGroup size="sm" orientation="horizontal">
                   <UButton
-                    variant="solid" color="gray" label="Twitter" icon="i-ph-twitter-logo-bold"
-                    to="https://twitter.com/ArthurDanj" target="_blank"
-                  />
-                  <UButton
                     variant="solid" color="gray" label="Github" icon="i-ph-github-logo-bold"
                     to="https://github.com/ArthurDanjou" target="_blank"
+                  />
+                  <UButton
+                    variant="solid" color="gray" label="Twitter" icon="i-ph-twitter-logo-bold"
+                    to="https://twitter.com/ArthurDanj" target="_blank"
                   />
                 </UButtonGroup>
               </div>
