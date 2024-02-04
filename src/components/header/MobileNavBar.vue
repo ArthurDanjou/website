@@ -97,9 +97,9 @@ const { copy, copied } = useClipboard({ source: 'arthurdanjou@outlook.fr', copie
               </div>
               <div>
                 <UButtonGroup size="sm" orientation="horizontal">
-                  <UButton variant="solid" color="gray" label="Compose" to="mailto:arthurdanjou@outlook.fr" icon="i-mdi-note-edit-outline" />
                   <UButton v-if="copied" variant="solid" color="green" label="Copied" icon="i-mdi-content-copy" />
                   <UButton v-else variant="solid" color="gray" label="Copy" icon="i-mdi-content-copy" @click.prevent="copy()" />
+                  <UButton variant="solid" color="gray" label="Compose" to="mailto:arthurdanjou@outlook.fr" icon="i-mdi-note-edit-outline" />
                 </UButtonGroup>
               </div>
             </div>
