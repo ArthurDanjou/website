@@ -88,7 +88,10 @@ async function deleteMessage(id: number) {
         <template #header>
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <h1 class="text-md font-bold">
+              <h1 v-if="loggedIn" class="text-md font-bold">
+                Sign before writing your message
+              </h1>
+              <h1 v-else class="text-md font-bold">
                 Enter just below your message to sign my book
               </h1>
             </div>
