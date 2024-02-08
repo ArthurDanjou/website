@@ -12,9 +12,8 @@ router.afterEach((route) => {
 })
 
 const colorMode = useColorMode()
-watch(colorMode, () => {
-  configureGraphs({ darkMode: colorMode.value === 'dark' })
-})
+watch(colorMode, () => configureGraphs({ darkMode: colorMode.value === 'dark' }))
+onMounted(() => configureGraphs({ darkMode: colorMode.value === 'dark' }))
 </script>
 
 <template>
