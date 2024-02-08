@@ -13,7 +13,7 @@ const socials = [
   {
     name: 'github',
     icon: 'i-ph-github-logo-bold',
-    link: 'https://twitter.com/ArthurDanj',
+    link: 'https://github.com/ArthurDanjou',
   },
   {
     name: 'linkedin',
