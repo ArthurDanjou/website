@@ -19,7 +19,6 @@ Faster than the old one thanks to the new version
 ### Nuxt3 & NuxtUI
 ### Style
 
-
 ## BackEnd
 
 ### Data Fetching
@@ -34,4 +33,3 @@ Vercel with Vercel postgres
 ## What's next
 ### Performance
 ### Style & Animation
-

@@ -49,7 +49,7 @@ I also know how to develop applications of this type. To see all my skills maste
 ## 5. How do I see my future in this field?
 
 I am currently asking myself a lot of questions about my future in development and my professional future. So I attend a lot of computer conferences and do a lot of research.
-Lately, I learned about an area that I knew only vaguely. It was a great interest that immediately developed in this area because it meets all my expectations, 
+Lately, I learned about an area that I knew only vaguely. It was a great interest that immediately developed in this area because it meets all my expectations,
 and I think I will thrive in this area a lot!
 
 ## 6. Conclusion

@@ -32,7 +32,9 @@ defineProps({
           <h1 v-else class="mr-3 my-1 text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
             {{ experience.company }}
           </h1>
-          <div class="text-subtitle text-xs">{{ experience.location }}</div>
+          <div class="text-subtitle text-xs">
+            {{ experience.location }}
+          </div>
         </div>
       </div>
     </div>

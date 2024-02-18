@@ -19,20 +19,20 @@ useIntervalFn(() => {
           animated
           color="hotpink"
         />
-        <Label text="cos(x)" color="hotpink" :position="[2, -0.5]" size="small"/>
+        <Label text="cos(x)" color="hotpink" :position="[2, -0.5]" size="small" />
         <FunctionPlot
           :function="(x) => Math.sin(x)"
           :line-width="2"
           animated
           color="#33aabb"
         />
-        <Label text="sin(x)" color="#33aabb" :position="[2, 1]" size="small"/>
+        <Label text="sin(x)" color="#33aabb" :position="[2, 1]" size="small" />
         <FunctionPlot
           :function="(x) => Math.exp(x)"
           :line-width="2"
           animated
         />
-        <Label text="exp(x)" :position="[0.7, 2]" size="small"/>
+        <Label text="exp(x)" :position="[0.7, 2]" size="small" />
         <FunctionPlot
           :function="(x) => Math.log(x)"
           :domain="[0.001, 4]"
@@ -40,7 +40,7 @@ useIntervalFn(() => {
           animated
           color="limegreen"
         />
-        <Label text="ln(x)" color="limegreen" :position="[0.2, -2]" size="small"/>
+        <Label text="ln(x)" color="limegreen" :position="[0.2, -2]" size="small" />
         <FunctionPlot
           :function="(x) => -x"
           :domain="[-3, 0]"
@@ -55,7 +55,7 @@ useIntervalFn(() => {
           animated
           color="orange"
         />
-        <Label text="|x|" color="orange" :position="[-2, 2]" size="small"/>
+        <Label text="|x|" color="orange" :position="[-2, 2]" size="small" />
       </Graph>
     </div>
     <div>

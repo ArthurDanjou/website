@@ -189,7 +189,7 @@ async function suggest() {
         </template>
       </UPopover>
     </div>
-    <UDivider class="my-2"/>
+    <UDivider class="my-2" />
     <div v-if="talents && getCategories" class="mt-8 md:mt-16">
       <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
