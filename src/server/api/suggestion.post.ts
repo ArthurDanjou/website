@@ -7,6 +7,13 @@ const SuggestionValidator = z.object({
 export default defineEventHandler(async (event) => {
   const { content } = await readValidatedBody(event, SuggestionValidator)
   const { user } = await requireUserSession(event)
+
+  await sendDiscordWebhookMessage({
+    title: 'New suggestion ✨',
+    description: `**${user.username}** as requested **${content}** for the talents page.`,
+    color: 15237114,
+  })
+
   return await usePrisma().suggestion.upsert({
     where: {
       email: user.email,

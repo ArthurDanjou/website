@@ -7,6 +7,13 @@ const MessageValidator = z.object({
 export default defineEventHandler(async (event) => {
   const { message } = await readValidatedBody(event, MessageValidator)
   const { user } = await requireUserSession(event)
+
+  await sendDiscordWebhookMessage({
+    title: 'New guestbook message ✨',
+    description: `**${user.username}** as signed the book : "*${message}*"`,
+    color: 15893567,
+  })
+
   return await usePrisma().guestbookMessage.upsert({
     where: {
       email: user.email,
