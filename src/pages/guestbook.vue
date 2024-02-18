@@ -14,7 +14,7 @@ const isOpen = ref(false)
 const toast = useToast()
 const messageContent = ref<string>('')
 async function sign() {
-  if (messageContent.value.length < 7 || messageContent.value.length > 58)
+  if (messageContent.value.length < 7 || messageContent.value.length > 100)
     return
 
   isOpen.value = false
@@ -113,7 +113,7 @@ async function deleteMessage(id: number) {
               <UButton
                 class="absolute right-1 top-1 rounded-md"
                 label="Send"
-                :disabled="messageContent.trim().length < 7 || messageContent.trim().length > 58"
+                :disabled="messageContent.trim().length < 7 || messageContent.trim().length > 100"
                 variant="solid"
                 @click.prevent="sign()"
               />
