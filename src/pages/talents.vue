@@ -191,7 +191,7 @@ async function suggest() {
     </div>
     <UDivider class="my-2" />
     <div v-if="talents && getCategories" class="mt-8 md:mt-16">
-      <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+      <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-y-4 md:gap-x-12 md:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="talent in talents"
           :key="talent.name.toLowerCase().trim()"
@@ -199,10 +199,10 @@ async function suggest() {
         >
           <div class="flex">
             <div class="flex gap-6 items-center">
-              <img :src="talent.logo" class="z-20 h-12 w-12 rounded-md">
+              <img :src="talent.logo" class="z-20 h-8 w-8 md:h-12 md:w-12 rounded-md">
               <div>
                 <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                  <div class="absolute -inset-y-2 md:-inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                   <NuxtLink :to="talent.website" target="_blank">
                     <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                     <div class="flex gap-2 items-center">
@@ -215,27 +215,29 @@ async function suggest() {
                     </div>
                   </NuxtLink>
                 </h2>
-                <p class="relative z-10 my-2 text-sm text-zinc-600 dark:text-zinc-400">
+                <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
                   {{ talent.work }}
                 </p>
               </div>
             </div>
           </div>
-          <div class="flex gap-2 z-10">
-            <UBadge
-              v-for="category in talent.categories"
-              :key="category.category.slug"
-              color="primary"
-              variant="soft"
-              size="xs"
-            >
-              {{ category.category.name }}
-            </UBadge>
+          <div class="flex items-center gap-4 mt-2">
+            <p class="relative z-10 flex text-xs md:text-sm font-medium items-center" :class="getColor()">
+              <UIcon name="i-ph-link-bold" />
+              <span class="ml-2">{{ talent.website.replace('https://', '').replace('/', '') }}</span>
+            </p>
+            <div class="flex gap-2 z-10 flex-wrap">
+              <UBadge
+                v-for="category in talent.categories"
+                :key="category.category.slug"
+                color="primary"
+                variant="soft"
+                size="xs"
+              >
+                {{ category.category.name }}
+              </UBadge>
+            </div>
           </div>
-          <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
-            <UIcon name="i-ph-link-bold" />
-            <span class="ml-2">{{ talent.website.replace('https://', '').replace('/', '') }}</span>
-          </p>
         </div>
       </div>
       <div v-else-if="talents?.length === 0 && !pending" class="my-4 text-subtitle">
