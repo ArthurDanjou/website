@@ -204,7 +204,7 @@ async function suggest() {
                 <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
                   <div class="absolute -inset-y-2 md:-inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
                   <NuxtLink :to="talent.website" target="_blank">
-                    <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                    <span class="absolute -inset-y-2 md:-inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                     <div class="flex gap-2 items-center">
                       <h1 class="relative z-10">
                         {{ talent.name }}
