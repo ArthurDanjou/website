@@ -100,7 +100,7 @@ function getColor() {
       </UPopover>
     </div>
     <div v-if="bookmarks && getCategories" class="mt-8">
-      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 md:grid-cols-3">
+      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-4 md:gap-x-16 md:gap-y-12 sm:grid-cols-2 md:grid-cols-3">
         <div
           v-for="bookmark in bookmarks"
           :key="bookmark.name.toLowerCase().trim()"
@@ -141,7 +141,7 @@ function getColor() {
           </div>
           <p class="relative z-10 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
-            <span class="ml-2">{{ bookmark.website.replace('https://', '') }}</span>
+            <span class="ml-2">{{ bookmark.website.replace('https://', '').replace('www.', '').replace('/', '') }}</span>
           </p>
         </div>
       </div>
