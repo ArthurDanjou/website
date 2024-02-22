@@ -190,7 +190,7 @@ async function suggest() {
       </UPopover>
     </div>
     <UDivider class="my-2" />
-    <div v-if="talents && getCategories" class="mt-8 md:mt-16">
+    <div v-if="talents && getCategories" class="mt-8">
       <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-y-4 md:gap-x-12 md:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
           v-for="talent in talents"

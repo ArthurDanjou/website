@@ -104,11 +104,11 @@ export const otherTab = [
       to: '/guestbook',
       icon: 'i-material-symbols-book-2-outline',
     },
-    /* {
+    {
       label: 'Bookmarks',
       to: '/bookmarks',
       icon: 'i-material-symbols-bookmark-add-outline-rounded',
-    }, */
+    },
   ],
 ]
 

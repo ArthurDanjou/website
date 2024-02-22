@@ -99,49 +99,47 @@ function getColor() {
         </template>
       </UPopover>
     </div>
-    <div v-if="bookmarks && getCategories" class="mt-8 md:mt-16">
-      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <div v-if="bookmarks && getCategories" class="mt-8">
+      <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 md:grid-cols-3">
         <div
           v-for="bookmark in bookmarks"
           :key="bookmark.name.toLowerCase().trim()"
-          class="group relative flex flex-col justify-between"
+          class="group relative flex justify-between items-center"
         >
-          <div class="flex">
+          <div class="flex flex-col gap-y-1">
             <div class="flex gap-6 items-center">
-              <div>
-                <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                  <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
-                  <NuxtLink
-                    :href="bookmark.website"
-                    external
-                    target="_blank"
-                  >
-                    <span class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                    <div class="flex gap-2 items-center">
-                      <h1 class="relative z-10">
-                        {{ bookmark.name }}
-                      </h1>
-                      <UTooltip v-if="bookmark.favorite" text="You can set the filter to only show favorites.">
-                        <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold hover:rotate-[143deg] duration-300" />
-                      </UTooltip>
-                    </div>
-                  </NuxtLink>
-                </h2>
-              </div>
+              <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                <div class="absolute -inset-y-2 md:-inset-y-4 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+                <NuxtLink
+                  :href="bookmark.website"
+                  external
+                  target="_blank"
+                >
+                  <span class="absolute -inset-y-2 md:-inset-y-4 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                  <div class="flex gap-2 items-center">
+                    <h1 class="relative z-10">
+                      {{ bookmark.name }}
+                    </h1>
+                    <UTooltip v-if="bookmark.favorite" text="You can set the filter to only show favorites.">
+                      <UIcon name="i-ic-round-star" class="z-20 text-amber-500 text-xl font-bold hover:rotate-[143deg] duration-300" />
+                    </UTooltip>
+                  </div>
+                </NuxtLink>
+              </h2>
+            </div>
+            <div class="flex gap-2 z-10">
+              <UBadge
+                v-for="category in bookmark.categories"
+                :key="category.category.slug"
+                color="primary"
+                variant="soft"
+                size="xs"
+              >
+                {{ category.category.name }}
+              </UBadge>
             </div>
           </div>
-          <div class="flex gap-2 z-10">
-            <UBadge
-              v-for="category in bookmark.categories"
-              :key="category.category.slug"
-              color="primary"
-              variant="soft"
-              size="xs"
-            >
-              {{ category.category.name }}
-            </UBadge>
-          </div>
-          <p class="relative z-10 mt-4 flex text-sm font-medium items-center" :class="getColor()">
+          <p class="relative z-10 flex text-sm font-medium items-center" :class="getColor()">
             <UIcon name="i-ph-link-bold" />
             <span class="ml-2">{{ bookmark.website.replace('https://', '') }}</span>
           </p>
