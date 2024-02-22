@@ -10,11 +10,11 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/content',
     '@nuxtjs/seo',
     '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxthq/studio',
-    '@nuxt/content',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
