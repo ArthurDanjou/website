@@ -56,7 +56,7 @@ function getColor() {
         You will find a selection of some of the most inspiring and complete content I have read through my research and work experience.
       </p>
     </div>
-    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] pt-2 left-0 bg-white dark:bg-zinc-900 z-100 flex w-full items-center justify-between border-b border-zinc-100 dark:border-zinc-700/40 mb-4">
+    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <ClientOnly>
           <div
@@ -85,7 +85,6 @@ function getColor() {
           color="primary"
           variant="soft"
           size="lg"
-          class="mb-2"
         />
         <template #panel>
           <div
@@ -99,6 +98,7 @@ function getColor() {
         </template>
       </UPopover>
     </div>
+    <UDivider class="my-2" />
     <div v-if="bookmarks && getCategories" class="mt-8">
       <div v-if="bookmarks.length > 0 && !pending" class="grid grid-cols-1 gap-4 md:gap-x-16 md:gap-y-12 sm:grid-cols-2 md:grid-cols-3">
         <div
