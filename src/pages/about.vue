@@ -65,14 +65,15 @@ const { data: experiences } = await getWorkExperiences()
       <Education v-for="education in educations" :key="education.title" :education="education" />
     </GridSection>
     <div class="flex justify-center">
-      <UTooltip text="Coming very soon..." :popper="{ offsetDistance: 20 }">
+      <UTooltip text="Click to discover my journey" :popper="{ offsetDistance: 20 }">
         <UButton
           label="Download my CV"
           icon="i-material-symbols-lab-profile-outline-rounded"
           color="primary"
           variant="outline"
           size="xl"
-          :disabled="true"
+          to="/resume.pdf"
+          target="_blank"
         />
       </UTooltip>
     </div>
