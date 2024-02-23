@@ -30,10 +30,18 @@ const CardUi = {
             <div class="flex items-center gap-2">
               <h1>{{ codingActivity.name }}</h1>
               <UTooltip text="I'm online">
-                <div class="h-3 w-3 inline-flex rounded-full bg-green-500 cursor-pointer" />
+                <div
+                  :class="codingActivity.state ? 'bg-amber-500' : 'bg-green-500'"
+                  class="h-3 w-3 inline-flex rounded-full cursor-pointer"
+                />
               </UTooltip>
             </div>
-            <h3>{{ codingActivity.state }}</h3>
+            <h3 v-if="codingActivity.state">
+              {{ codingActivity.state }}
+            </h3>
+            <h3 v-else>
+              I'm Idling on my computer 😴
+            </h3>
           </div>
         </div>
       </div>
