@@ -1,3 +1,4 @@
+/* eslint-disable node/prefer-global/process */
 export default defineNuxtConfig({
   srcDir: 'src',
 
@@ -10,9 +11,9 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/seo',
-    '@nuxt/ui',
     'nuxt-auth-utils',
     '@nuxthq/studio',
     '@pinia/nuxt',
@@ -31,7 +32,7 @@ export default defineNuxtConfig({
     'components/',
     'components/header',
     'components/resume',
-    'components/maths',
+    'components/main',
   ],
 
   content: {
@@ -56,5 +57,14 @@ export default defineNuxtConfig({
     url: 'https://arthurdanjou.fr',
     name: 'My portfolio',
     description: 'Developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
+  },
+
+  runtimeConfig: {
+    discordUserId: process.env.NUXT_DISCORD_USER_ID,
+    wakatimeUserId: process.env.NUXT_WAKATIME_USER_UD,
+    wakatimeCodig: process.env.NUXT_WAKATIME_CODING,
+    wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
+    wakatimeLanguages: process.env.NUXT_WAKATIME_LANGUAGES,
+    wakatimeOs: process.env.NUXT_WAKATIME_OS,
   },
 })
