@@ -8,6 +8,10 @@ useHead({
   <section>
     <Announcement />
     <MainBanner />
+    <div class="px-4 lg:px-44 md:px-16 sm:px-8 w-full my-16 grid grid-cols-1 md:grid-cols-2 md:gap-x-16 gap-y-8 md:gap-y-16">
+      <MainActivity />
+      <MainStats />
+    </div>
     <MainMaths />
   </section>
 </template>
