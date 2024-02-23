@@ -4,6 +4,7 @@ const codingActivity = computed(() => activity.activities.filter(activity => act
 function formatDate(date) {
   return `${useDateFormat(date, 'DD MMM YYYY').value} at ${useDateFormat(date, 'HH:mm:ss').value}`
 }
+const isIdle = computed(() => codingActivity && codingActivity.details === 'Idling')
 
 const CardUi = {
   footer: { padding: 'px-4 py-2' },
@@ -31,16 +32,16 @@ const CardUi = {
               <h1>{{ codingActivity.name }}</h1>
               <UTooltip text="I'm online">
                 <div
-                  :class="codingActivity.state ? 'bg-amber-500' : 'bg-green-500'"
+                  :class="isIdle ? 'bg-amber-500' : 'bg-green-500'"
                   class="h-3 w-3 inline-flex rounded-full cursor-pointer"
                 />
               </UTooltip>
             </div>
-            <h3 v-if="codingActivity.state">
-              {{ codingActivity.state }}
+            <h3 v-if="isIdle">
+              I'm Idling on my computer 😴
             </h3>
             <h3 v-else>
-              I'm Idling on my computer 😴
+              {{ codingActivity.details }}
             </h3>
           </div>
         </div>
