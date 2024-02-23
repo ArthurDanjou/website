@@ -8,7 +8,7 @@ const CardUi = {
 </script>
 
 <template>
-  <UCard class="mx-8 md:mx-0 flex flex-col justify-between" :ui="CardUi">
+  <UCard class="mx-4 md:mx-0 flex flex-col justify-between" :ui="CardUi">
     <div class="flex items-center gap-x-4 h-full">
       <p
         class="uppercase tracking-widest text-sm"

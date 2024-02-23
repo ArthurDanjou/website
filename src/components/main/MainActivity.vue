@@ -15,7 +15,7 @@ useIntervalFn(async () => await refresh(), 5000)
 </script>
 
 <template>
-  <UCard class="mx-8 md:mx-0 f-auto flex flex-col justify-between" :ui="CardUi">
+  <UCard class="mx-4 md:mx-0 f-auto flex flex-col justify-between" :ui="CardUi">
     <div v-if="activity && activity.data.activities" class="flex items-center gap-x-4">
       <p
         class="uppercase tracking-widest text-sm"
