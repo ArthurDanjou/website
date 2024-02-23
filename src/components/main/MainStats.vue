@@ -8,7 +8,7 @@ const CardUi = {
 </script>
 
 <template>
-  <UCard class="mx-4 md:mx-0 flex flex-col justify-between" :ui="CardUi">
+  <UCard class="flex flex-col justify-between" :ui="CardUi">
     <div class="flex items-center gap-x-4 h-full">
       <p
         class="uppercase tracking-widest text-sm"
@@ -43,7 +43,7 @@ const CardUi = {
     </div>
     <template #footer>
       <div class="flex items-center justify-between">
-        <p v-if="stats" class="text-subtitle text-xs">
+        <p v-if="stats" class="text-subtitle text-xs w-1/2">
           Started {{ useTimeAgo(new Date(stats.coding.data.range.start)).value }}, the {{ useDateFormat(new Date(stats.coding.data.range.start), 'Do MMMM YYYY').value }}
         </p>
         <div class="flex items-center justify-end space-x-1">

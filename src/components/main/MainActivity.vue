@@ -15,7 +15,7 @@ useIntervalFn(async () => await refresh(), 5000)
 </script>
 
 <template>
-  <UCard class="mx-4 md:mx-0 f-auto flex flex-col justify-between" :ui="CardUi">
+  <UCard class="flex flex-col justify-between" :ui="CardUi">
     <div v-if="activity && activity.data.activities" class="flex items-center gap-x-4">
       <p
         class="uppercase tracking-widest text-sm"
@@ -60,7 +60,7 @@ useIntervalFn(async () => await refresh(), 5000)
     </div>
     <template #footer>
       <div class="flex items-center justify-between">
-        <p v-if="codingActivity" class="text-subtitle text-xs">
+        <p v-if="codingActivity" class="text-subtitle text-xs w-1/2">
           Started the {{ formatDate(codingActivity.timestamps.start) }}
         </p>
         <div class="flex items-center justify-end space-x-1">
