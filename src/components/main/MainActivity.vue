@@ -4,7 +4,6 @@ const codingActivity = computed(() => activity.activities.filter(activity => act
 function formatDate(date) {
   return `${useDateFormat(date, 'DD MMM YYYY').value} at ${useDateFormat(date, 'HH:mm:ss').value}`
 }
-const isIdle = computed(() => codingActivity && codingActivity.details === 'Idling')
 
 const CardUi = {
   footer: { padding: 'px-4 py-2' },
@@ -30,15 +29,15 @@ const CardUi = {
           <div>
             <div class="flex items-center gap-2">
               <h1>{{ codingActivity.name }}</h1>
-              <UTooltip text="I'm online">
+              <UTooltip :text="codingActivity.details === 'Idling' ? 'I\'m sleeping 😴' : 'I\'m online 👋'">
                 <div
-                  :class="isIdle ? 'bg-amber-500' : 'bg-green-500'"
+                  :class="codingActivity.details === 'Idling' ? 'bg-amber-500' : 'bg-green-500'"
                   class="h-3 w-3 inline-flex rounded-full cursor-pointer"
                 />
               </UTooltip>
             </div>
-            <h3 v-if="isIdle">
-              I'm Idling on my computer 😴
+            <h3 v-if="codingActivity.details === 'Idling'">
+              I'm Idling on my computer
             </h3>
             <h3 v-else>
               {{ codingActivity.details }}
@@ -49,7 +48,7 @@ const CardUi = {
       <div v-else class="text-subtitle">
         <div class="flex items-center gap-2">
           <h1>I'm currently offline</h1>
-          <UTooltip text="I'm offline">
+          <UTooltip text="I'm offline 🫥">
             <div class="h-3 w-3 inline-flex rounded-full bg-red-500" />
           </UTooltip>
         </div>
