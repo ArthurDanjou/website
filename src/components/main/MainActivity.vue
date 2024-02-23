@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-const { data: activity } = await $fetch('/api/activity')
-const codingActivity = computed(() => activity.activities.filter(activity => activity.name === 'Visual Studio Code')[0])
+const { data: activity, refresh } = await useAsyncData('activity', () => $fetch('/api/activity'))
+const codingActivity = computed(() => activity.value.data.activities.filter(activity => activity.name === 'Visual Studio Code')[0])
+
 function formatDate(date) {
   return `${useDateFormat(date, 'DD MMM YYYY').value} at ${useDateFormat(date, 'HH:mm:ss').value}`
 }
@@ -9,11 +10,13 @@ const CardUi = {
   footer: { padding: 'px-4 py-2' },
   body: { base: 'h-full flex items-center' },
 }
+
+useIntervalFn(async () => await refresh(), 5000)
 </script>
 
 <template>
   <UCard class="mx-8 md:mx-0 f-auto flex flex-col justify-between" :ui="CardUi">
-    <div v-if="activity && activity.activities" class="flex items-center gap-x-4">
+    <div v-if="activity && activity.data.activities" class="flex items-center gap-x-4">
       <p
         class="uppercase tracking-widest text-sm"
         :style="{ writingMode: 'vertical-rl', textOrientation: 'sideways-right' }"

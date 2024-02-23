@@ -18,7 +18,7 @@ const CardUi = {
       </p>
       <div v-if="stats">
         <div class="flex gap-4 items-center">
-          <div>
+          <div class="text-md">
             <div class="flex items-center gap-1">
               <h3>Total hours:</h3>
               <p>{{ usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0) }} hours</p>
