@@ -17,8 +17,8 @@ function jumpPoints() {
 
 onMounted(() => {
   jumpPoints()
-  onUnmounted(() => clearTimeout(timeout))
 })
+onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <template>
