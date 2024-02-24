@@ -23,7 +23,7 @@ const CardUi = {
               <h3>Total hours:</h3>
               <p>{{ usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0) }} hours</p>
             </div>
-            <div class="flex items-start gap-1">
+            <div class="flex items-start gap-1 flex-wrap">
               <h3>Best Editors:</h3>
               <p>
                 {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(', ') }}

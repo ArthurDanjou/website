@@ -59,11 +59,11 @@ useIntervalFn(async () => await refresh(), 5000)
       </div>
     </div>
     <template #footer>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-end w-full">
         <p v-if="codingActivity" class="text-subtitle text-xs w-1/2">
           Started the {{ formatDate(codingActivity.timestamps.start) }}
         </p>
-        <div class="flex items-center justify-end space-x-1">
+        <div class="flex items-center space-x-1 w-1/2 justify-end">
           <p class="text-subtitle text-xs">
             powered by
           </p>

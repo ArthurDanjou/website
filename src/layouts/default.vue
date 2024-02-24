@@ -4,7 +4,6 @@ import { SpeedInsights } from '@vercel/speed-insights/nuxt'
 import { configureGraphs } from '@ksassnowski/vueclid'
 
 const appConfig = useAppConfig()
-const getColor = computed(() => appConfig.ui.primary)
 
 const router = useRouter()
 router.afterEach((route) => {
@@ -20,7 +19,7 @@ onMounted(() => configureGraphs({ darkMode: colorMode.value === 'dark' }))
   <div>
     <SpeedInsights />
     <Background />
-    <NuxtLoadingIndicator :color="getColor" />
+    <NuxtLoadingIndicator :color="appConfig.ui.primary" />
     <section class="fixed inset-0 flex justify-center sm:px-8">
       <div class="flex w-full max-w-7xl">
         <div class="w-full z-20 bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
