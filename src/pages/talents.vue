@@ -147,7 +147,7 @@ async function suggest() {
         </div>
       </UCard>
     </UModal>
-    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 bg-white dark:bg-zinc-900 z-100 flex gap-2 w-full items-center justify-between">
+    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 z-100 flex gap-2 w-full items-center justify-between">
       <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
         <ClientOnly>
           <div
