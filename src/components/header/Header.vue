@@ -5,10 +5,7 @@
         <Logo />
         <NavBar />
         <div class="flex gap-2 items-center">
-          <div class="flex items-center rounded-md p-1 gap-1 relative bg-black/5 text-sm font-medium text-zinc-700 dark:bg-zinc-800/90 dark:text-zinc-300">
-            <ColorPicker />
-            <ColorModeButton />
-          </div>
+          <ThemePicker />
           <MobileNavBar />
         </div>
       </ClientOnly>
