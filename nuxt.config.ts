@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/ui',
     '@nuxt/content',
     '@nuxtjs/seo',
     'nuxt-auth-utils',
@@ -19,6 +18,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
+    'nuxt-build-cache',
+    '@nuxt/ui',
   ],
 
   colorMode: {

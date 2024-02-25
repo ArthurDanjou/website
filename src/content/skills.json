@@ -1,104 +1,106 @@
-[
-  {
-    "name": "TypeScript",
-    "icon": "skill-icons:typescript"
-  },
-  {
-    "name": "Python",
-    "icon": {
-      "dark": "skill-icons:python-dark",
-      "light": "skill-icons:python-light"
+{
+  "body": [
+    {
+      "name": "TypeScript",
+      "icon": "skill-icons:typescript"
+    },
+    {
+      "name": "Python",
+      "icon": {
+        "dark": "skill-icons:python-dark",
+        "light": "skill-icons:python-light"
+      }
+    },
+    {
+      "name": "R-Lang",
+      "icon": {
+        "dark": "i-skill-icons-r-dark",
+        "light": "i-skill-icons-r-light"
+      }
+    },
+    {
+      "name": "Java",
+      "icon": {
+        "dark": "skill-icons:java-dark",
+        "light": "skill-icons:java-light"
+      }
+    },
+    {
+      "name": "HTML5",
+      "icon": "skill-icons:html"
+    },
+    {
+      "name": "CSS3",
+      "icon": "skill-icons:css"
+    },
+    {
+      "name": "Sass",
+      "icon": "skill-icons:sass"
+    },
+    {
+      "name": "VueJS 3",
+      "icon": {
+        "dark": "skill-icons:vuejs-dark",
+        "light": "skill-icons:vuejs-light"
+      }
+    },
+    {
+      "name": "NuxtJS 3",
+      "icon": {
+        "dark": "skill-icons:nuxtjs-dark",
+        "light": "skill-icons:nuxtjs-light"
+      }
+    },
+    {
+      "name": "TailwindCSS",
+      "icon": {
+        "dark": "skill-icons:tailwindcss-dark",
+        "light": "skill-icons:tailwindcss-light"
+      }
+    },
+    {
+      "name": "ViteJS",
+      "icon": {
+        "dark": "skill-icons:vite-dark",
+        "light": "skill-icons:vite-light"
+      }
+    },
+    {
+      "name": "AdonisJS",
+      "icon": "skill-icons:adonis"
+    },
+    {
+      "name": "MySQL",
+      "icon": {
+        "dark": "skill-icons:mysql-dark",
+        "light": "skill-icons:mysql-light"
+      }
+    },
+    {
+      "name": "Redis",
+      "icon": {
+        "dark": "skill-icons:redis-dark",
+        "light": "skill-icons:redis-light"
+      }
+    },
+    {
+      "name": "Docker",
+      "icon": "skill-icons:docker"
+    },
+    {
+      "name": "Git",
+      "icon": "skill-icons:git"
+    },
+    {
+      "name": "Prisma.io",
+      "icon": "skill-icons:prisma"
+    },
+    {
+      "name": "Vercel",
+      "icon": {
+        "dark": "i-skill-icons-vercel-dark",
+        "light": "i-skill-icons-vercel-light"
+      }
     }
-  },
-  {
-    "name": "R-Lang",
-    "icon": {
-      "dark": "i-skill-icons-r-dark",
-      "light": "i-skill-icons-r-light"
-    }
-  },
-  {
-    "name": "Java",
-    "icon": {
-      "dark": "skill-icons:java-dark",
-      "light": "skill-icons:java-light"
-    }
-  },
-  {
-    "name": "HTML5",
-    "icon": "skill-icons:html"
-  },
-  {
-    "name": "CSS3",
-    "icon": "skill-icons:css"
-  },
-  {
-    "name": "Sass",
-    "icon": "skill-icons:sass"
-  },
-  {
-    "name": "VueJS 3",
-    "icon": {
-      "dark": "skill-icons:vuejs-dark",
-      "light": "skill-icons:vuejs-light"
-    }
-  },
-  {
-    "name": "NuxtJS 3",
-    "icon": {
-      "dark": "skill-icons:nuxtjs-dark",
-      "light": "skill-icons:nuxtjs-light"
-    }
-  },
-  {
-    "name": "TailwindCSS",
-    "icon": {
-      "dark": "skill-icons:tailwindcss-dark",
-      "light": "skill-icons:tailwindcss-light"
-    }
-  },
-  {
-    "name": "ViteJS",
-    "icon": {
-      "dark": "skill-icons:vite-dark",
-      "light": "skill-icons:vite-light"
-    }
-  },
-  {
-    "name": "AdonisJS",
-    "icon": "skill-icons:adonis"
-  },
-  {
-    "name": "MySQL",
-    "icon": {
-      "dark": "skill-icons:mysql-dark",
-      "light": "skill-icons:mysql-light"
-    }
-  },
-  {
-    "name": "Redis",
-    "icon": {
-      "dark": "skill-icons:redis-dark",
-      "light": "skill-icons:redis-light"
-    }
-  },
-  {
-    "name": "Docker",
-    "icon": "skill-icons:docker"
-  },
-  {
-    "name": "Git",
-    "icon": "skill-icons:git"
-  },
-  {
-    "name": "Prisma.io",
-    "icon": "skill-icons:prisma"
-  },
-  {
-    "name": "Vercel",
-    "icon": {
-      "dark": "i-skill-icons-vercel-dark",
-      "light": "i-skill-icons-vercel-light"
-    }
-  }
-]
+  ]
+}
