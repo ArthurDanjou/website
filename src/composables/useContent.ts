@@ -1,4 +1,4 @@
-import type { Education, JsonParsedContent, Post, Project, Skill, WorkExperience } from '~~/types'
+import type { Education, Post, Project, Skill, WorkExperience } from '~~/types'
 
 export function getProjects() {
   return useAsyncData('content:projects', () => {
@@ -27,7 +27,7 @@ export function getWorkExperiences() {
 }
 
 export function getSkills() {
-  return useAsyncData('content:skills', () => queryContent<JsonParsedContent<Skill[]>>('skills').findOne())
+  return useAsyncData('content:skills', () => queryContent<Skill[]>('skills').findOne())
 }
 
 export function getPosts() {
