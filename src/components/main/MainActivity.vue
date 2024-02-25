@@ -1,8 +1,10 @@
 <script lang="ts" setup>
-const { data: activity, refresh } = await useAsyncData('activity', () => $fetch('/api/activity'))
-const codingActivity = computed(() => activity.value.data.activities.filter(activity => activity.name === 'Visual Studio Code')[0])
+import type { Activity } from '~~/types'
 
-function formatDate(date) {
+const { data: activity, refresh } = await useAsyncData<Activity>('activity', () => $fetch('/api/activity'))
+const codingActivity = computed(() => activity.value!.data.activities.filter(activity => activity.name === 'Visual Studio Code')[0])
+
+function formatDate(date: number) {
   return `${useDateFormat(date, 'DD MMM YYYY').value} at ${useDateFormat(date, 'HH:mm:ss').value}`
 }
 
@@ -19,7 +21,7 @@ useIntervalFn(async () => await refresh(), 5000)
     <div v-if="activity && activity.data.activities" class="flex items-center gap-x-4">
       <p
         class="uppercase tracking-widest text-sm"
-        :style="{ writingMode: 'vertical-rl', textOrientation: 'sideways-right' }"
+        :style="{ writingMode: 'vertical-rl', textOrientation: 'sideways' }"
       >
         Activity
       </p>

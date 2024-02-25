@@ -1,4 +1,4 @@
-import type { MarkdownParsedContent, ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { MarkdownParsedContent, MarkdownRoot, ParsedContent } from '@nuxt/content/dist/runtime/types'
 
 export enum ColorsTheme {
   RED = 'red',
@@ -20,9 +20,46 @@ export enum ColorsTheme {
   ROSE = 'rose',
 }
 
-export interface JsonParsedContent<T> extends ParsedContent {
-  body: T
-  excerpt: ''
+interface WakatimeData {
+  name: string
+  percent: number
+}
+
+export interface Stats {
+  coding: {
+    data: {
+      grand_total: {
+        total_seconds_including_other_language: number
+      }
+      range: {
+        start: string
+      }
+    }
+  }
+  editors: {
+    data: Array<WakatimeData>
+  }
+  os: {
+    data: Array<WakatimeData>
+  }
+  languages: {
+    data: Array<WakatimeData>
+  }
+}
+
+interface LanyardActivity {
+  name: string
+  state: string
+  details: string
+  timestamps: {
+    start: number
+  }
+}
+
+export interface Activity {
+  data: {
+    activities: Array<LanyardActivity>
+  }
 }
 
 export interface Post extends MarkdownParsedContent {
