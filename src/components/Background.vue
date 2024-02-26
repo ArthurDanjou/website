@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const points = useState(() => Array.from({ length: 20 }).fill(0).map(() => [Math.random(), Math.random()]))
+const points = useState(() => Array.from({ length: 15 }).fill(0).map(() => [Math.random(), Math.random()]))
 
 const poly = computed(() => points.value.map(([x, y]) => `${x * 100}% ${y * 100}%`).join(', '))
 
@@ -7,16 +7,16 @@ function jumpVal(val: number) {
   return Math.random() > 0.5 ? val + (Math.random() - 0.5) / 2 : Math.random()
 }
 
+let timeout: any
 function jumpPoints() {
   for (let i = 0; i < points.value.length; i++)
     points.value[i] = [jumpVal(points.value[i][0]), jumpVal(points.value[i][1])]
 
-  setTimeout(jumpPoints, 2000 + Math.random() * 1000)
+  timeout = setTimeout(jumpPoints, 2000 + Math.random() * 1000)
 }
 
-onMounted(() => {
-  jumpPoints()
-})
+onMounted(() => jumpPoints())
+onUnmounted(() => clearTimeout(timeout))
 </script>
 
 <template>
