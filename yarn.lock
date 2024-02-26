@@ -1089,11 +1089,6 @@
     methods "^1.1.2"
     path-to-regexp "^6.2.1"
 
-"@ksassnowski/vueclid@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@ksassnowski/vueclid/-/vueclid-1.1.1.tgz#e7423836d49b2ecb2541ea755f37408388c2d62d"
-  integrity sha512-dOHXkGfNE3/g+wvAB8PoS2qEFc2Cibn1sQIPFUlBLNgek0UxOvIAdsvSK8vsB6irwvszZrecN4eQnFTmpdTCAQ==
-
 "@kwsites/file-exists@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@kwsites/file-exists/-/file-exists-1.1.1.tgz#ad1efcac13e1987d8dbaf235ef3be5b0d96faa99"

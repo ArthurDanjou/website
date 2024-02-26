@@ -12,6 +12,5 @@ useHead({
       <MainActivity />
       <MainStats />
     </div>
-    <MainMaths />
   </section>
 </template>

@@ -13,7 +13,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@ksassnowski/vueclid": "1.1.1",
     "@nuxt/content": "2.12.0",
     "@nuxt/ui": "2.14.1",
     "@pinia/nuxt": "0.5.1",
