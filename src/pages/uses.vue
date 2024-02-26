@@ -13,12 +13,7 @@
           path="/uses"
         />
         <template #fallback>
-          <div class="my-16 text-subtitle">
-            <div class="flex gap-2 items-center">
-              <UIcon name="i-eos-icons-loading" />
-              <p>The content of the page is loading...</p>
-            </div>
-          </div>
+          <USkeleton class="w-full h-1/2"/>
         </template>
       </ClientOnly>
     </div>
