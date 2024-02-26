@@ -11,5 +11,5 @@ export default defineCachedEventHandler(async (event) => {
     languages,
   }
 }, {
-  maxAge: 60 * 3,
+  maxAge: 60 * 60 * 3, // 3 hours,
 })
