@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.6.4",
-    "@iconify/json": "2.2.186",
+    "@iconify/json": "2.2.187",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxthq/studio": "1.0.11",
     "@nuxtjs/seo": "2.0.0-rc.8",
