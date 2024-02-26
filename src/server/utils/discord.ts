@@ -1,14 +1,13 @@
-/* eslint-disable node/prefer-global/process */
+import type { RuntimeConfig } from 'nuxt/schema'
+
 interface WebhookContent {
   title: string
   description: string
   color: number
 }
 
-export async function sendDiscordWebhookMessage(content: WebhookContent) {
-  const id = process.env.NUXT_DISCORD_ID
-  const token = process.env.NUXT_DISCORD_TOKEN
-  await $fetch(`https://discordapp.com/api/webhooks/${id}/${token}`, {
+export async function sendDiscordWebhookMessage(config: RuntimeConfig, content: WebhookContent) {
+  await $fetch(`https://discordapp.com/api/webhooks/${config.discordId}/${config.discordToken}`, {
     method: 'POST',
     body: {
       embeds: [

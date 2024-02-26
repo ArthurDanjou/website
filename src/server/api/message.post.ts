@@ -7,8 +7,9 @@ const MessageValidator = z.object({
 export default defineEventHandler(async (event) => {
   const { message } = await readValidatedBody(event, MessageValidator)
   const { user } = await requireUserSession(event)
+  const config = useRuntimeConfig(event)
 
-  await sendDiscordWebhookMessage({
+  await sendDiscordWebhookMessage(config, {
     title: 'New guestbook message ✨',
     description: `**${user.username}** as signed the book : "*${message}*"`,
     color: 15893567,
