@@ -62,6 +62,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     discordUserId: process.env.NUXT_DISCORD_USER_ID,
+    discordId: process.env.NUXT_DISCORD_ID,
+    discordToken: process.env.NUXT_DISCORD_TOKEN,
     wakatimeUserId: process.env.NUXT_WAKATIME_USER_UD,
     wakatimeCodig: process.env.NUXT_WAKATIME_CODING,
     wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
