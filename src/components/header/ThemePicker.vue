@@ -22,7 +22,17 @@ watch(isDark, () => {
       container: 'z-30',
     }"
   >
-    <UButton trailing-icon="i-ph-paint-brush-bold" variant="ghost" color="primary" size="sm" />
+    <template #default="{ open }">
+      <UButton
+        color="gray"
+        variant="ghost"
+        square
+        :class="[open && 'bg-gray-50 dark:bg-gray-800']"
+        aria-label="Color picker"
+      >
+        <UIcon name="i-ph-paint-brush-bold" class="w-5 h-5 text-primary-500 dark:text-primary-400" />
+      </UButton>
+    </template>
 
     <template #panel>
       <div class="p-2">
@@ -33,9 +43,9 @@ watch(isDark, () => {
               square
               :ui="{
                 color: {
-                  gray: {
-                    solid: 'bg-gray-200 dark:bg-stone-800',
-                    ghost: 'hover:bg-gray-50 dark:hover:bg-stone-800/50',
+                  white: {
+                    solid: 'ring-0 bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800',
+                    ghost: 'hover:bg-gray-50 dark:hover:bg-gray-800/50',
                   },
                 },
               }"
