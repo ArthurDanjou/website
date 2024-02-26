@@ -4,6 +4,6 @@ description: Discovery of the IT sector information technology and Datacenter. D
 company: Idemia
 companyLink: https://idemia.com
 location: Courbevoie France
-startDate: June 2020
-endDate: June 2020
+startDate: June 2019
+endDate: June 2019
 ---
