@@ -17,12 +17,11 @@ export function getEducations() {
 }
 
 export function getWorkExperiences() {
-  return useAsyncData('content:experiences', () => {
-    return queryContent<WorkExperience>('experiences')
-      .sort({
-        endDate: -1,
-      })
-      .find()
+  return useAsyncData('content:experiences', async () => {
+    const experiences = await queryContent<WorkExperience>('experiences').find()
+    return experiences.sort((a, b) => {
+      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+    })
   })
 }
 
