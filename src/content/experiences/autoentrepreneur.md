@@ -4,6 +4,6 @@ description: Development, design and illustration of personal computer projects.
 company: ArtDanjProduction
 companyLink: https://www.arthurdanjou.fr
 location: Rueil-Malmaison, France
-startDate: September 2015
+startDate: February 2022
 endDate: Today
 ---
