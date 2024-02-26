@@ -27,6 +27,7 @@ watch(isDark, () => {
         color="gray"
         variant="ghost"
         square
+        size="lg"
         :class="[open && 'bg-gray-50 dark:bg-gray-800']"
         aria-label="Color picker"
       >
