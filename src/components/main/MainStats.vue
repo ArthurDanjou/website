@@ -21,23 +21,23 @@ const CardUi = {
       <div v-if="stats">
         <div class="flex gap-4 items-center">
           <div class="text-md">
-            <div class="flex items-center gap-1">
+            <div class="flex items-center gap-x-1">
               <h3>Total hours:</h3>
-              <p>{{ usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0) }} hours</p>
+              <p class="text-subtitle">{{ usePrecision(stats.coding.data.grand_total.total_seconds_including_other_language / 3600, 0) }} hours</p>
             </div>
-            <div class="flex items-start gap-1 flex-wrap">
+            <div class="flex items-start gap-x-1 flex-wrap">
               <h3>Best Editors:</h3>
-              <p>
+              <p class="text-subtitle">
                 {{ stats.editors.data.slice(0, 2).map(editor => `${editor.name} (${editor.percent}%)`).join(', ') }}
               </p>
             </div>
-            <div class="flex items-center gap-1">
+            <div class="flex items-center gap-x-1">
               <h3>Best OS:</h3>
-              <p>{{ stats.os.data[0].name }} with {{ stats.os.data[0].percent }}%</p>
+              <p class="text-subtitle">{{ stats.os.data[0].name }} with {{ stats.os.data[0].percent }}%</p>
             </div>
-            <div class="flex items-start gap-1 flex-wrap">
+            <div class="flex items-start gap-x-1 flex-wrap">
               <h3>Top languages:</h3>
-              <p>{{ stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(', ') }}</p>
+              <p class="text-subtitle">{{ stats.languages.data.slice(0, 2).map(language => `${language.name} (${language.percent}%)`).join(', ') }}</p>
             </div>
           </div>
         </div>

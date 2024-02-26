@@ -64,7 +64,7 @@ useIntervalFn(async () => await refresh(), 5000)
       <div class="flex items-center justify-end w-full">
         <ClientOnly>
           <p v-if="codingActivity" class="text-subtitle text-xs w-1/2">
-            Started the {{ formatDate(codingActivity.timestamps.start) }}
+            Started {{ useTimeAgo(codingActivity.timestamps.start).value }}, the {{ formatDate(codingActivity.timestamps.start) }}
           </p>
         </ClientOnly>
         <div class="flex items-center space-x-1 w-1/2 justify-end">
