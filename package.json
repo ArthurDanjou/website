@@ -40,7 +40,6 @@
     "@vueuse/core": "10.8.0",
     "@vueuse/nuxt": "10.8.0",
     "eslint": "8.57.0",
-    "nuxt-build-cache": "^0.1.1",
     "typescript": "5.3.3"
   }
 }

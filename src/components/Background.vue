@@ -12,7 +12,7 @@ function jumpPoints() {
   for (let i = 0; i < points.value.length; i++)
     points.value[i] = [jumpVal(points.value[i][0]), jumpVal(points.value[i][1])]
 
-  timeout = setTimeout(jumpPoints, 2000 + Math.random() * 1000)
+  timeout = setTimeout(jumpPoints, 2000)
 }
 
 onMounted(() => jumpPoints())
