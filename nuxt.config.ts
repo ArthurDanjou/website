@@ -55,8 +55,8 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://arthurdanjou.fr',
-    name: 'My portfolio',
-    description: 'Developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
+    name: 'Arthur Danjou\'s website',
+    description: 'I\'m Arthur DANJOU, a developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
   },
 
   runtimeConfig: {
