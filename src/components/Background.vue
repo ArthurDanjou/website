@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const points = useState(() => Array.from({ length: 15 }).fill(0).map(() => [Math.random(), Math.random()]))
+const points = useState(() => Array.from({ length: 25 }).fill(0).map(() => [Math.random(), Math.random()]))
 
 const poly = computed(() => points.value.map(([x, y]) => `${x * 100}% ${y * 100}%`).join(', '))
 
@@ -23,7 +23,7 @@ onUnmounted(() => clearTimeout(timeout))
   <ClientOnly>
     <div class="bg sm:mx-8 absolute inset-0 z-20 transform-gpu blur-3xl overflow-hidden" aria-hidden="true">
       <div
-        class="aspect-[1.7] h-full w-full bg-gradient-to-r from-[rgb(var(--color-primary-DEFAULT))] to-white/10 lg:opacity-30 xs:opacity-50"
+        class="aspect-[1.7] h-2/3 w-full bg-gradient-to-r from-[rgb(var(--color-primary-DEFAULT))] to-white/10 lg:opacity-30 xs:opacity-50"
         :style="{ 'clip-path': `polygon(${poly})` }"
       />
     </div>

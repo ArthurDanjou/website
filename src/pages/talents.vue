@@ -147,49 +147,51 @@ async function suggest() {
         </div>
       </UCard>
     </UModal>
-    <div v-if="getCategories" class="sticky z-40 top-[4.8rem] left-0 z-100 flex gap-2 w-full items-center justify-between">
-      <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
-        <ClientOnly>
+    <div class="sticky z-40 top-[4.55rem] left-0 z-100 bg-white pt-2">
+      <div v-if="getCategories" class="flex gap-2 w-full items-center justify-between">
+        <div class="flex gap-2 overflow-x-scroll sm:overflow-x-hidden bg-gray-100 dark:bg-gray-800 rounded-lg p-1 relative">
+          <ClientOnly>
+            <div
+              class="absolute duration-300 left-1 ease-out focus:outline-none"
+              :style="[getMarkerStyle]"
+            >
+              <div class="w-full h-full bg-white dark:bg-gray-900 rounded-md shadow-sm" />
+            </div>
+          </ClientOnly>
           <div
-            class="absolute duration-300 left-1 ease-out focus:outline-none"
-            :style="[getMarkerStyle]"
+            v-for="category in categories"
+            :id="category.slug"
+            :key="category.slug"
+            class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none transition-colors duration-200 ease-out cursor-pointer hover:text-black dark:hover:text-white"
+            :class="{ 'text-gray-900 dark:text-white relative': isCategory(category.slug) }"
+            @click.prevent="setCategory(category.slug)"
           >
-            <div class="w-full h-full bg-white dark:bg-gray-900 rounded-md shadow-sm" />
+            <p class="w-full">
+              {{ category.label }}
+            </p>
           </div>
-        </ClientOnly>
-        <div
-          v-for="category in categories"
-          :id="category.slug"
-          :key="category.slug"
-          class="relative px-3 py-1 text-sm font-medium rounded-md h-8 text-gray-500 dark:text-gray-400 min-w-fit flex items-center justify-center w-full focus:outline-none transition-colors duration-200 ease-out cursor-pointer hover:text-black dark:hover:text-white"
-          :class="{ 'text-gray-900 dark:text-white relative': isCategory(category.slug) }"
-          @click.prevent="setCategory(category.slug)"
-        >
-          <p class="w-full">
-            {{ category.label }}
-          </p>
         </div>
+        <UPopover>
+          <UButton
+            :icon="isFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
+            color="primary"
+            variant="soft"
+            size="lg"
+          />
+          <template #panel>
+            <div
+              class="flex p-2 gap-2 items-center cursor-pointer select-none text-subtitle"
+              @click.prevent="toggleFavorite()"
+            >
+              <UIcon v-if="isFavorite" name="i-material-symbols-check-box-outline-rounded" />
+              <UIcon v-else name="i-material-symbols-check-box-outline-blank" />
+              <p>Show favorites only</p>
+            </div>
+          </template>
+        </UPopover>
       </div>
-      <UPopover>
-        <UButton
-          :icon="isFavorite ? 'i-mdi-filter-variant-remove' : 'i-mdi-filter-variant'"
-          color="primary"
-          variant="soft"
-          size="lg"
-        />
-        <template #panel>
-          <div
-            class="flex p-2 gap-2 items-center cursor-pointer select-none text-subtitle"
-            @click.prevent="toggleFavorite()"
-          >
-            <UIcon v-if="isFavorite" name="i-material-symbols-check-box-outline-rounded" />
-            <UIcon v-else name="i-material-symbols-check-box-outline-blank" />
-            <p>Show favorites only</p>
-          </div>
-        </template>
-      </UPopover>
+      <UDivider class="my-2" />
     </div>
-    <UDivider class="my-2" />
     <div v-if="talents && getCategories" class="mt-8">
       <div v-if="talents.length > 0 && !pending" class="grid grid-cols-1 gap-y-4 md:gap-x-12 md:gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <div
