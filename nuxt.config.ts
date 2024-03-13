@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
     '@nuxt/ui',
+    'nuxt-gtag'
   ],
 
   colorMode: {
@@ -68,5 +69,9 @@ export default defineNuxtConfig({
     wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
     wakatimeLanguages: process.env.NUXT_WAKATIME_LANGUAGES,
     wakatimeOs: process.env.NUXT_WAKATIME_OS,
+  },
+
+  gtag: {
+    id: process.env.NUXT_GTAG_ID,
   },
 })
