@@ -9,5 +9,5 @@ const connectionString = process.env.DATABASE_URL as string
 const client = postgres(connectionString, { prepare: false })
 
 export function useDB() {
-  return drizzle(client, { schema })
+	return drizzle(client, { schema })
 }

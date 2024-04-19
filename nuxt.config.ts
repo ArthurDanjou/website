@@ -1,69 +1,80 @@
 export default defineNuxtConfig({
-  css: [
-    '@/assets/css/main.scss',
-  ],
+	css: [
+		'@/assets/css/main.scss',
+	],
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
+	app: {
+		pageTransition: { name: 'page', mode: 'out-in' },
+	},
 
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/seo',
-    'nuxt-auth-utils',
-    '@nuxthq/studio',
-    '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
-    '@vueuse/nuxt',
-    '@nuxt/ui',
-  ],
+	modules: [
+		'@nuxt/content',
+		'@nuxtjs/seo',
+		'nuxt-auth-utils',
+		'@nuxthq/studio',
+		'@pinia/nuxt',
+		'@pinia-plugin-persistedstate/nuxt',
+		'@vueuse/nuxt',
+		'@nuxt/ui',
+		'@nuxt/eslint',
+	],
 
-  colorMode: {
-    preference: 'light',
-    fallback: 'light',
-    classPrefix: '',
-    classSuffix: '',
-  },
+	colorMode: {
+		preference: 'light',
+		fallback: 'light',
+		classPrefix: '',
+		classSuffix: '',
+	},
 
-  components: [
-    'components/',
-    'components/header',
-    'components/resume',
-    'components/main',
-  ],
+	components: [
+		'components/',
+		'components/header',
+		'components/resume',
+		'components/main',
+	],
 
-  content: {
-    highlight: {
-      theme: 'github-dark',
-    },
-  },
+	content: {
+		highlight: {
+			theme: 'github-dark',
+		},
+	},
 
-  ui: {
-    icons: 'all',
-  },
+	eslint: {
+		config: {
+			stylistic: {
+				indent: 'tab',
+				semi: false,
+				blockSpacing: true,
+			},
+		},
+	},
 
-  devtools: {
-    enabled: true,
+	ui: {
+		icons: 'all',
+	},
 
-    timeline: {
-      enabled: true,
-    },
-  },
+	devtools: {
+		enabled: true,
 
-  site: {
-    url: 'https://arthurdanjou.fr',
-    name: 'Arthur Danjou\'s website',
-    description: 'I\'m Arthur DANJOU, a developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
-  },
+		timeline: {
+			enabled: true,
+		},
+	},
 
-  runtimeConfig: {
-    discordUserId: process.env.NUXT_DISCORD_USER_ID,
-    discordId: process.env.NUXT_DISCORD_ID,
-    discordToken: process.env.NUXT_DISCORD_TOKEN,
-    wakatimeUserId: process.env.NUXT_WAKATIME_USER_UD,
-    wakatimeCodig: process.env.NUXT_WAKATIME_CODING,
-    wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
-    wakatimeLanguages: process.env.NUXT_WAKATIME_LANGUAGES,
-    wakatimeOs: process.env.NUXT_WAKATIME_OS,
-  },
+	site: {
+		url: 'https://arthurdanjou.fr',
+		name: 'Arthur Danjou\'s website',
+		description: 'I\'m Arthur DANJOU, a developer enjoying Cloud Infrastructure and Artificial Intelligence. Mathematics Student at Paris-Saclay',
+	},
+
+	runtimeConfig: {
+		discordUserId: process.env.NUXT_DISCORD_USER_ID,
+		discordId: process.env.NUXT_DISCORD_ID,
+		discordToken: process.env.NUXT_DISCORD_TOKEN,
+		wakatimeUserId: process.env.NUXT_WAKATIME_USER_UD,
+		wakatimeCodig: process.env.NUXT_WAKATIME_CODING,
+		wakatimeEditors: process.env.NUXT_WAKATIME_EDITORS,
+		wakatimeLanguages: process.env.NUXT_WAKATIME_LANGUAGES,
+		wakatimeOs: process.env.NUXT_WAKATIME_OS,
+	},
 })
