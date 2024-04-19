@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware((to) => {
-	if (to.path === '/writing' && process.env.NODE_ENV !== 'development') {
-		return navigateTo('/', {
-			redirectCode: 301,
-		})
-	}
+  if (to.path === '/writing' && process.env.NODE_ENV !== 'development') {
+    return navigateTo('/', {
+      redirectCode: 301,
+    })
+  }
 })
