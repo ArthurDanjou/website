@@ -8,7 +8,7 @@
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate && nuxt prepare",
+    "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -16,30 +16,29 @@
     "@nuxt/content": "2.12.1",
     "@nuxt/ui": "2.14.2",
     "@pinia/nuxt": "0.5.1",
-    "@prisma/client": "5.11.0",
     "@vercel/analytics": "1.2.2",
     "@vercel/speed-insights": "1.0.10",
+    "drizzle-kit": "0.20.14",
+    "drizzle-orm": "0.30.8",
     "nuxt": "3.10.3",
     "nuxt-auth-utils": "0.0.20",
     "pinia": "2.1.7",
-    "postcss-custom-properties": "13.3.5",
-    "prisma": "5.11.0",
-    "sass": "1.71.1",
-    "tailwindcss": "3.4.1",
-    "zod": "3.22.4"
+    "postcss-custom-properties": "13.3.7",
+    "postgres": "3.4.4",
+    "sass": "1.75.0",
+    "tailwindcss": "3.4.3",
+    "zod": "3.22.5"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.8.1",
-    "@iconify/json": "2.2.191",
-    "@nuxt/eslint-config": "^0.2.0",
+    "@antfu/eslint-config": "2.15.0",
+    "@iconify/json": "2.2.202",
     "@nuxthq/studio": "1.0.13",
-    "@nuxtjs/seo": "2.0.0-rc.9",
+    "@nuxtjs/seo": "2.0.0-rc.10",
     "@pinia-plugin-persistedstate/nuxt": "1.2.0",
-    "@tailwindcss/typography": "0.5.10",
     "@types/node": "20.11.26",
     "@vueuse/core": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
-    "eslint": "8.57.0",
-    "typescript": "5.4.2"
+    "eslint": "9.1.0",
+    "typescript": "5.4.5"
   }
 }

@@ -1,7 +1,5 @@
 /* eslint-disable node/prefer-global/process */
 export default defineNuxtConfig({
-  srcDir: 'src',
-
   css: [
     '@/assets/css/main.scss',
   ],

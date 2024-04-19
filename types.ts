@@ -182,3 +182,9 @@ export const navs = [
     icon: 'i-ph-push-pin-bold',
   },
 ].flat()
+
+export const IDEs = [
+  {name: 'Visual Studio Code', icon: 'i-skill-icons-vscode-light'},
+  {name: 'IntelliJ IDEA Ultimate', icon: 'i-skill-icons-idea-light'},
+  {name: 'WebStorm', icon: 'i-skill-icons-webstorm-light'}
+]
