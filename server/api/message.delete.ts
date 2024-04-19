@@ -1,7 +1,7 @@
-import { z } from 'zod'
+import {z} from 'zod'
 
 const MessageValidator = z.object({
-  id: z.number()
+  id: z.number(),
 }).parse
 
 export default defineEventHandler(async (event) => {

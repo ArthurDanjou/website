@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { providers } from '~~/types'
+import {providers} from '~~/types'
 
 useHead({
-  title: 'Sign my guestbook • Arthur Danjou'
+  title: 'Sign my guestbook • Arthur Danjou',
 })
 
 const { loggedIn, clear, user } = useUserSession()
@@ -20,20 +20,20 @@ async function sign() {
   await $fetch('/api/message', {
     method: 'post',
     body: {
-      message: messageContent.value
-    }
+      message: messageContent.value,
+    },
   }).then(async () => {
     toast.add({
       title: `Thanks for leaving a message!`,
       description: 'Your can see it at the top of the messages.',
       icon: 'i-material-symbols-check-circle-outline-rounded',
-      timeout: 4000
+      timeout: 4000,
     })
     await refresh()
   }).catch(() => {
     toast.add({
       title: 'An error occurred when signing the book!',
-      color: 'red'
+      color: 'red',
     })
   })
   messageContent.value = ''
@@ -45,20 +45,20 @@ async function deleteMessage(id: number) {
   await $fetch('/api/message', {
     method: 'delete',
     body: {
-      id
-    }
+      id,
+    },
   }).then(async () => {
     toast.add({
       title: `Message successfully deleted`,
       icon: 'i-material-symbols-check-circle-outline-rounded',
       color: 'green',
-      timeout: 4000
+      timeout: 4000,
     })
     await refresh()
   }).catch(() => {
     toast.add({
       title: 'An error occured when deleting a message!',
-      color: 'red'
+      color: 'red',
     })
   })
 }

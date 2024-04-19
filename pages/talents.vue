@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useTalentsStore } from '~/store/talents'
-import { providers } from '~~/types'
+import {useTalentsStore} from '~/store/talents'
+import {providers} from '~~/types'
 
 useHead({
-  title: 'Discover new talents • Arthur Danjou'
+  title: 'Discover new talents • Arthur Danjou',
 })
 
 const categories = ref<Array<{ label: string, slug: string, id: number }>>([{ label: 'All', slug: 'all', id: 0 }])
@@ -14,16 +14,16 @@ const { data: talents, pending } = await useFetch('/api/talents', {
   method: 'get',
   query: {
     favorite: isFavorite,
-    category: getCategory
+    category: getCategory,
   },
-  watch: [isFavorite, getCategory]
+  watch: [isFavorite, getCategory],
 })
 
 const { data: getCategories } = await useFetch('/api/categories', { method: 'GET', query: { type: 'talent' } })
 getCategories.value!.forEach(category => categories.value.push({
   label: category.name,
   slug: category.slug,
-  id: category.id
+  id: category.id,
 }))
 
 function isCategory(slug: string) {
@@ -36,7 +36,7 @@ const getMarkerStyle = computed(() => {
     top: `${selected?.offsetTop}px`,
     left: `${selected?.offsetLeft === 12 ? 4 : selected?.offsetLeft}px`,
     height: `${selected?.offsetHeight}px`,
-    width: `${selected?.offsetWidth}px`
+    width: `${selected?.offsetWidth}px`,
   }
 })
 
@@ -56,19 +56,19 @@ async function suggest() {
   await $fetch('/api/suggestion', {
     method: 'post',
     body: {
-      content: suggestContent.value
-    }
+      content: suggestContent.value,
+    },
   }).then((response) => {
     toast.add({
       title: `Your suggestion for '${response[0].content}' has been successfully added`,
       color: 'green',
       icon: 'i-material-symbols-check-circle-outline-rounded',
-      timeout: 4000
+      timeout: 4000,
     })
   }).catch(() => {
     toast.add({
       title: 'An error occurred when suggesting someone',
-      color: 'red'
+      color: 'red',
     })
   })
   suggestContent.value = ''

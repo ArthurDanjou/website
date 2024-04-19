@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useColorStore } from '~/store/color'
-import { ColorsTheme } from '~~/types'
+import {useColorStore} from '~/store/color'
+import {ColorsTheme} from '~~/types'
 
 const colors = Object.values(ColorsTheme)
 
@@ -19,7 +19,7 @@ watch(isDark, () => {
     :ui="{
       background: 'bg-white dark:bg-stone-900',
       ring: 'ring-1 ring-gray-200 dark:ring-stone-800',
-      container: 'z-30'
+      container: 'z-30',
     }"
   >
     <template #default="{ open }">
@@ -55,9 +55,9 @@ watch(isDark, () => {
                 color: {
                   white: {
                     solid: 'ring-0 bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800',
-                    ghost: 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                  }
-                }
+                    ghost: 'hover:bg-gray-50 dark:hover:bg-gray-800/50',
+                  },
+                },
               }"
               :variant="color === getColor ? 'solid' : 'ghost'"
               @click.stop.prevent="setColor(color)"

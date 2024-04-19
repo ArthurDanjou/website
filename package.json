@@ -3,12 +3,13 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "db:studio": "prisma studio --browser none",
+    "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate:pg",
     "build": "nuxt build",
     "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && drizzle-kit generate:pg",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -22,6 +23,7 @@
     "drizzle-orm": "0.30.8",
     "nuxt": "3.10.3",
     "nuxt-auth-utils": "0.0.20",
+    "pg": "^8.11.5",
     "pinia": "2.1.7",
     "postcss-custom-properties": "13.3.7",
     "postgres": "3.4.4",

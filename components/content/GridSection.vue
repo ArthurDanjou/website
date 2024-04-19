@@ -2,8 +2,8 @@
 defineProps({
   title: {
     type: String,
-    default: 'Uses Section title'
-  }
+    default: 'Uses Section title',
+  },
 })
 
 const appConfig = useAppConfig()

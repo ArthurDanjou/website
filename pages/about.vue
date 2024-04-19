@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: 'About me • Arthur Danjou'
+  title: 'About me • Arthur Danjou',
 })
 
 const { data: skills } = await getSkills()

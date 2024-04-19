@@ -3,7 +3,7 @@ const appConfig = useAppConfig()
 const getColor = computed(() => `text-${appConfig.ui.primary}-500`)
 
 useHead({
-  title: 'My Shelf • Arthur Danjou'
+  title: 'My Shelf • Arthur Danjou',
 })
 
 const { data: posts } = await getPosts()

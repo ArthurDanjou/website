@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Skill } from '~~/types'
+import type {Skill} from '~~/types'
 
 defineProps({
-  skill: Object as PropType<Skill>
+  skill: Object as PropType<Skill>,
 })
 
 const { $colorMode } = useNuxtApp()

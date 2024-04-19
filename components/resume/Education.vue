@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Education } from '~~/types'
+import type {Education} from '~~/types'
 
 defineProps({
-  education: Object as PropType<Education>
+  education: Object as PropType<Education>,
 })
 </script>
 

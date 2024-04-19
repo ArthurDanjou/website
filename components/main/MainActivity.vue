@@ -10,7 +10,7 @@ function formatDate(date: number) {
 
 const CardUi = {
   footer: { padding: 'px-4 py-2' },
-  body: {base: 'h-full flex items-center'}
+  body: { base: 'h-full flex items-center' },
 }
 
 useIntervalFn(async () => await refresh(), 5000)

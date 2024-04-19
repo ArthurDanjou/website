@@ -3,8 +3,8 @@ defineProps({
   startDate: String,
   endDate: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 })
 
 function formatTodayDate(date: string) {

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useBookmarksStore } from '~/store/bookmarks'
+import {useBookmarksStore} from '~/store/bookmarks'
 
 useHead({
-  title: 'Discover my library • Arthur Danjou'
+  title: 'Discover my library • Arthur Danjou',
 })
 
 const categories = ref<Array<{ label: string, slug: string }>>([{ label: 'All', slug: 'all' }])
@@ -12,13 +12,13 @@ const { data: bookmarks, pending } = await useFetch('/api/bookmarks', {
   method: 'get',
   query: {
     favorite: isFavorite,
-    category: getCategory
+    category: getCategory,
   },
-  watch: [isFavorite, getCategory]
+  watch: [isFavorite, getCategory],
 })
 
 const { data: getCategories } = await useFetch('/api/categories', { method: 'GET', query: { type: 'bookmark' } })
-getCategories.value!.forEach(category => categories.value.push({label: category.name, slug: category.slug}))
+getCategories.value!.forEach(category => categories.value.push({ label: category.name, slug: category.slug }))
 
 function isCategory(slug: string) {
   return getCategory.value === slug
@@ -30,7 +30,7 @@ const getMarkerStyle = computed(() => {
     top: `${selected?.offsetTop}px`,
     left: `${selected?.offsetLeft === 12 ? 4 : selected?.offsetLeft}px`,
     height: `${selected?.offsetHeight}px`,
-    width: `${selected?.offsetWidth}px`
+    width: `${selected?.offsetWidth}px`,
   }
 })
 

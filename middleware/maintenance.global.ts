@@ -11,14 +11,14 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   if (isMaintenance.value && to.path !== '/maintenance') {
     return navigateTo('/maintenance', {
-      redirectCode: 301
+      redirectCode: 301,
     })
   }
 
   if (!isMaintenance.value && to.path === '/maintenance') {
     return navigateTo('/', {
       redirectCode: 301,
-      replace: true
+      replace: true,
     })
   }
 })

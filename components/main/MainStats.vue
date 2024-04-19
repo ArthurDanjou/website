@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import type { Stats } from '~~/types'
+import type {Stats} from '~~/types'
 
 const stats = await $fetch<Stats>('/api/stats')
 
 const CardUi = {
   footer: { padding: 'px-4 py-2' },
-  body: {base: 'h-full'}
+  body: { base: 'h-full' },
 }
 </script>
 

@@ -3,23 +3,23 @@ const socials = [
   {
     name: 'mail',
     icon: 'i-material-symbols-alternate-email',
-    link: 'mailto:arthurdanjou@outlook.fr'
+    link: 'mailto:arthurdanjou@outlook.fr',
   },
   {
     name: 'twitter',
     icon: 'i-ph-twitter-logo-bold',
-    link: 'https://twitter.com/ArthurDanj'
+    link: 'https://twitter.com/ArthurDanj',
   },
   {
     name: 'github',
     icon: 'i-ph-github-logo-bold',
-    link: 'https://github.com/ArthurDanjou'
+    link: 'https://github.com/ArthurDanjou',
   },
   {
     name: 'linkedin',
     icon: 'i-ph-linkedin-logo-bold',
-    link: 'https://www.linkedin.com/in/arthurdanjou/'
-  }
+    link: 'https://www.linkedin.com/in/arthurdanjou/',
+  },
 ]
 </script>
 

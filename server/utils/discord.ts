@@ -1,4 +1,4 @@
-import type { RuntimeConfig } from 'nuxt/schema'
+import type {RuntimeConfig} from 'nuxt/schema'
 
 interface WebhookContent {
   title: string
@@ -17,12 +17,12 @@ export async function sendDiscordWebhookMessage(config: RuntimeConfig, content: 
           color: content.color,
           url: 'https://arthurdanjou.fr/talents',
           footer: {
-            text: 'Powered by Nuxt'
+            text: 'Powered by Nuxt',
           },
-          timestamp: new Date().toISOString()
-        }
+          timestamp: new Date().toISOString(),
+        },
       ],
-      username: 'ArtDanjRobot - Website'
-    }
+      username: 'ArtDanjRobot - Website',
+    },
   })
 }

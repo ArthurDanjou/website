@@ -7,14 +7,14 @@ export default defineEventHandler(async (event) => {
       with: {
         bookmarkCategories: {
           with: {
-            category: true
-          }
-        }
-      }
+            category: true,
+          },
+        },
+      },
     })
 
   return bookmarks.filter(bookmark =>
     (category === 'all' || bookmark.bookmarkCategories.some(cat => cat.category.slug === category))
-    && (favorite === 'false' || bookmark.favorite)
+    && (favorite === 'false' || bookmark.favorite),
   )
 })

@@ -1,4 +1,4 @@
-import type { MarkdownParsedContent, MarkdownRoot, ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type {MarkdownParsedContent, ParsedContent} from '@nuxt/content/dist/runtime/types'
 
 export enum ColorsTheme {
   RED = 'red',
@@ -184,7 +184,7 @@ export const navs = [
 ].flat()
 
 export const IDEs = [
-  {name: 'Visual Studio Code', icon: 'i-skill-icons-vscode-light'},
-  {name: 'IntelliJ IDEA Ultimate', icon: 'i-skill-icons-idea-light'},
-  {name: 'WebStorm', icon: 'i-skill-icons-webstorm-light'}
+  { name: 'Visual Studio Code', icon: 'i-skill-icons-vscode-light' },
+  { name: 'IntelliJ IDEA Ultimate', icon: 'i-skill-icons-idea-light' },
+  { name: 'WebStorm', icon: 'i-skill-icons-webstorm-light' },
 ]

@@ -7,14 +7,14 @@ export default defineEventHandler(async (event) => {
       with: {
         talentCategories: {
           with: {
-            category: true
-          }
-        }
-      }
+            category: true,
+          },
+        },
+      },
     })
 
   return talents.filter(talent =>
     (category === 'all' || talent.talentCategories.some(cat => cat.category.slug === category))
-    && (favorite === 'false' || talent.favorite)
+    && (favorite === 'false' || talent.favorite),
   )
 })

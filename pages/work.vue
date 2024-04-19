@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'My work • Arthur Danjou'
+  title: 'My work • Arthur Danjou',
 })
 const { data: projects } = await getProjects()
 </script>

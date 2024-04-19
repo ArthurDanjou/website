@@ -2,8 +2,8 @@
 defineProps({
   title: {
     type: String,
-    default: 'Uses Slot title'
-  }
+    default: 'Uses Slot title',
+  },
 })
 </script>
 

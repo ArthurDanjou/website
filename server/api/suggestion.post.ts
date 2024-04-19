@@ -1,7 +1,7 @@
-import { z } from 'zod'
+import {z} from 'zod'
 
 const SuggestionValidator = z.object({
-  content: z.string()
+  content: z.string(),
 }).parse
 
 export default defineEventHandler(async (event) => {
@@ -12,23 +12,23 @@ export default defineEventHandler(async (event) => {
   await sendDiscordWebhookMessage(config, {
     title: 'New suggestion ✨',
     description: `**${user.username}** has requested **${content}** for the talents page.`,
-    color: 15237114
+    color: 15237114,
   })
 
   return useDB().insert(tables.suggestions)
     .values({
       email: user.email,
-      content
+      content,
     })
     .onConflictDoUpdate({
       target: tables.suggestions.email,
       set: {
-        content
+        content,
       },
       setWhere: sql`${tables.suggestions.email}
       =
-      ${user.email}`
+      ${user.email}`,
     }).returning({
-      content: tables.suggestions.content
+      content: tables.suggestions.content,
     })
 })

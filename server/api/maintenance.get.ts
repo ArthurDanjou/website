@@ -1,9 +1,9 @@
 export default defineEventHandler(async () => {
   const maintenance = await useDB().query.maintenances.findFirst({
-    orderBy: [asc(tables.maintenances.createdAt)]
+    orderBy: [asc(tables.maintenances.createdAt)],
   })
   let enabled = true
-  // eslint-disable-next-line node/prefer-global/process
+
   if (process.env.NODE_ENV === 'development') {
     enabled = false
   }
@@ -17,6 +17,6 @@ export default defineEventHandler(async () => {
 
   return {
     enabled,
-    maintenance
+    maintenance,
   }
 })

@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import type { Post as PrismaPost } from '@prisma/client'
-import type { Post } from '~~/types'
+import type {Post as PrismaPost} from '@prisma/client'
+import type {Post} from '~~/types'
 
 const appConfig = useAppConfig()
 
 const route = useRoute()
 const { data: postContent } = await useAsyncData<Post>(`writing:${route.params.slug}`, () => queryContent<Post>(`/writing/${route.params.slug}`).findOne())
 const {
-  data: post
+  data: post,
 } = await useFetch<PrismaPost>('/api/article', {
   method: 'post',
   body: {
-    slug: route.params.slug.toString()
-  }
+    slug: route.params.slug.toString(),
+  },
 })
 
 const likes = ref(post.value?.likes)
@@ -20,8 +20,8 @@ async function like() {
   const data = await $fetch<PrismaPost>('/api/like', {
     method: 'PUT',
     body: {
-      slug: post.value?.slug
-    }
+      slug: post.value?.slug,
+    },
   })
   likes.value = data.likes
 }
@@ -29,30 +29,30 @@ async function like() {
 if (!postContent.value) {
   throw showError({
     statusMessage: 'The post you are looking for was not found.',
-    statusCode: 404
+    statusCode: 404,
   })
 }
 
 const format = (date: string) => useDateFormat(date, 'D MMMM YYYY').value.replaceAll('"', '')
 useHead({
-  title: `${postContent.value?.title} • Arthur Danjou's shelf`
+  title: `${postContent.value?.title} • Arthur Danjou's shelf`,
 })
 
 function top() {
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'
+    behavior: 'smooth',
   })
 }
 
 const { copy, copied } = useClipboard({
   source: `https://arthurdanjou.fr/writing/${route.params.slug}`,
-  copiedDuring: 4000
+  copiedDuring: 4000,
 })
 
 const likeCookie = useCookie<boolean>(`post:like:${postContent.value.slug}`, {
-  maxAge: 604_800
+  maxAge: 604_800,
 })
 
 async function handleLike() {

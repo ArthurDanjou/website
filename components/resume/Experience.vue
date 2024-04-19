@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { WorkExperience } from '~~/types'
+import type {WorkExperience} from '~~/types'
 
 defineProps({
-  experience: Object as PropType<WorkExperience>
+  experience: Object as PropType<WorkExperience>,
 })
 </script>
 
