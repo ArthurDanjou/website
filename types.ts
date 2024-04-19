@@ -1,4 +1,4 @@
-import type { MarkdownParsedContent, ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type {MarkdownParsedContent, ParsedContent} from '@nuxt/content/dist/runtime/types'
 
 export enum ColorsTheme {
 	RED = 'red',
@@ -106,6 +106,7 @@ export interface Skill extends ParsedContent {
 		light: string
 	}
 	color: string
+	link: string
 }
 
 export const providers = [

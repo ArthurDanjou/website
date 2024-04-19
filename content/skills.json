@@ -2,78 +2,99 @@
   "body": [
     {
       "name": "TypeScript",
-      "icon": "skill-icons:typescript"
+      "icon": "skill-icons:typescript",
+      "link": "https://www.typescriptlang.org/"
     },
     {
       "name": "Python",
       "icon": {
         "dark": "skill-icons:python-dark",
-        "light": "skill-icons:python-light"
+        "light": "skill-icons:python-light",
+        "link": "https://www.python.org/"
       }
     },
     {
       "name": "R-Lang",
       "icon": {
         "dark": "i-skill-icons-r-dark",
-        "light": "i-skill-icons-r-light"
+        "light": "i-skill-icons-r-light",
+        "link": "https://www.r-project.org/"
       }
     },
     {
       "name": "Java",
       "icon": {
         "dark": "skill-icons:java-dark",
-        "light": "skill-icons:java-light"
+        "light": "skill-icons:java-light",
+        "link": "https://www.java.com/"
       }
     },
     {
       "name": "HTML5",
-      "icon": "skill-icons:html"
+      "icon": "skill-icons:html",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
     },
     {
       "name": "CSS3",
-      "icon": "skill-icons:css"
+      "icon": "skill-icons:css",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
     },
     {
       "name": "Sass",
-      "icon": "skill-icons:sass"
+      "icon": "skill-icons:sass",
+      "link": "https://sass-lang.com/"
     },
     {
       "name": "VueJS 3",
       "icon": {
         "dark": "skill-icons:vuejs-dark",
-        "light": "skill-icons:vuejs-light"
+        "light": "skill-icons:vuejs-light",
+        "link": "https://vuejs.org/"
       }
     },
     {
       "name": "NuxtJS 3",
       "icon": {
         "dark": "skill-icons:nuxtjs-dark",
-        "light": "skill-icons:nuxtjs-light"
+        "light": "skill-icons:nuxtjs-light",
+        "link": "https://nuxtjs.org/"
       }
     },
     {
       "name": "TailwindCSS",
       "icon": {
         "dark": "skill-icons:tailwindcss-dark",
-        "light": "skill-icons:tailwindcss-light"
+        "light": "skill-icons:tailwindcss-light",
+        "link": "https://tailwindcss.com/"
       }
     },
     {
       "name": "ViteJS",
       "icon": {
         "dark": "skill-icons:vite-dark",
-        "light": "skill-icons:vite-light"
+        "light": "skill-icons:vite-light",
+        "link": "https://vitejs.dev/"
       }
     },
     {
       "name": "AdonisJS",
-      "icon": "skill-icons:adonis"
+      "icon": "skill-icons:adonis",
+      "link": "https://adonisjs.com/"
     },
     {
       "name": "MySQL",
       "icon": {
         "dark": "skill-icons:mysql-dark",
-        "light": "skill-icons:mysql-light"
+        "light": "skill-icons:mysql-light",
+        "link": "https://www.mysql.com/"
+      }
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": {
+        "dark": "i-skill-icons-postgresql-dark",
+        "light": "i-skill-icons-postgresql-light",
+        "link": "https://www.mysql.com/"
       }
     },
     {
@@ -81,26 +102,36 @@
       "icon": {
         "dark": "skill-icons:redis-dark",
         "light": "skill-icons:redis-light"
-      }
+      },
+      "link": "https://redis.io/"
     },
     {
       "name": "Docker",
-      "icon": "skill-icons:docker"
+      "icon": "skill-icons:docker",
+      "link": "https://www.docker.com/"
     },
     {
       "name": "Git",
-      "icon": "skill-icons:git"
+      "icon": "skill-icons:git",
+      "link": "https://git-scm.com/"
     },
     {
       "name": "Prisma.io",
-      "icon": "skill-icons:prisma"
+      "icon": "skill-icons:prisma",
+      "link": "https://www.prisma.io/"
+    },
+    {
+      "name": "Drizzle",
+      "icon": "i-simple-icons-drizzle",
+      "link": "https://orm.drizzle.team/"
     },
     {
       "name": "Vercel",
       "icon": {
         "dark": "i-skill-icons-vercel-dark",
         "light": "i-skill-icons-vercel-light"
-      }
+      },
+      "link": "https://vercel.com/"
     }
   ]
 }
