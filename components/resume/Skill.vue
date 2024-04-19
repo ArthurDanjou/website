@@ -13,6 +13,7 @@ const isLight = computed(() => $colorMode.value === 'light')
   <a
     v-if="skill"
     :href="skill.link"
+    target="_blank"
     class="cursor-pointer flex items-center gap-2 rounded-md px-2 py-3 duration-300 md:hover:bg-gray-100 md:dark:hover:bg-neutral-800"
   >
     <div class="flex items-center">
